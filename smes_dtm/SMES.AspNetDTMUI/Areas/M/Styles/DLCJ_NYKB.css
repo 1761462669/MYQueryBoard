@@ -48,7 +48,7 @@
 }
 
 .right_side_left{
-    position:relative;
+    position:absolute;
     border: 3px dashed #808080; 
     top:0px;
     right:0px;
@@ -190,4 +190,3 @@ table td {
     padding-right:10px;
     text-align:center;*/
 }
-

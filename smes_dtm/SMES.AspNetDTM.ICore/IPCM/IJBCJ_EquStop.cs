@@ -15,6 +15,8 @@ namespace SMES.AspNetDTM.ICore.IPCM
          DataTable JBCJ_JT_Month(string CODE,string DATE);
          DataTable JBCJ_Month(string DATE);
          DataTable JBCJ_JT_Day(string CODE,string DATE);
+
+         DataTable JBCJ_Team_Month(string CODE, string DATE);
     }
 
 }

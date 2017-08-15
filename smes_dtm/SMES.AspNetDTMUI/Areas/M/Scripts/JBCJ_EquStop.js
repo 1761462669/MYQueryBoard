@@ -9,25 +9,25 @@ storeapp.controller('CTRL', function ($scope, $http) {
     var Monthy = [];
     var Monthyy = [];
 
-   
-    var MonthJTx = [];   
+
+    var MonthJTx = [];
     var MonthJTy = [];
     var MonthJT = [];
 
-    var DayJTx = [];  
+    var DayJTx = [];
     var DayJTy = [];
     var DayJT = [];
-  
-    var date_ymd = getNowFormatDate().substr(0,10);//yyyy-MM-dd 的格式
+
+    var date_ymd = getNowFormatDate().substr(0, 10);//yyyy-MM-dd 的格式
     var date_ym = date_ymd.substr(0, 7);//yyyy-MM 的格式
     var JT_M = "M";  //默认显示M型号的机台    P   M     月
-    var JT_D= "M"; //日
+    var JT_D = "M"; //日
     //年度趋势图
     var JBCJ_Year = function () {
-         Yearx = [];
-         Yeary = [];
-         Yearyy = [];
-         app.DataRequest('JBCJ_Year', {}, function (data) {
+        Yearx = [];
+        Yeary = [];
+        Yearyy = [];
+        app.DataRequest('JBCJ_Year', {}, function (data) {
             var dt = eval(data);
             if (dt.length > 0) {
                 $.each(dt, function (n, value) {
@@ -51,7 +51,7 @@ storeapp.controller('CTRL', function ($scope, $http) {
                     Monthx.push(value.PRODATE);
                     Monthy.push(Number(value.STOPCS));
                     Monthyy.push(Number(value.STOPTIME));
-                    
+
                 })
             }
         }, null, false);
@@ -59,11 +59,11 @@ storeapp.controller('CTRL', function ($scope, $http) {
     JBCJ_Month(date_ymd);
 
     //月度机台停机统计图
-    var JBCJ_JT_Month = function (jt,ym) {
+    var JBCJ_JT_Month = function (jt, ym) {
         MonthJTx = [];
         MonthJTy = [];
         MonthJT = [];
-        app.DataRequest('JBCJ_JT_Month', { DATE: ym,CODE:jt }, function (data) {
+        app.DataRequest('JBCJ_JT_Month', { DATE: ym, CODE: jt }, function (data) {
             var dt = eval(data);
             if (dt.length > 0) {
                 $.each(dt, function (n, value) {
@@ -109,35 +109,50 @@ storeapp.controller('CTRL', function ($scope, $http) {
     $scope.MONTH_JJ1 = function () {
         JBCJ_JT_Month("M", date_ym);
         JT_M = "M";
-        $scope.Month_m = "卷接机";
+        $scope.Month_m = "卷接机机台";
         PieChart("JBCJ_JT_Month", date_ym, MonthJT);
     }
     //卷包车间机台月统计图   包装机
     $scope.MONTH_BZ1 = function () {
         JBCJ_JT_Month("P", date_ym);
         JT_M = "P";
-        $scope.Month_m = "包装机";
+        $scope.Month_m = "包装机机台";
         PieChart("JBCJ_JT_Month", date_ym, MonthJT);
     }
+    //班组月统计图
+    $scope.MONTH_TEAM1 = function () {
+        JBCJ_JT_Month("team", date_ym);
+        JT_M = "team";
+        $scope.Month_m = "班组";
+        PieChart("JBCJ_JT_Month", date_ym, MonthJT);
+    }
+
+
     //卷包机台日统计图  卷接机
     $scope.DAY_JJ1 = function () {
         JBCJ_JT_Day("M", date_ymd);
         JT_D = "M";
-        $scope.Day_m = "卷接机";
+        $scope.Day_m = "卷接机机台";
         PieChart("JBCJ_JT_DAY", date_ymd, DayJT);
     }
     //卷包机台日统计图  包装机
     $scope.DAY_BZ1 = function () {
         JBCJ_JT_Day("P", date_ymd);
         JT_D = "P";
-        $scope.Day_m = "包装机";
+        $scope.Day_m = "包装机机台";
+        PieChart("JBCJ_JT_DAY", date_ymd, DayJT);
+    }
+    $scope.DAY_TEAM1 = function () {
+        JBCJ_JT_Day("team", date_ymd);
+        JT_D = "team";
+        $scope.Day_m = "班组";
         PieChart("JBCJ_JT_DAY", date_ymd, DayJT);
     }
 
     //柱状图、折线图
-    function LoadChart_Rate_Year(id,title1,value1,title2,value2,valuex) {
-        $("#" + id).highcharts({     
-       
+    function LoadChart_Rate_Year(id, title1, value1, title2, value2, valuex) {
+        $("#" + id).highcharts({
+
             chart: {
                 renderTo: 'container',
                 backgroundColor: "transparent",
@@ -147,7 +162,7 @@ storeapp.controller('CTRL', function ($scope, $http) {
                     fontFamily: 'Microsoft YaHei',
                     fontSize: '12px',
                     color: '#262626'
-                },            
+                },
                 marginRight: 80 // like left
 
             },
@@ -179,7 +194,7 @@ storeapp.controller('CTRL', function ($scope, $http) {
             yAxis: [{
 
                 title: {
-                    text: title1+"(次)",
+                    text: title1 + "(次)",
                     style: {
                         color: '#89A54E'
                     }
@@ -195,7 +210,7 @@ storeapp.controller('CTRL', function ($scope, $http) {
                 // max: 100
             }, { // Secondary yAxis  
                 title: {
-                    text: title2+"(时)",
+                    text: title2 + "(时)",
                     style: {
                         color: '#4572A7'
                     }
@@ -235,10 +250,10 @@ storeapp.controller('CTRL', function ($scope, $http) {
                                 LoadChart_Rate_Day("JBCJ_Month", "停机次数", Monthy, "停机时间", Monthyy, Monthx);
                                 //加载月度机台停机统计图
                                 JBCJ_JT_Month(JT_M, date_ym);
-                              
+
                                 PieChart("JBCJ_JT_Month", date_ym, MonthJT);
-                              
-                              
+
+
                             }
                         }
                     }
@@ -306,7 +321,7 @@ storeapp.controller('CTRL', function ($scope, $http) {
                             return this.y;
                         }
 
-                    }                  
+                    }
 
                 }, {
                     name: title2,
@@ -341,8 +356,8 @@ storeapp.controller('CTRL', function ($scope, $http) {
                     //    valueSuffix: ' %'
                     //}
                 }
-            ]       
-    })
+            ]
+        })
     }
     function LoadChart_Rate_Day(id, title1, value1, title2, value2, valuex) {
         $("#" + id).highcharts({
@@ -441,7 +456,7 @@ storeapp.controller('CTRL', function ($scope, $http) {
                                 JBCJ_JT_Day(JT_D, date_ymd);
                                 $scope.Day_m = "卷接机";
                                 PieChart("JBCJ_JT_DAY", date_ymd, DayJT);
-                               
+
                             }
                         }
                     }
@@ -619,7 +634,7 @@ storeapp.controller('CTRL', function ($scope, $http) {
                         enabled: true,
                         //format: '<b>{point.name}</b>: {point.percentage:.2f} % ',
                         formatter: function () {
-                            return '<b>' + this.point.name + '</b>: ' + Highcharts.numberFormat(this.percentage, 2)+'%' + ' (停机时间：' +
+                            return '<b>' + this.point.name + '</b>: ' + Highcharts.numberFormat(this.percentage, 2) + '%' + ' (停机时间：' +
                                 Highcharts.numberFormat(this.y, 2, ',') + ' 时)';
                         },
                         style: {
@@ -636,10 +651,10 @@ storeapp.controller('CTRL', function ($scope, $http) {
             }]
         })
     }
-    $scope.Day_m = "卷接机";
-    $scope.Month_m = "卷接机";
-    PieChart("JBCJ_JT_Month", date_ym,  MonthJT);
+    $scope.Day_m = "卷接机机台";
+    $scope.Month_m = "卷接机机台";
+    PieChart("JBCJ_JT_Month", date_ym, MonthJT);
     PieChart("JBCJ_JT_DAY", date_ymd, DayJT);
-    
+
 
 })
