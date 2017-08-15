@@ -1,0 +1,129 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ImageSource x:Key="img_menuImg_IPC-APP">Img/MenuImg/Menus/IPC-APP.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_IPC-M">Img/MenuImg/Menus/IPC-M.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_IPC-DT">Img/MenuImg/Menus/IPC-DT.png</ImageSource>
+
+    <ImageSource x:Key="img_menuImg_1">Img/MenuImg/Menus/1.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_2">Img/MenuImg/Menus/2.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_3">Img/MenuImg/Menus/3.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_4">Img/MenuImg/Menus/4.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_5">Img/MenuImg/Menus/5.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_6">Img/MenuImg/Menus/6.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_7">Img/MenuImg/Menus/7.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_8">Img/MenuImg/Menus/8.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_9">Img/MenuImg/Menus/9.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_10">Img/MenuImg/Menus/10.png</ImageSource>
+
+    <ImageSource x:Key="img_menuImg_11">Img/MenuImg/Menus/11.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_12">Img/MenuImg/Menus/12.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_13">Img/MenuImg/Menus/13.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_14">Img/MenuImg/Menus/14.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_15">Img/MenuImg/Menus/15.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_16">Img/MenuImg/Menus/16.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_17">Img/MenuImg/Menus/17.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_18">Img/MenuImg/Menus/18.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_19">Img/MenuImg/Menus/19.png</ImageSource>
+    
+    <ImageSource x:Key="img_menuImg_20">Img/MenuImg/Menus/20.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_21">Img/MenuImg/Menus/21.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_22">Img/MenuImg/Menus/22.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_23">Img/MenuImg/Menus/23.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_24">Img/MenuImg/Menus/24.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_25">Img/MenuImg/Menus/25.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_26">Img/MenuImg/Menus/26.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_27">Img/MenuImg/Menus/27.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_28">Img/MenuImg/Menus/28.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_29">Img/MenuImg/Menus/29.png</ImageSource>
+    
+    <ImageSource x:Key="img_menuImg_30">Img/MenuImg/Menus/30.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_31">Img/MenuImg/Menus/31.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_32">Img/MenuImg/Menus/32.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_33">Img/MenuImg/Menus/33.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_34">Img/MenuImg/Menus/34.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_35">Img/MenuImg/Menus/35.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_36">Img/MenuImg/Menus/36.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_37">Img/MenuImg/Menus/37.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_38">Img/MenuImg/Menus/38.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_39">Img/MenuImg/Menus/39.png</ImageSource>
+
+    <ImageSource x:Key="img_menuImg_40">Img/MenuImg/Menus/40.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_41">Img/MenuImg/Menus/41.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_42">Img/MenuImg/Menus/42.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_43">Img/MenuImg/Menus/43.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_44">Img/MenuImg/Menus/44.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_45">Img/MenuImg/Menus/45.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_46">Img/MenuImg/Menus/46.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_47">Img/MenuImg/Menus/47.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_48">Img/MenuImg/Menus/48.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_49">Img/MenuImg/Menus/49.png</ImageSource>
+
+    <ImageSource x:Key="img_menuImg_50">Img/MenuImg/Menus/50.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_51">Img/MenuImg/Menus/51.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_52">Img/MenuImg/Menus/52.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_53">Img/MenuImg/Menus/53.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_54">Img/MenuImg/Menus/54.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_55">Img/MenuImg/Menus/55.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_56">Img/MenuImg/Menus/56.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_57">Img/MenuImg/Menus/57.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_58">Img/MenuImg/Menus/58.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_59">Img/MenuImg/Menus/59.png</ImageSource>
+
+    <ImageSource x:Key="img_menuImg_60">Img/MenuImg/Menus/60.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_61">Img/MenuImg/Menus/61.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_62">Img/MenuImg/Menus/62.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_63">Img/MenuImg/Menus/63.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_64">Img/MenuImg/Menus/64.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_65">Img/MenuImg/Menus/65.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_66">Img/MenuImg/Menus/66.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_67">Img/MenuImg/Menus/67.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_68">Img/MenuImg/Menus/68.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_69">Img/MenuImg/Menus/69.png</ImageSource>
+
+    <ImageSource x:Key="img_menuImg_70">Img/MenuImg/Menus/70.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_71">Img/MenuImg/Menus/71.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_72">Img/MenuImg/Menus/72.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_73">Img/MenuImg/Menus/73.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_74">Img/MenuImg/Menus/74.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_75">Img/MenuImg/Menus/75.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_76">Img/MenuImg/Menus/76.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_77">Img/MenuImg/Menus/77.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_78">Img/MenuImg/Menus/78.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_79">Img/MenuImg/Menus/79.png</ImageSource>
+
+    <ImageSource x:Key="img_menuImg_80">Img/MenuImg/Menus/80.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_81">Img/MenuImg/Menus/81.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_82">Img/MenuImg/Menus/82.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_83">Img/MenuImg/Menus/83.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_84">Img/MenuImg/Menus/84.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_85">Img/MenuImg/Menus/85.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_86">Img/MenuImg/Menus/86.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_87">Img/MenuImg/Menus/87.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_88">Img/MenuImg/Menus/88.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_89">Img/MenuImg/Menus/89.png</ImageSource>
+
+    <ImageSource x:Key="img_menuImg_90">Img/MenuImg/Menus/90.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_91">Img/MenuImg/Menus/91.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_92">Img/MenuImg/Menus/92.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_93">Img/MenuImg/Menus/93.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_94">Img/MenuImg/Menus/94.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_95">Img/MenuImg/Menus/95.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_96">Img/MenuImg/Menus/96.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_97">Img/MenuImg/Menus/97.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_98">Img/MenuImg/Menus/98.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_99">Img/MenuImg/Menus/99.png</ImageSource>
+
+    <ImageSource x:Key="img_menuImg_100">Img/MenuImg/Menus/100.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_101">Img/MenuImg/Menus/101.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_102">Img/MenuImg/Menus/102.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_103">Img/MenuImg/Menus/103.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_104">Img/MenuImg/Menus/104.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_105">Img/MenuImg/Menus/105.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_106">Img/MenuImg/Menus/106.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_107">Img/MenuImg/Menus/107.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_108">Img/MenuImg/Menus/108.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_109">Img/MenuImg/Menus/109.png</ImageSource>
+    <ImageSource x:Key="img_menuImg_110">Img/MenuImg/Menus/110.png</ImageSource>
+</ResourceDictionary>

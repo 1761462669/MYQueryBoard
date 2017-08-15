@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
+  <!--配置Database-->
+  <session-factory name="NHibernate_MESDB">
+    <!--数据库驱动-->
+    <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+    <!--数据库连接字符串-->
+    <property name="connection.connection_string">
+      <!--Server=10.114.128.190;initial catalog=SMESDB;uid=sa;pwd=SiemensSaMes;-->      
+      <!--西昌-->
+	  <!--server=10.164.56.55;initial catalog=xcsmes;uid=sa;pwd=XCicss2014!;-->
+      <!--绵阳-->
+      server=10.164.54.86;initial catalog=cymymes;uid=sa;pwd=1qaz@WSX3edc; 
+    </property>
+    <!--数据库方言MsSql2008Dialect-->
+    <property name="dialect">NHibernate.Dialect.MsSql2008Dialect</property>
+    <!--配置Session上下文，可选项wcf_operation、call、thread_static、web-->
+    <property name="current_session_context_class">wcf_operation</property>
+    <!--配置动态代理-->
+    <property name="connection.release_mode">after_transaction</property>
+    <!--配置是否显示Sql-->
+    <property name="show_sql">true</property>
+    <!--配置实体对象程序集-->
+    <!--<mapping assembly="MDF.Sample"/>-->
+
+    <mapping assembly="SMES.AspNetDTM.Model"/>
+
+  </session-factory>
+</hibernate-configuration>

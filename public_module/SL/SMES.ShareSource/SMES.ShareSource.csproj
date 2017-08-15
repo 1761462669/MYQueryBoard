@@ -1,0 +1,950 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FCB45C2C-D5E4-4B4E-92F2-00053C9A7385}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMES.ShareSource</RootNamespace>
+    <AssemblyName>SMES.ShareSource</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SMES.ShareSource.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MDF.SLFramework">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\MDF.SLFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CompilerServices.AsyncTargetingPack.Silverlight5">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.CompilerServices.AsyncTargetingPack.Silverlight5.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Drawing, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Interactivity">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.MefExtensions">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Prism.MefExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.UnityExtensions">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Prism.UnityExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Silverlight">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Unity.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ColorShare.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImagesResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MenuImgResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MergedDictionaries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PathResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShapeStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShareBrush.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\add2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\app.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\app_largeicons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\app_options.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\applications.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\applications2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\appllications2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\apply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\apply2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\apps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\ball_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\ball_Confim.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\ball_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\ball_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\ball_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\ball_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\ball_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\banner_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\banner_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\banner_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\banner_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\banner_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\block1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\bookmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\bt_eject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\bt_ff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\bt_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\bt_pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\bt_play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\bt_rec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\bt_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\bt_rev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\bt_skip_bk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\bt_skip_sw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\bt_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\bulb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\bulb_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\burn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\calculator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\cam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\cd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\chat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\chicara.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\computer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\contacts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\data.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\data_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\data_cd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\data_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\data_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\data_find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\data_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\data_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\data_web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\datas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\del.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\dir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\dollar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\euro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\favorits.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\favorits_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\favorits_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\fax.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\file_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\file_music.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\file_temp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\file_web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\files.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\files_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\files_apply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\files_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\files_exec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\files_export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\files_find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\files_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\files_import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\files_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\first_aid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\folder_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\folder_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\folder_favorits.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\folder_find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\folder_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\folder_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\folder_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\game.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\hd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\hd_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\hd_find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\hd_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\hd_web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\history.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\img_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\mail_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\mail_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\mail_exclude.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\mail_send.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\mail_write.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\muisc_cd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\music.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\music_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\objects.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\options.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\picture1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\print_preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\private.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\redo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\save_as.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\save_as2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\shop_card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\shop_card_full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\sitemap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\smile_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\smile_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\smile_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\smile_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\smile_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\smile_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\soud_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\sound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\sound_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\sound_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\star_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\toolbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\trash_full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\unlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\user_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\user_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\user_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\user_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\videos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\web_app.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\web_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\web_find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\web_mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\web_server.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\web_server_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\web_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\wizard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\WMS没有权限.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\zoom_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\发布.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\排产.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\取消.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\确认.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\完成.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\下达.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\烟丝柜.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\运行.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\暂停.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\black_trigon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\img_contet_add.png" />
+    <Resource Include="Img\ControlImage\img_contet_dele.png" />
+    <Resource Include="Img\ControlImage\img_contet_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\img_content_right_add.png" />
+    <Resource Include="Img\ControlImage\img_content_right_dele.png" />
+    <Resource Include="Img\ControlImage\img_content_right_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\img_ThresPage_buttonimg_a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\btn_operate_del.png" />
+    <Resource Include="Img\ControlImage\btn_operate_OK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\img_query_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\img_calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\img_grid_dele.png" />
+    <Resource Include="Img\ControlImage\img_grid_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\RecycleFull.png" />
+    <Resource Include="Img\ControlImage\RecyleEmpty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\line_image.png" />
+    <Resource Include="Img\ControlImage\PortalBottom.jpg" />
+    <Resource Include="Img\ControlImage\PortalHead.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\btnDeleteImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\ToolBar_Button_operateCancel.png" />
+    <Resource Include="Img\ControlImage\ToolBar_Button_operateEdit.png" />
+    <Resource Include="Img\ControlImage\ToolBar_Button_operateSave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\btnChildWindowClose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\full_screen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Power\msg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\FolderPng\Folder_style_128.png" />
+    <Resource Include="Img\ControlImage\FolderPng\Folder_style_24.png" />
+    <Resource Include="Img\ControlImage\FolderPng\Folder_style_256.png" />
+    <Resource Include="Img\ControlImage\FolderPng\Folder_style_32.png" />
+    <Resource Include="Img\ControlImage\FolderPng\Folder_style_48.png" />
+    <Resource Include="Img\ControlImage\FolderPng\Folder_style_72.png" />
+    <Resource Include="Img\ControlImage\FolderPng\Folder_style_96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\SMESfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\zhi1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\NoDataImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\ToolBar_Button_operateDelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\calendar_down_fill.png" />
+    <Resource Include="Img\ControlImage\calendar_right_fill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SMES.ShareSource.snk" />
+    <Resource Include="Fonts\msyh.ttf" />
+    <Resource Include="Fonts\msyhbd.ttf" />
+    <None Include="Fonts\simsun.ttc" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\LoadNoDataImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\MenuImg\Menus\IPC-APP.png" />
+    <Resource Include="Img\MenuImg\Menus\IPC-DT.png" />
+    <Resource Include="Img\MenuImg\Menus\IPC-M.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\MenuImg\Menus\1.png" />
+    <Resource Include="Img\MenuImg\Menus\10.png" />
+    <Resource Include="Img\MenuImg\Menus\100.png" />
+    <Resource Include="Img\MenuImg\Menus\101.png" />
+    <Resource Include="Img\MenuImg\Menus\102.png" />
+    <Resource Include="Img\MenuImg\Menus\103.png" />
+    <Resource Include="Img\MenuImg\Menus\104.png" />
+    <Resource Include="Img\MenuImg\Menus\105.png" />
+    <Resource Include="Img\MenuImg\Menus\106.png" />
+    <Resource Include="Img\MenuImg\Menus\107.png" />
+    <Resource Include="Img\MenuImg\Menus\108.png" />
+    <Resource Include="Img\MenuImg\Menus\109.png" />
+    <Resource Include="Img\MenuImg\Menus\11.png" />
+    <Resource Include="Img\MenuImg\Menus\110.png" />
+    <Resource Include="Img\MenuImg\Menus\12.png" />
+    <Resource Include="Img\MenuImg\Menus\13.png" />
+    <Resource Include="Img\MenuImg\Menus\14.png" />
+    <Resource Include="Img\MenuImg\Menus\15.png" />
+    <Resource Include="Img\MenuImg\Menus\16.png" />
+    <Resource Include="Img\MenuImg\Menus\17.png" />
+    <Resource Include="Img\MenuImg\Menus\18.png" />
+    <Resource Include="Img\MenuImg\Menus\19.png" />
+    <Resource Include="Img\MenuImg\Menus\2.png" />
+    <Resource Include="Img\MenuImg\Menus\20.png" />
+    <Resource Include="Img\MenuImg\Menus\21.png" />
+    <Resource Include="Img\MenuImg\Menus\22.png" />
+    <Resource Include="Img\MenuImg\Menus\23.png" />
+    <Resource Include="Img\MenuImg\Menus\24.png" />
+    <Resource Include="Img\MenuImg\Menus\25.png" />
+    <Resource Include="Img\MenuImg\Menus\26.png" />
+    <Resource Include="Img\MenuImg\Menus\27.png" />
+    <Resource Include="Img\MenuImg\Menus\28.png" />
+    <Resource Include="Img\MenuImg\Menus\29.png" />
+    <Resource Include="Img\MenuImg\Menus\3.png" />
+    <Resource Include="Img\MenuImg\Menus\30.png" />
+    <Resource Include="Img\MenuImg\Menus\31.png" />
+    <Resource Include="Img\MenuImg\Menus\32.png" />
+    <Resource Include="Img\MenuImg\Menus\33.png" />
+    <Resource Include="Img\MenuImg\Menus\34.png" />
+    <Resource Include="Img\MenuImg\Menus\35.png" />
+    <Resource Include="Img\MenuImg\Menus\36.png" />
+    <Resource Include="Img\MenuImg\Menus\37.png" />
+    <Resource Include="Img\MenuImg\Menus\38.png" />
+    <Resource Include="Img\MenuImg\Menus\39.png" />
+    <Resource Include="Img\MenuImg\Menus\4.png" />
+    <Resource Include="Img\MenuImg\Menus\40.png" />
+    <Resource Include="Img\MenuImg\Menus\41.png" />
+    <Resource Include="Img\MenuImg\Menus\42.png" />
+    <Resource Include="Img\MenuImg\Menus\43.png" />
+    <Resource Include="Img\MenuImg\Menus\44.png" />
+    <Resource Include="Img\MenuImg\Menus\45.png" />
+    <Resource Include="Img\MenuImg\Menus\46.png" />
+    <Resource Include="Img\MenuImg\Menus\47.png" />
+    <Resource Include="Img\MenuImg\Menus\48.png" />
+    <Resource Include="Img\MenuImg\Menus\49.png" />
+    <Resource Include="Img\MenuImg\Menus\5.png" />
+    <Resource Include="Img\MenuImg\Menus\50.png" />
+    <Resource Include="Img\MenuImg\Menus\51.png" />
+    <Resource Include="Img\MenuImg\Menus\52.png" />
+    <Resource Include="Img\MenuImg\Menus\53.png" />
+    <Resource Include="Img\MenuImg\Menus\54.png" />
+    <Resource Include="Img\MenuImg\Menus\55.png" />
+    <Resource Include="Img\MenuImg\Menus\56.png" />
+    <Resource Include="Img\MenuImg\Menus\57.png" />
+    <Resource Include="Img\MenuImg\Menus\58.png" />
+    <Resource Include="Img\MenuImg\Menus\59.png" />
+    <Resource Include="Img\MenuImg\Menus\6.png" />
+    <Resource Include="Img\MenuImg\Menus\60.png" />
+    <Resource Include="Img\MenuImg\Menus\61.png" />
+    <Resource Include="Img\MenuImg\Menus\62.png" />
+    <Resource Include="Img\MenuImg\Menus\63.png" />
+    <Resource Include="Img\MenuImg\Menus\64.png" />
+    <Resource Include="Img\MenuImg\Menus\65.png" />
+    <Resource Include="Img\MenuImg\Menus\66.png" />
+    <Resource Include="Img\MenuImg\Menus\67.png" />
+    <Resource Include="Img\MenuImg\Menus\68.png" />
+    <Resource Include="Img\MenuImg\Menus\69.png" />
+    <Resource Include="Img\MenuImg\Menus\7.png" />
+    <Resource Include="Img\MenuImg\Menus\70.png" />
+    <Resource Include="Img\MenuImg\Menus\71.png" />
+    <Resource Include="Img\MenuImg\Menus\72.png" />
+    <Resource Include="Img\MenuImg\Menus\73.png" />
+    <Resource Include="Img\MenuImg\Menus\74.png" />
+    <Resource Include="Img\MenuImg\Menus\75.png" />
+    <Resource Include="Img\MenuImg\Menus\76.png" />
+    <Resource Include="Img\MenuImg\Menus\77.png" />
+    <Resource Include="Img\MenuImg\Menus\78.png" />
+    <Resource Include="Img\MenuImg\Menus\79.png" />
+    <Resource Include="Img\MenuImg\Menus\8.png" />
+    <Resource Include="Img\MenuImg\Menus\80.png" />
+    <Resource Include="Img\MenuImg\Menus\81.png" />
+    <Resource Include="Img\MenuImg\Menus\82.png" />
+    <Resource Include="Img\MenuImg\Menus\83.png" />
+    <Resource Include="Img\MenuImg\Menus\84.png" />
+    <Resource Include="Img\MenuImg\Menus\85.png" />
+    <Resource Include="Img\MenuImg\Menus\86.png" />
+    <Resource Include="Img\MenuImg\Menus\87.png" />
+    <Resource Include="Img\MenuImg\Menus\88.png" />
+    <Resource Include="Img\MenuImg\Menus\89.png" />
+    <Resource Include="Img\MenuImg\Menus\9.png" />
+    <Resource Include="Img\MenuImg\Menus\90.png" />
+    <Resource Include="Img\MenuImg\Menus\91.png" />
+    <Resource Include="Img\MenuImg\Menus\92.png" />
+    <Resource Include="Img\MenuImg\Menus\93.png" />
+    <Resource Include="Img\MenuImg\Menus\94.png" />
+    <Resource Include="Img\MenuImg\Menus\95.png" />
+    <Resource Include="Img\MenuImg\Menus\96.png" />
+    <Resource Include="Img\MenuImg\Menus\97.png" />
+    <Resource Include="Img\MenuImg\Menus\98.png" />
+    <Resource Include="Img\MenuImg\Menus\99.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\ToolBar_Button_operateAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\ToolBar_Button_operateDetail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ControlImage\btnClose.png" />
+    <Resource Include="Img\ControlImage\imgUpload.png" />
+    <Resource Include="Img\ControlImage\ToolBar_Button_operateCopy.png" />
+    <Resource Include="Img\ControlImage\ToolBar_Button_operateDown.png" />
+    <Resource Include="Img\ControlImage\ToolBar_Button_operateUp.png" />
+    <Content Include="SMES.ShareSource.extmap.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

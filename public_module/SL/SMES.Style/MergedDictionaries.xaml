@@ -1,0 +1,54 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/ButtonStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/CheckBoxStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/LayOut/Button_Container.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/GridStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/DataPagerStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/LableFieldStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFTextBoxStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFComboEditorStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFRadioButtonStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFButtonStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/LayOut/ScrollStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/TextBlockStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/TreeViewStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFSearchTextBoxStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/LayOut/MDFOperatePanelStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/LayOut/MDFDataPanelStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFDateTimeInputStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/HyperlinkButton.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFWindowStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFComboEditorStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFProgressBarStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFRoundProcess.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFPopupWindow.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/DataTemplateSelectorStyle.xaml"/>
+        <ResourceDictionary Source="Controls/Standard/MDFStanderLineControl100.xaml" />
+        <ResourceDictionary Source="Controls/Standard/MDFStanderUpDownLineControlStyle.xaml" />
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDF_MessageControlStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/ListBoxStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/ExpanderStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDF_MenuItemStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/LayOut/MDFLayoutGroupPanelStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/DynamicDataTemplateSelectorStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/LayOut/MDFAutoLayoutPlaneStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/LayOut/BorderStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFMaterialChooseControlStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFBusyControlStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDF_LineStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/ConnectItemStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDF_ConnectGridStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFPersonChooseControlStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFEquipmentChooseControlStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFDeleteConfirmButtonStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFMeasureChooseControlStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFUploadFileControlStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/RichTextBoxStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/MDFSearchComboxStyle.xaml"/>
+        <ResourceDictionary Source="/SMES.Style;component/Controls/DialogWindow.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

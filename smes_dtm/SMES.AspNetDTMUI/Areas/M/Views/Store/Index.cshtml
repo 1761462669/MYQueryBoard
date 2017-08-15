@@ -1,0 +1,183 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <link href="~/Areas/M/Styles/LeafStore.css" rel="stylesheet" />
+}
+
+
+<div ng-app="storeapp" ng-controller="storectl">
+
+    <div class="topToolbar row">
+        <div class="pull-left">
+            <span class="icon-stop" style="color:#f66e3a"></span><span class="spanlable">进柜</span>
+            <span class="icon-stop" style="color:#14cf5c"></span><span class="spanlable">出柜</span>
+            <span class="icon-stop" style="color:#ffb218"></span><span class="spanlable">存料</span>
+            <span class="icon-stop" style="color:#4fbdde"></span><span class="spanlable">满柜</span>
+
+        </div>
+
+        <div class="pull-right">
+            <ul class="list-inline list-inline-extents">
+                <li ng-repeat="x in StoreTypeList" ng-click="TypeClk(x)" ng-class="{typeatcive: x == SelectType}"><a href=" #">{{x.NAME}}</a></li>
+                @*<li><a href="#">储叶柜</a></li>
+                    <li><a href="#">储叶柜</a></li>*@
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="miancontent">
+
+        <div id="storelist" class="row" style="padding:0px;margin:0;">
+
+            <div class="storeinfo" ng-repeat="obj in StoreList">
+                <div class="storeinfo-title">
+                    {{obj.EQU_SHORTNAME}}
+                    <a href="#" class="storeinfo-title-right" ng-click="dlgShow(obj);">
+                        ?
+                    </a>
+                </div>
+                <div class="storeinfo-body">
+                    <div class="roundchart">
+                        <div class="roundproces" data-percent="{{obj.CLBFB}}" style="text-align:center;padding-top:6px" data-maxvalue="100" data-store="50">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="storeinfo-footer">
+                    <div>
+                        {{obj.WLMC}}
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <i class="icon-signin"></i>
+                            {{obj.JLL}}
+                        </div>
+                        <div class="col-xs-6">
+                            <i class="icon-signout"></i>
+                            {{obj.CHLL}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{SelectItem.EQU_SHORTNAME}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row row-margin">
+                        <div class="col-xs-4 col-margin">
+                            批次
+                            <div class="cgmx-fontstyle1">{{SelectItem.PCH}}</div>
+                        </div>
+                        <div class="col-xs-4 col-margin">
+                            牌号
+                            <div class="cgmx-fontstyle1">{{SelectItem.WLMC}}</div>
+                        </div>
+                        <div class="col-xs-4 col-margin">
+                            状态
+                            <div class="cgmx-fontstyle1">
+                                {{StateChange(SelectItem.ZGZT)}}
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row row-margin">
+                        <div class="col-xs-3 col-margin">
+                            进柜量
+                            <div class="cgmx-fontstyle2">{{SelectItem.JLL}} Kg</div>
+                        </div>
+                        <div class="col-xs-3 col-margin">
+                            出柜量
+                            <div class="cgmx-fontstyle2">{{SelectItem.CHLL}} Kg</div>
+                        </div>
+                        <div class="col-xs-3 col-margin">
+                            存量
+                            <div class="cgmx-fontstyle2">{{SelectItem.CLL}} Kg</div>
+                        </div>
+                        @*<div class="col-xs-3 col-margin">
+                            存料时长
+                            <div class="cgmx-fontstyle2">{{SelectItem.STORETIME}} H</div>
+                        </div>*@
+
+                    </div>
+
+                    <div class="row row-margin">
+                        @*<div class="col-xs-3 col-margin">
+                            进柜开始
+                            <div class="cgmx-fontstyle2">{{SelectItem.INSTARTTIME}}</div>
+                        </div>*@
+                        <div class="col-xs-3 col-margin">
+                            进柜结束
+                            <div class="cgmx-fontstyle2">{{SelectItem.JGSJ}}</div>
+                        </div>
+                        <div class="col-xs-3 col-margin">
+                            出柜开始
+                            <div class="cgmx-fontstyle2">{{SelectItem.CGSJ}}</div>
+                        </div>
+                        @*<div class="col-xs-3 col-margin">
+                            出柜结束
+                            <div class="cgmx-fontstyle2">{{SelectItem.OUTENDTIME}}</div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+ 
+    @Scripts.Render("~/bundles/chart")
+    <script src="~/Areas/M/Scripts/LeafStore.js"></script>
+
+
+    <script id="storelisttmp" type="text/x-jquery-tmpl">
+        <div class="storeinfo">
+            <div class="storeinfo-title">
+                ${EQU_SHORTNAME}
+                <a href="#" class="storeinfo-title-right">
+                    ?
+                </a>
+            </div>
+            <div class="storeinfo-body">
+                <div class="roundchart">
+                    <div class="roundproces" style="text-align:center;padding-top:6px" data-maxvalue="${MAXSTORE}" data-store="${CLL}">
+
+                    </div>
+                </div>
+            </div>
+            <div class="storeinfo-footer">
+                <div>
+                    ${WLMC}
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        {{if ZGZT==1 }} @*进柜*@
+                        <i class="icon-spin icon-spinner" style="color:#09cc52"></i>
+                        {{else}}
+                        <i class="icon-signin"></i>
+                        {{/if}}
+                        ${JLL}
+                    </div>
+                    <div class="col-xs-6">
+                        {{if ZGZT==2 }} @*出柜*@
+                        <i class="icon-spin icon-spinner" style="color:#09cc52"></i>
+                        {{else}}
+                        <i class="icon-signout"></i>
+                        {{/if}}
+                        ${CHLL}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+}

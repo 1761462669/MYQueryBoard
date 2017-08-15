@@ -1,0 +1,41 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"     
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:custom="http://MDF.Custom.Controls/XAML" >
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/SMES.ShareSource;component/MergedDictionaries.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <Style TargetType="custom:MDFAutoLayoutPlane">
+        <Setter Property="Margin" Value="4"></Setter>
+        <Setter Property="Padding" Value="4"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="custom:MDFLayoutGroupPanel">
+                    <Grid x:Name="grid" Margin="{TemplateBinding Margin}" >
+                        
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="custom:MDFAutoLayoutPlaneItem">
+        <Setter Property="Margin" Value="4"></Setter>
+        <Setter Property="Padding" Value="4"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="custom:MDFAutoLayoutPlaneItem">
+                    <Grid x:Name="grid" Margin="{TemplateBinding Margin}" >
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

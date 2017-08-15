@@ -1,0 +1,77 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:smes="http://MDF.Custom.Controls/XAML"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+
+    
+    <Style x:Name="MDFExpanderToggleButtonStyle" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+					<Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <ContentControl Content="{TemplateBinding Content}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}" Margin="{TemplateBinding Padding}"/>
+					</Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+    </Style>
+	<Style TargetType="smes:MDFExpander">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="BorderBrush" Value="{x:Null}"/>
+		<Setter Property="BorderThickness" Value="0"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="smes:MDFExpander">
+					<Border Background="{TemplateBinding Background}" 
+						BorderBrush="{TemplateBinding BorderBrush}" 
+						Margin="{TemplateBinding Margin}" 
+						BorderThickness="{TemplateBinding BorderThickness}">                        
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="Expander">
+								<VisualState x:Name="Closed">
+									<Storyboard>
+										<DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="content" d:IsOptimized="True">
+											<DoubleAnimation.EasingFunction>
+												<QuinticEase EasingMode="EaseIn"/>
+											</DoubleAnimation.EasingFunction>
+										</DoubleAnimation>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Expanded">
+									<Storyboard>
+										<DoubleAnimation Duration="0:0:0.2" To="{TemplateBinding ContentHeight}" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="content" d:IsOptimized="True">
+											<DoubleAnimation.EasingFunction>
+												<QuinticEase EasingMode="EaseOut"/>
+											</DoubleAnimation.EasingFunction>
+										</DoubleAnimation>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>                        
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="auto"/>
+								<RowDefinition Height="*"/>
+							</Grid.RowDefinitions>
+
+							<ToggleButton x:Name="heardbnt" Background="Transparent" 
+                                          Style="{StaticResource MDFExpanderToggleButtonStyle}"
+                                          Content="{TemplateBinding Heard}" 
+                                          IsChecked="{Binding IsExpande, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=smes:MDFExpander}}"/>
+                            
+							<ContentPresenter x:Name="content" Grid.Row="1" Margin="{TemplateBinding Padding}" Height="{TemplateBinding ContentHeight}" VerticalAlignment="Top"/>
+
+						</Grid>
+                        
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

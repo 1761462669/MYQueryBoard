@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping schema="pub" 
+                   assembly="SMES.FrameworkAdpt"
+                   namespace="SMES.FrameworkAdpt.EquipmentChoose"
+                   auto-import = "false"
+                   default-lazy="false"
+                   xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="EquipmentTypeModelFAdpt" table="EquipmentType" schema="pub">
+    <id name="Id" access="property" column="Id" type="Int32">
+      <generator class="hilo">
+        <param name="table">dbo.hibernate_unique_key</param>
+        <param name="column">next_hi</param>
+        <param name="max_lo">100</param>
+      </generator>
+    </id>
+    <property name="Cd" type="String" column="Cd" />
+    <property name="Ctrl" type="String" column="Ctrl" />
+    <property name="Name" type="String" column="Name" />
+    <property name="SequenceNumber" type="Int32" column="SequenceNumber" />
+    <property name="IsUsed" type="Boolean" column="IsUsed" />
+    <property name="Remark" type="String" column="Remark" />
+
+  </class>
+</hibernate-mapping>

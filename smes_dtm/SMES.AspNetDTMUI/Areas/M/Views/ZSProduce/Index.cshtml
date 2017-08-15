@@ -1,0 +1,712 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <link href="~/Areas/M/Styles/ZSProduce.css" rel="stylesheet" />
+}
+
+<div class="main-left">
+    <div class="module1 title">
+        <div style="display:table;width:100%;height:100%;">
+            <div style="display:table-cell;vertical-align:middle;width:100%;">
+                <div class="row">
+                    <div class="col-xs-6">
+                        制丝生产
+                    </div>
+                    <div class="col-xs-6">
+                        <div id="ProducteWeek" class="week">@ViewBag.Week</div>
+                        <div id="ProducteDate" class="date">@ViewBag.Date</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="module1 bg-color-1">
+        <div class="module1-title">
+            专线(批)
+        </div> 
+        <div class="module1-body">
+            <div class="module1-body-content1">
+                <div class="row">
+                    <div class="col-xs-4" style="font-size:16px">
+                        计划产出:<span id="qlxplan">0</span>
+                    </div>
+                    <div class="col-xs-4" style="font-size:16px">
+                        已完成:<span id="qlxfinish">0</span>
+                    </div>
+                    <div class="col-xs-4" style="font-size:16px">
+                        待生产:<span id="qlxunstart">0</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <img src="~/Areas/M/Images/制丝生产.png" width="300" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="module1 bg-color-2">
+        <div class="module1-title">
+            品牌线(批)
+        </div>
+        <div class="module1-body">
+            <div class="module1-body-content1">
+                <div class="row">
+                    <div class="col-xs-4" style="font-size:16px">
+                        计划产出:<span id="gtxplan">0</span>
+                    </div>
+                    <div class="col-xs-4" style="font-size:16px">
+                        已完成:<span id="gtxfinish">0</span>
+                    </div>
+                    <div class="col-xs-4" style="font-size:16px">
+                        待生产:<span id="gtxunstart">0</span>        
+                    </div>
+                </div>
+                <div class="row">
+                    <img src="~/Areas/M/Images/制丝生产.png" width="300" />
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="module1 bg-color-3">
+        <div class="module1-title">
+              梗丝线(批)
+        </div>
+        <div class="module1-body">
+            <div class="module1-body-content1">
+                <div class="row">
+                    <div class="col-xs-4" style="font-size:16px">
+                        计划产出:<span id="gsxplan">0</span>
+                    </div>
+                    <div class="col-xs-4" style="font-size:16px">
+                        已完成:<span id="gsxfinish">0</span>
+                    </div>
+                    <div class="col-xs-4" style="font-size:16px">
+                        待生产:<span id="gsxunstart">0</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <img src="~/Areas/M/Images/制丝生产.png" width="300" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="main-content exist-left">
+    <div class="module1 title" style="background-color:#4D4D4D">
+        <div style="display:table;width:100%;height:100%;">
+            <div style="display:table-cell;vertical-align:middle;text-align:center;width:100%;">
+                <div class="row text-right" style="font-size:small;">
+                    <ul class=" list-inline list-inline-extents">
+                    <li onclick="refresh('Preday')"><a href="#">前一天</a></li>
+                    <li onclick="refresh('Today')"><a href="#">今天</a></li>
+                    <li onclick="refresh('Nexday')"><a href="#">后一天</a></li>
+                    <li onclick="refresh('Refresh')"><a href="#">刷新</a></li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8" style="margin:0px 0px 0px 0px">
+                        当日生产烟丝总批次数
+                    </div>
+                    <div id="DayCutNum" class="col-xs-2" style="margin:0px 0px 0px 0px">
+                        0
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8" style="margin:0px 0px 0px 0px">
+                        当月生产烟丝总批次数
+                    </div>
+                    <div id="MonthCutNum" class="col-xs-2" style="margin:0px 0px 0px 0px">
+                        0
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="producerow">
+        <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+            <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">开包回潮大段</div>
+                    </div>
+                    <div style="margin-top:5px">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                当前进度
+                            </div>
+                            <div class="col-xs-6 text-right" style="color:orangered">
+                                <span id="zkbfinished" style="font-size:1.25em;">0</span>/<span id="zkbtotal" style="font-size:1em;">0</span>
+                            </div>
+                        </div>
+                        <div class="H-Progress-2">
+                            <div id="zkbprogress" style="width:0%;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:5px">
+                            <div class="col-xs-6">
+                                当前生产牌号
+                            </div>      
+                        </div>
+                        <div class="row">
+                            <div id="zkbbrand" class="col-xs-12" style="color:orange">
+                                &nbsp;&nbsp;&nbsp;  
+                            </div>    
+                        </div>
+                        <div class="row">
+                            <div id="zkbwo" class="col-xs-12" style="color:darkorange">
+                                &nbsp;&nbsp;&nbsp; 
+                            </div>          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">叶片加料大段</div>
+                    </div>
+                    <div style="margin-top:5px">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                当前进度
+                            </div>
+                            <div class="col-xs-6 text-right" style="color:orangered">
+                                <span id="ssbfinished" style="font-size:1.25em;">0</span>/<span id="ssbtotal" style="font-size:1em;">0</span>
+                            </div>
+                        </div>
+                        <div class="H-Progress-2">
+                            <div id="ssbprogress" style="width:0%;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:5px">
+                            <div class="col-xs-6">
+                                当前生产牌号
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="ssbbrand" class="col-xs-12" style="color:orange">
+                                &nbsp;&nbsp;&nbsp;  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="ssbwo" class="col-xs-12" style="color:darkorange">
+                                &nbsp;&nbsp;&nbsp;  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">切丝大段</div>
+                    </div>
+                    <div style="margin-top:5px">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                当前进度
+                            </div>
+                            <div class="col-xs-6 text-right" style="color:orangered">
+                                <span id="ypbfinished" style="font-size:1.25em;">0</span>/<span id="ypbtotal" style="font-size:1em;">0</span>
+                            </div>
+                        </div>
+                        <div class="H-Progress-2">
+                            <div id="ypbprogress" style="width:0%;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:5px">
+                            <div class="col-xs-6">
+                                当前生产牌号
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="ypbbrand" class="col-xs-12" style="color:orange">
+                                &nbsp;&nbsp;&nbsp;  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="ypbwo" class="col-xs-12" style="color:darkorange">
+                                &nbsp;&nbsp;&nbsp;  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            @*<div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+        <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px;">
+            <div class="group-title">
+                <div class="triangle-bottomright"></div>
+                <div class="text">掺配加香段</div>
+            </div>
+            <div style="margin-top:5px">
+                <div class="row">
+                    <div class="col-xs-6">
+                        当前进度
+                    </div>
+                    <div class="col-xs-6 text-right" style="color:orangered">
+                        <span id="cpjxbfinished" style="font-size:1.25em;">0</span>/<span id="cpjxbtotal" style="font-size:1em;">0</span>
+                    </div>
+                </div>
+                <div class="H-Progress-2">
+                    <div id="cpjxbprogress" style="width:0%;">
+                    </div>
+                </div>
+                <div class="row" style="margin-top:5px">
+                    <div class="col-xs-6">
+                        当前生产牌号
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="cpjxbbrand" class="col-xs-12" style="color:orange">
+                        &nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="cpjxbwo" class="col-xs-12" style="color:darkorange">
+                        &nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+        </div>
+    </div>
+
+    <div class="producerow">
+        <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+            <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px;">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">切片回潮大段</div>
+                    </div>
+                    <div style="margin-top:5px">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                当前进度
+                            </div>
+                            <div class="col-xs-6 text-right" style="color:orangered">
+                                <span id="zkafinished" style="font-size:1.25em;">0</span>/<span id="zkatotal" style="font-size:1em;">0</span>
+                            </div>
+                        </div>
+                        <div class="H-Progress-2">
+                            <div id="zkaprogress" style="width:0%;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:5px">
+                            <div class="col-xs-6">
+                                当前生产牌号
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="zkabrand" class="col-xs-12" style="color:orange">
+                                &nbsp;&nbsp;&nbsp; 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="zkawo" class="col-xs-12" style="color:darkorange">
+                                &nbsp;&nbsp;&nbsp;  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px;">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">松散回潮段</div>
+                    </div>
+                    <div style="margin-top:5px">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                当前进度
+                            </div>
+                            <div class="col-xs-6 text-right" style="color:orangered">
+                                <span id="ssafinished" style="font-size:1.25em;">0</span>/<span id="ssatotal" style="font-size:1em;">0</span>
+                            </div>
+                        </div>
+                        <div class="H-Progress-2">
+                            <div id="ssaprogress" style="width:0%;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:5px">
+                            <div class="col-xs-6">
+                                当前生产牌号
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="ssabrand" class="col-xs-12" style="color:orange">
+                                &nbsp;&nbsp;&nbsp; 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="ssawo" class="col-xs-12" style="color:darkorange">
+                                &nbsp;&nbsp;&nbsp; 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+            @*<div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px;">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">叶片加料大段</div>
+                    </div>
+                    <div style="margin-top:5px">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                当前进度
+                            </div>
+                            <div class="col-xs-6 text-right" style="color:orangered">
+                                <span style="font-size:1.25em;">0</span>/<span style="font-size:1em;">0</span>
+                            </div>
+                        </div>
+                        <div class="H-Progress-2">
+                            <div style="width:0%;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:5px">
+                            <div class="col-xs-6">
+                                当前生产牌号
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="ypabrand" class="col-xs-12" style="color:orange">
+                                &nbsp;&nbsp;&nbsp; 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="ypawo" class="col-xs-12" style="color:darkorange">
+                                &nbsp;&nbsp;&nbsp; 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+            <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px;">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">叶片加料大段</div>
+                    </div>
+                    <div style="margin-top:5px">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                当前进度
+                            </div>
+                            <div class="col-xs-6 text-right" style="color:orangered">
+                                <span id="cpjxbfinished" style="font-size:1.25em;">0</span>/<span id="cpjxbtotal" style="font-size:1em;">0</span>
+                            </div>
+                        </div>
+                        <div class="H-Progress-2">
+                            <div id="cpjxbprogress" style="width:0%;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:5px">
+                            <div class="col-xs-6">
+                                当前生产牌号
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="cpjxbbrand" class="col-xs-12" style="color:orange">
+                                &nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="cpjxbwo" class="col-xs-12" style="color:darkorange">
+                                &nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px;">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">切丝大段</div>
+                    </div>
+                    <div style="margin-top:5px">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                当前进度
+                            </div>
+                            <div class="col-xs-6 text-right" style="color:orangered">
+                                <span id="cpjxafinished" style="font-size:1.25em;">0</span>/<span id="cpjxatotal" style="font-size:1em;">0</span>
+                            </div>
+                        </div>
+                        <div class="H-Progress-2">
+                            <div id="cpjxaprogress" style="width:0%;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:5px">
+                            <div class="col-xs-6">
+                                当前生产牌号
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="cpjxabrand" class="col-xs-12" style="color:orange">
+                                &nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="cpjxawo" class="col-xs-12" style="color:darkorange">
+                                &nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px;">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">切丝大段</div>
+
+                    </div>
+                    <div style="margin-top:5px">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                当前进度
+                            </div>
+                            <div class="col-xs-6 text-right" style="color:orangered">
+                                <span id="hchsafinished" style="font-size:1.25em;">0</span>/<span id="hchsatotal" style="font-size:1em;">0</span>
+                            </div>
+                        </div>
+                        <div class="H-Progress-2">
+                            <div id="hchsaprogress" style="width:0%;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:5px">
+                            <div class="col-xs-6">
+                                当前生产牌号
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="hchsabrand" class="col-xs-12" style="color:orange">
+                                &nbsp;&nbsp;&nbsp; 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="hchsawo" class="col-xs-12" style="color:darkorange">
+                                &nbsp;&nbsp;&nbsp; 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+            @*<div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+        <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px;">
+            <div class="group-title">
+                <div class="triangle-bottomright"></div>
+                <div class="text">掺配加香段</div>
+            </div>
+            <div style="margin-top:5px">
+                <div class="row">
+                    <div class="col-xs-6">
+                        当前进度
+                    </div>
+                    <div class="col-xs-6 text-right" style="color:orangered">
+                        <span id="cpjxafinished" style="font-size:1.25em;">0</span>/<span id="cpjxatotal" style="font-size:1em;">0</span>
+                    </div>
+                </div>
+                <div class="H-Progress-2">
+                    <div id="cpjxaprogress" style="width:0%;">
+                    </div>
+                </div>
+                <div class="row" style="margin-top:5px">
+                    <div class="col-xs-6">
+                        当前生产牌号
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="cpjxabrand" class="col-xs-12" style="color:orange">
+                        &nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="cpjxawo" class="col-xs-12" style="color:darkorange">
+                        &nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+        </div>
+    </div>
+
+    <div class="producerow">
+        <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+            <div class="col-xs-3" style="padding:0px;height:100%;width:25%;">
+                <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px;">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">一级梗处理</div>
+                    </div>
+                    <div style="margin-top:5px">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                当前进度
+                            </div>
+                            <div class="col-xs-6 text-right" style="color:orangered">
+                                <span id="yczgfinished" style="font-size:1.25em;">0</span>/<span id="yczgtotal" style="font-size:1em;">0</span>
+                            </div>
+                        </div>
+                        <div class="H-Progress-2">
+                            <div id="yczgprogress" style="width:0%;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:5px">
+                            <div class="col-xs-6">
+                                当前生产牌号
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="yczgbrand" class="col-xs-12" style="color:orange">
+                                &nbsp;&nbsp;&nbsp;  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="yczgwo" class="col-xs-12" style="color:darkorange">
+                                &nbsp;&nbsp;&nbsp;  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3" style="padding:0px;height:100%;width:25%;">
+                <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px;">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">二级梗处理</div>
+                    </div>
+                    <div style="margin-top:5px">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                当前进度
+                            </div>
+                            <div class="col-xs-6 text-right" style="color:orangered">
+                                <span id="eczgfinished" style="font-size:1.25em;">0</span>/<span id="eczgtotal" style="font-size:1em;">0</span>
+                            </div>
+                        </div>
+                        <div class="H-Progress-2">
+                            <div id="eczgprogress" style="width:0%;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:5px">
+                            <div class="col-xs-6">
+                                当前生产牌号
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="eczgbrand" class="col-xs-12" style="color:orange">
+                                &nbsp;&nbsp;&nbsp;  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="eczgwo" class="col-xs-12" style="color:darkorange">
+                                &nbsp;&nbsp;&nbsp;  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3" style="padding:0px;height:100%;width:25%;">
+                <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px;">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">切梗丝大段</div>
+                    </div>
+                    <div style="margin-top:5px">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                当前进度
+                            </div>
+                            <div class="col-xs-6 text-right" style="color:orangered">
+                                <span id="gsjlfinished" style="font-size:1.25em;">0</span>/<span id="gsjltotal" style="font-size:1em;">0</span>
+                            </div>
+                        </div>
+                        <div class="H-Progress-2">
+                            <div id="gsjlprogress" style="width:0%;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:5px">
+                            <div class="col-xs-6">
+                                当前生产牌号
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="gsjlbrand" class="col-xs-12" style="color:orange">
+                                &nbsp;&nbsp;&nbsp; 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="gsjlwo" class="col-xs-12" style="color:darkorange">
+                                &nbsp;&nbsp;&nbsp; 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-xs-3" style="padding:0px;height:100%;width:25%;">
+                <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px;">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">干燥与膨胀、加香、贮梗</div>
+
+                    </div>
+                    <div style="margin-top:5px">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                当前进度
+                            </div>
+                            <div class="col-xs-6 text-right" style="color:orangered">
+                                <span id="gsjxfinished" style="font-size:1.25em;">0</span>/<span id="gsjxtotal" style="font-size:1em;">0</span>
+                            </div>
+                        </div>
+                        <div class="H-Progress-2">
+                            <div id="gsjxprogress" style="width:0%;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:5px">
+                            <div class="col-xs-6">
+                                当前生产牌号
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="gsjxbrand" class="col-xs-12" style="color:orange">
+                                &nbsp;&nbsp;&nbsp; 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="gsjxwo" class="col-xs-12" style="color:darkorange">
+                               &nbsp;&nbsp;&nbsp;  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script src="~/Areas/M/Scripts/ZSProduce.js"></script>
+
+    }

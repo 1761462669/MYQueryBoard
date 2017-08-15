@@ -1,0 +1,102 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <link href="~/Areas/M/Styles/ZSCJ_ZSProductKB.css" rel="stylesheet" />
+}
+<script type="text/javascript">
+
+    //每隔10分钟判断当前时间是否是4点整
+    //setInterval(function () {
+    //    var curr_time = new Date();
+    //    var strHours = curr_time.getHours();
+    //    var strMins = curr_time.getMinutes();
+    //    if (strHours == "4" && strMins == "0") {
+    //        window.location.reload();
+    //    }
+    //}, 600000);
+
+    var _PageHeight = document.documentElement.clientHeight,
+          _PageWidth = document.documentElement.clientWidth;
+    var _LoadingTop = _PageHeight > 61 ? (_PageHeight - 61) / 2 : 0,
+        _LoadingLeft = _PageWidth > 215 ? (_PageWidth - 215) / 2 : 0;
+    var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;background:black;height:' + _PageHeight + 'px;top:0;opacity:0.8;filter:alpha(opacity=80);z-index:10000;"><div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px; width: 100%; height: 100px; line-height: 150px; padding-left: 50px; padding-right: 5px; color: white;font: normal 20px/22px 宋体; font-family:\'Microsoft YaHei\';">页面加载中...</div></div>';
+    document.write(_LoadingHtml);
+    document.onreadystatechange = completeLoading;
+    function completeLoading() {
+        if (document.readyState == "complete") {
+            var loadingMask = document.getElementById('loadingDiv');
+            loadingMask.parentNode.removeChild(loadingMask);
+        }
+    }
+
+
+</script>
+
+<div ng-app="APP" ng-controller="CTRL" id="main" style="width:100%;height:100%;margin:0px;padding:0px">
+    <div class="main-Head">
+        <div class="module1">
+            @ViewBag.Title
+        </div>
+    </div>
+
+    <div class="main-Body">
+        <div class="left_side">
+            <div class="module2">
+                <div class="module2-top">
+                    <div>制丝年度合格率趋势图</div>
+                </div>
+                <div class="module2-down">
+                    <div id="ZS_Year_HGRate" style="height:99%;width:99%">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right_side">
+            <div class="module2">
+                <div class="module2-top">
+                    <div>制丝月度合格率趋势图</div>
+                </div>
+                <div class="module2-down">
+                    <div id="ZS_Month_HGRate" style="height:99%;width:99%">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-Foot">
+        <div class="left_side">
+            <div class="module2">
+                <div class="module2-top">
+                    <div>制丝年度断料率趋势图</div>
+                </div>
+                <div class="module2-down">
+                    <div id="ZS_Year_DLRate" style="height:99%;width:99%">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right_side">
+            <div class="module2">
+                <div class="module2-top">
+                    <div>制丝月度断料率趋势图</div>
+                </div>
+                <div class="module2-down">
+                    <div id="ZS_Month_DLRate" style="height:99%;width:99%">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/chart");
+    <script src="~/Areas/M/Scripts/ZSCJ_ZSProductKB.js"></script>
+}
+

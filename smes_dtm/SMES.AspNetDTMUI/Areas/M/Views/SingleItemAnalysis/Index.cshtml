@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    @Scripts.Render("/Content/datepicker");
+    <link href="~/Areas/M/Styles/SingleItemAnalysis.css" rel="stylesheet" />
+}
+
+<div class="module1" ng-app="singleanalysisapp" ng-controller="singleanalysisctl">
+    <div class="top-left">
+        <div class="module1 title">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;width:100%;">
+                    <div class="row">
+                        <div class="col-xs-9" style="width:100%;height:100%;text-align:center">
+                            卷包单项分析
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top-right">
+        <div style="display:table;width:100%;height:100%;">
+            <div style="display:table-cell;vertical-align:middle;width:100%;">
+                <div class="row">
+                    <form class="form-horizontal">
+                        <div class="form-group" style="margin:0px 0px 0px 0px;font-size:small;">
+                            <label class="col-lg-1 control-label" style="margin-left:0px;margin-right:0px;padding-left:0px;padding-right:10px;">月份</label>
+                            <div class="col-xs-2" style="padding-left:0px;width:100px">
+                                <input id="QueryMonth" type="text" style="padding-left:5px;padding-right:0px;" data-format="yyyy-MM" class="form-control datepicker-here" />
+                            </div>
+                            <label class="col-lg-1 control-label" style="margin-left:0px;margin-right:0px;padding-left:0px;padding-right:10px;">工艺段</label>
+                            <select class="form-control col-lg-1" ng-options="x.PROCESSNAME for x in ProcessList" ng-change="QueryItems1(x)" ng-model="x" style="width:100px;">
+                                <option value="">-请选择-</option>
+                            </select>
+                            <label class="col-lg-1 control-label" style="margin-left:0px;margin-right:0px;padding-left:0px;padding-right:10px;width:100px;">缺陷等级</label>
+                            <select class="form-control col-lg-1" ng-options="y.DEFECTNAME for y in RankList" ng-change="QueryItems2(y)" ng-model="y" style="width:100px">
+                                <option value="">-请选择-</option>
+                            </select>
+                            <label class="col-lg-1 control-label" style="margin-left:0px;margin-right:0px;padding-left:0px;padding-right:10px;">缺陷项</label>
+                            <select class="form-control col-lg-3" ng-options="z.ITEMNAME for z in ItemList" ng-model="z" style="width:200px">
+                                <option value="">-请选择-</option>
+                            </select>
+                            <div class="col-lg-2" style="padding-left:30px;padding-right:0px;vertical-align:middle">
+                                <button class="btn" ng-click="QueryData()" style="background-color:#214E85;border-radius:5px;width:80px;">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-content1" id="MainContent">
+    <div class="producerow">
+        <div class="row" style="height:100%;margin-left:30px">
+            <div id="SingleAnalysisChart1" style="margin:5px 10px 5px 10px;height:100%;width:1200px">
+
+            </div>
+        </div>
+    </div>
+    @*<div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%;">
+                <div id="SingleAnalysisChart3" style="height:100%;width:1000px">
+
+                </div>
+            </div>
+        </div>*@
+</div>
+
+
+    @section scripts{
+        @Scripts.Render("~/bundles/chart");
+
+        <script src="~/Areas/M/Scripts/SingleItemAnalysis.js"></script>
+    }

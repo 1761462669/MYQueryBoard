@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping schema="pub"
+                   assembly="SMES.FrameworkAdpt"
+                   namespace="SMES.FrameworkAdpt.EquipmentChoose"
+                   auto-import = "false"
+                   default-lazy="false"
+                   xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="EquipmentModelFAdpt" table="Equipment" schema="pub">
+    <id name="Id" access="property" column="Id" type="Int32">
+      <generator class="hilo">
+        <param name="table">dbo.hibernate_unique_key</param>
+        <param name="column">next_hi</param>
+        <param name="max_lo">100</param>
+      </generator>
+    </id>
+    <property name="Cd" column="Cd"  type="String"/>
+    <property name="Ctrl" column="Ctrl"  type="String"/>
+    <property name="Name"  column="Name" type="String"/>
+    <property name="SequenceNumber" column="SequenceNumber"  type="Int32"/>
+    <property name="IsUsed"  column="IsUsed" type="Boolean"/>
+    <property name="Remark"  column="Remark" type="String"/>
+    <property name="TheoryCapacity" column="TheoryCapacity" type="Decimal"/>
+    <property name="RealCapacity" column="RealCapacity" type="Decimal"/>
+    <property name="ShortName" column="ShortName" type="String"/>
+    <property name="Place" column="Place" type="String"/>
+    
+    <many-to-one name="DepartmentModel" class="DepartmentModelFAdpt" column="DepartmentId" not-found="ignore" />
+    <many-to-one name="ProcessSegmentModel" class="ProcessSegmentModelFAdpt" column="ParentResourceId" not-found="ignore" />
+    <many-to-one name="EquipmentModelModel" class="EquipmentModelModelFAdpt" column="EquipmentModelId" not-found="ignore" />
+  </class>
+</hibernate-mapping>

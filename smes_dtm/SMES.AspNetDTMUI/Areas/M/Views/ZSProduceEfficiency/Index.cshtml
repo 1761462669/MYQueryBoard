@@ -1,0 +1,1336 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <link href="~/Areas/M/Styles/ZSProduceEfficiency.css" rel="stylesheet" />
+}
+<div ng-app="APP" ng-controller="CTRL" id="main" style="width:100%;height:100%;margin:0px;padding:0px">
+    <div class="main-left">
+        <div class="module1 title">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;width:100%;">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            @ViewBag.Title
+                        </div>
+                        <div class="col-xs-6">
+                            <div id="ProducteWeek" class="week">@ViewBag.Week</div>
+                            <div id="ProducteDate" class="date">@ViewBag.Date</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="module2 bg-color-1">
+            <div class="module2-body">
+                <div class="producerow">
+                    <div class="module1-title">
+                        专线(批)
+                    </div>
+                    <div class="row1">
+                        <div style="font-size:12px">
+                            准时化差异(min):<span id="9kTimeDiff">0</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <img src="~/Areas/M/Images/制丝生产.png" width="300" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module2 bg-color-2">
+            <div class="module2-body">
+                <div class="producerow">
+                    <div class="module1-title">
+                        品牌线(批)
+                    </div>
+                    <div class="row1">
+                        <div style="font-size:12px">
+                            准时化差异(min):<span id="5kTimeDiff">0</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <img src="~/Areas/M/Images/制丝生产.png" width="300" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        @*<div class="module2 bg-color-3">
+            <div class="module2-body">
+                <div class="producerow">
+                    <div class="module1-title">
+                        3K线(批)
+                    </div>
+                    <div class="row1">
+                        <div style="font-size:12px">
+                            准时化差异(min):<span id="3kTimeDiff">0</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <img src="~/Areas/M/Images/制丝生产.png" width="300" />
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+        <div class="module2 bg-color-4">
+            <div class="module2-body">
+                <div class="producerow">
+                    <div class="module1-title">
+                        梗丝线(批)
+                    </div>
+                    <div class="row1">
+                        <div style="font-size:12px">
+                            准时化差异(min):<span id="gsxTimeDiff">0</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <img src="~/Areas/M/Images/制丝生产.png" width="300" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-content exist-left">
+        <div class="module1 title" style="background-color:#4D4D4D;height:100%">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;text-align:center;width:100%;">
+                    <div class="row text-right" style="font-size:small;">
+                        <ul class=" list-inline list-inline-extents">
+                            <li ng-click="QueryData(1)" ng-class="{typeatcive: 1 == SelectType}"><a href="#">今天</a></li>
+                            <li ng-click="QueryData(2)" ng-class="{typeatcive: 2 == SelectType}"><a href="#">本周</a></li>
+                            <li ng-click="QueryData(3)" ng-class="{typeatcive: 3 == SelectType}"><a href="#">本月</a></li>
+                        </ul>
+                    </div>
+                    <div class="row" style="text-align:left">
+                        <table>
+                            <tr>
+                                <td>
+                                    <span id="QueryTip" style="color: #4595ec">今天</span>
+                                </td>
+                                <td width="20px"></td>
+                                <td>
+                                    总待料时间（min）:
+                                </td>
+                                <td>
+                                    <div id="ZDL" class="col-xs-2" style="margin: 0px 0px 0px 0px; color:orangered">
+                                        0
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content exist-left" style="margin-left:12%">
+
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:0px">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">切片-9K</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    产能(Kg/h)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kqp_cn">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    准时化差异(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kqp_cy">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    待料时间(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kqp_dl">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换批次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kqp_hpi">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换牌次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kqp_hpai">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">叶片加料-9K</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    产能(Kg/h)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kjl_cn">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    准时化差异(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kjl_cy">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    待料时间(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kjl_dl">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换批次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kjl_hpi">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换牌次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kjl_hpai">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-xs-3" style="padding:0px;height:100%;width:16.6%;">
+                        <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px">
+                            <div class="group-title">
+                                <div class="triangle-bottomright"></div>
+                                <div class="text">切叶丝-9k</div>
+                            </div>
+                            <div style="margin-top:0px">
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        产能(Kg/h)
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="9kqs_cn">0</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        准时化差异(min)
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="9kqs_cy">0</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        待料时间(min)
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="9kqs_dl">0</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        换批次数
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="9kqs_hp">0</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        换牌次数
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="9kqs_hp">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">烘叶丝-9k</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    产能(Kg/h)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9khs_cn">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    准时化差异(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9khs_cy">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    待料时间(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9khs_dl">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换批次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9khs_hpi">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换牌次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9khs_hpai">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">掺配加香-9K</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    产能(Kg/h)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kcp_cn">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    准时化差异(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kcp_cy">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    待料时间(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kcp_dl">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换批次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kcp_hpi">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换牌次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9kcp_hpai">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-xs-3" style="padding: 0px; height: 100%; width: 20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">烟丝入库-9K</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    产能(Kg/h)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9krk_cn">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    准时化差异(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9krk_cy">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    待料时间(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9krk_dl">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换批次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9krk_hpi">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换牌次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="9krk_hpai">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:14.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">真空回潮-5K</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <table>
+                                <tr>
+                                    <td>产能(Kg/h)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5khc_cn">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>准时化差异(min)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5khc_cy">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>待料时间(min)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5khc_dl">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>换批次数</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5khc_hpi">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>换牌次数</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5khc_hpai">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 14.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">切片-5K</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <table>
+                                <tr>
+                                    <td>产能(Kg/h)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kqp_cn">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>准时化差异(min)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kqp_cy">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>待料时间(min)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kqp_dl">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>换批次数</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kqp_hpi">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>换牌次数</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kqp_hpai">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 14.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">叶片加料-5K</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <table>
+                                <tr>
+                                    <td>产能(Kg/h)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kjl_cn">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>准时化差异(min)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kjl_cy">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>待料时间(min)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kjl_dl">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>换批次数</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kjl_hpi">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>换牌次数</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kjl_hpai">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-xs-3" style="padding:0px;height:100%;width:12.5%;">
+                        <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                            <div class="group-title">
+                                <div class="triangle-bottomright"></div>
+                                <div class="text">切叶丝-5k</div>
+
+                            </div>
+                            <div style="margin-top:0px">
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        产能(Kg/h)
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="5kqs_cn">0</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        准时化差异(min)
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="5kqs_cy">0</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        待料时间(min)
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="5kqs_dl">0</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        换批次数
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="5kqs_hp">0</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        换牌次数
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="5kqs_hp">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 14.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">烘叶丝-5k</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <table>
+                                <tr>
+                                    <td>产能(Kg/h)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5khs_cn">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>准时化差异(min)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5khs_cy">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>待料时间(min)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5khs_dl">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>换批次数</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5khs_hpi">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>换牌次数</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5khs_hpai">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 14.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">掺配-5K</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <table>
+                                <tr>
+                                    <td>产能(Kg/h)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kcp_cn">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>准时化差异(min)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kcp_cy">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>待料时间(min)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kcp_dl">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>换批次数</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kcp_hpi">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>换牌次数</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kcp_hpai">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 14.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">加香-5K</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <table>
+                                <tr>
+                                    <td>产能(Kg/h)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kjx_cn">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>准时化差异(min)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kjx_cy">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>待料时间(min)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kjx_dl">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>换批次数</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kjx_hpi">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>换牌次数</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5kjx_hpai">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-xs-3" style="padding: 0px; height: 100%; width: 14.2%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">烟丝入库-5K</div>
+                        </div>
+                        <div style="margin-top:0px">
+
+                            <table>
+                                <tr>
+                                    <td>产能(Kg/h)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5krk_cn">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>准时化差异(min)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5krk_cy">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>待料时间(min)</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5krk_dl">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>换批次数</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5krk_hpi">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>换牌次数</td>
+                                    <td>
+                                        <div class="text-right" style="color:orangered;">
+                                            <span id="5krk_hpai">0</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">切片-3K</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    产能(Kg/h)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kqp_cn">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    准时化差异(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kqp_cy">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    待料时间(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kqp_dl">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换批次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kqp_hpi">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换牌次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kqp_hpai">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">叶片加料-3K</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    产能(Kg/h)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kjl_cn">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    准时化差异(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kjl_cy">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    待料时间(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kjl_dl">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换批次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kjl_hpi">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换牌次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kjl_hpai">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">配片预混出柜</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    产能(Kg/h)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kyhcg_cn">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    准时化差异(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kyhcg_cy">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    待料时间(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kyhcg_dl">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换批次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kyhcg_hpi">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换牌次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kyhcg_hpai">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-xs-3" style="padding:0px;height:100%;width:16.6%;">
+                        <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                            <div class="group-title">
+                                <div class="triangle-bottomright"></div>
+                                <div class="text">切叶丝-3K</div>
+                            </div>
+                            <div style="margin-top:0px">
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        产能(Kg/h)
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="3kqs_cn">0</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        准时化差异(min)
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="3kqs_cy">0</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        待料时间(min)
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="3kqs_dl">0</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        换批次数
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="3kqs_hp">0</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        换牌次数
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="color:orangered">
+                                        <span id="3kqs_hp">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">滚筒烘丝</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    产能(Kg/h)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kgths_cn">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    准时化差异(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kgths_cy">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    待料时间(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kgths_dl">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换批次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kgths_hpi">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换牌次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kgths_hpai">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">气流烘丝</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    产能(Kg/h)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kqlhs_cn">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    准时化差异(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kqlhs_cy">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    待料时间(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kqlhs_dl">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换批次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kqlhs_hpi">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换牌次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="3kqlhs_hpai">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:33.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">梗预处理</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    产能(Kg/h)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxgy_cn">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    准时化差异(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxgy_cy">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    待料时间(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxgy_dl">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换批次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxgy_hpi">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换牌次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxgy_hpai">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding:0px;height:100%;width:33.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">切梗</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    产能(Kg/h)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxqg_cn">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    准时化差异(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxqg_cy">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    待料时间(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxqg_dl">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换批次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxqg_hpi">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换牌次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxqg_hpai">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding:0px;height:100%;width:33.4%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">烘梗</div>
+                        </div>
+                        <div style="margin-top:0px">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    产能(Kg/h)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxhg_cn">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    准时化差异(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxhg_cy">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    待料时间(min)
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxhg_dl">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换批次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxhg_hpi">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    换牌次数
+                                </div>
+                                <div class="col-xs-4 text-right" style="color:orangered">
+                                    <span id="gsxhg_hpai">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section scripts{
+    <script src="~/Areas/M/Scripts/ZSProduceEfficiency.js"></script>
+
+}

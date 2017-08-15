@@ -1,0 +1,49 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--*********************背景色系Begin**********************-->
+    <!--主色黑-->
+    <Color x:Key="Smes_Color_MainBlack">#FF272727</Color>
+    <!--背景白-->
+    <Color x:Key="Smes_Color_MainWhite">#FFEAEBEE</Color>
+    <!--底色浅灰-->
+    <Color x:Key="Smes_Color_BottomLightGrave">#FFFAFAFA</Color>
+    <!--底色浅灰+    -->
+    <Color x:Key="Smes_Color_BottomLightGravePlus">#FFEAEBEE</Color>
+
+    <!--底色鼠标经过色-->
+    <Color x:Key="Smes_Color_LightBottomMouseOver">#FFBADDE9</Color>
+    <!--底色鼠标选中色-->
+    <Color x:Key="Smes_Color_LightBottomMouseSelected">#FFBADDE9</Color>
+    <Color x:Key="Smes_Color_LightBottomAlterBackground">#FFD8EFF7</Color>
+    
+
+    <!--分隔线色（浅）-->
+    <Color x:Key="Smes_Color_SplitLineLow">#FFE5E5E5</Color>
+    <!--分隔线色（深）-->
+    <Color x:Key="Smes_Color_SplitLineDeep">#FFCCCCCC</Color>
+    <!--*********************背景色系End*************************-->
+
+    <!--*********************字体色系Begin**********************-->
+    <!--白色-->
+    <Color x:Key="Smes_Color_FontWhite">#FFFFFFFF</Color>
+    <!--深黑色（背景黑）-->
+    <Color x:Key="Smes_Color_FontDeepColor">#FF272727</Color>
+    <!--灰色-->
+    <Color x:Key="Smes_Color_FontLowColor">#FFB0B0B0</Color>
+    <!--*********************字体色系End**********************-->
+
+    <!--辅助蓝-->
+    <Color x:Key="Smes_Color_AssistColorBlue">#FF4595EC</Color>
+    <Color x:Key="Smes_Color_AssistColorBlueDes1">#FF81B6DA</Color>
+    <Color x:Key="Smes_Color_AssistColorBlueDes2">#FF81B6DA</Color>
+    <!--前景蓝-->
+    <Color x:Key="Smes_Color_AssistForgroundColorBlue">#FFC9E4F7</Color>
+    
+    <!--辅助绿-->
+    <Color x:Key="Smes_Color_AssistColorGreen">#FF6BB06B</Color>
+    <!--辅助绿(浅)-->
+    <Color x:Key="Smes_Color_AssistColorLightGreen">#FF74CD74</Color>
+
+</ResourceDictionary>

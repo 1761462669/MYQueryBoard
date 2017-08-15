@@ -1,0 +1,38 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFOperatePanelStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/LableFieldStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFGroupBoxStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFDataPanel.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFButtonStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFSearchTextBoxStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFGroupPanelStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFRadioButtonStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFTextBoxStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/PageBaseStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFChildWindowStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFCheckBoxStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFEditDisplayStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDF_GroupPanelBorderStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDF_RecyleControlStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDF_ImageButtonStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/ScheduleGant/RectAreaFillControlStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/ScheduleGant/ScheduleGantItemStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/ScheduleGant/SchedulePanelStyle.xaml" />
+        <!--<ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFComboGridStyle.xaml" />-->
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDF_MessageControlStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFComboEditor.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFExpanderStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFProgressBarStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFRoundProcessStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFLoadedEmptyDataStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDFBusyControlStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/ConnectItemStyle.xaml" />
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/MDF_LineStyle.xaml" />
+        
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

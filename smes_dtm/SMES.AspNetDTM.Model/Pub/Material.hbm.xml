@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping auto-import = "false"  default-lazy="false" xmlns="urn:nhibernate-mapping-2.2" assembly="SMES.AspNetDTM.Model"
+                   namespace="SMES.AspNetDTM.Model.Pub" schema="pub">
+  <class name="Material" table="Material">
+    <id name="Id" column="Id" type="Int32">
+      <generator class="hilo">
+        <param name="table">dbo.hibernate_unique_key</param>
+        <param name="column">next_hi</param>
+        <param name="max_lo">100</param>
+      </generator>
+    </id>
+    <property name="Cd" type="String"/>
+    <property name="Name" type="String"/>
+    <property name="IsUsed" type="Boolean"/>
+    
+  </class>
+</hibernate-mapping>
+

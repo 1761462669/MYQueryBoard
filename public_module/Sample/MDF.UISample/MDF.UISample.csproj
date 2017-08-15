@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{429F5742-8114-4A7B-9F44-10353C629CAD}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MDF.UISample</RootNamespace>
+    <AssemblyName>MDF.UISample</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>zh-Hans</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>MDF.UISample.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>MDF.UISample.App</SilverlightAppEntry>
+    <TestPageFileName>MDF.UISampleTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <ExpressionBlendVersion>12.0.51020.0</ExpressionBlendVersion>
+    <InBrowserSettingsFile>Properties\InBrowserSettings.xml</InBrowserSettingsFile>
+    <RequireInBrowserElevation>true</RequireInBrowserElevation>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="InfragisticsSL5.v13.2, Version=13.2.20132.2284, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Infragistics.1.0.4\lib\sl50\InfragisticsSL5.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="ISMOT.Silverlight5.Threading.Tasks, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\ISMOT.Silverlight5.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="MDF.Common.Res">
+      <HintPath>..\..\..\packages\MDF.SilverlightRepository.1.0.7\lib\sl50\MDF.Common.Res.dll</HintPath>
+    </Reference>
+    <Reference Include="MDF.Common.SLControl">
+      <HintPath>..\..\..\packages\MDF.SilverlightRepository.1.0.7\lib\sl50\MDF.Common.SLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="MDF.SLFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=220b5d5b335317ed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\MDF.SLFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CompilerServices.AsyncTargetingPack.Silverlight5, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.CompilerServices.AsyncTargetingPack.Silverlight5.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Drawing, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Effects, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Interactions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Prism, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Interactivity, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.MefExtensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Prism.MefExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.UnityExtensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Prism.UnityExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Silverlight, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Unity.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit.Internals, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Net\SMES.FrameworkAdpt\CommonPara\Service\ICommonParaService.cs">
+      <Link>IService\ICommonParaService.cs</Link>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Boot.cs" />
+    <Compile Include="ControlStyle\AutoLayoutPlanDemo.xaml.cs">
+      <DependentUpon>AutoLayoutPlanDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\ChildWindow.xaml.cs">
+      <DependentUpon>ChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\ComboxStyleDemo.xaml.cs">
+      <DependentUpon>ComboxStyleDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\DataChart\ParticulateLevel3.cs" />
+    <Compile Include="ControlStyle\DataChart\ParticulateLevel2.cs" />
+    <Compile Include="ControlStyle\DataChart\ParticulateLevel.cs" />
+    <Compile Include="ControlStyle\DataChart\LineDataChart.xaml.cs">
+      <DependentUpon>LineDataChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\DataGridStyle.xaml.cs">
+      <DependentUpon>DataGridStyle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\EquipmentChoooseDemo.xaml.cs">
+      <DependentUpon>EquipmentChoooseDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\ExpanderStyleDemo.xaml.cs">
+      <DependentUpon>ExpanderStyleDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\LinkButtonStyleDemo.xaml.cs">
+      <DependentUpon>LinkButtonStyleDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\ListBoxStyleDemo.xaml.cs">
+      <DependentUpon>ListBoxStyleDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\MatChooseControlDemo.xaml.cs">
+      <DependentUpon>MatChooseControlDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\MDFBusyControlDemo.xaml.cs">
+      <DependentUpon>MDFBusyControlDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\MDFButtonDemo.xaml.cs">
+      <DependentUpon>MDFButtonDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\MDFDeleteConfirmButtonDemo.xaml.cs">
+      <DependentUpon>MDFDeleteConfirmButtonDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\MDFMeasureChooseDemo.xaml.cs">
+      <DependentUpon>MDFMeasureChooseDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\MDFPersonChooseDemo.xaml.cs">
+      <DependentUpon>MDFPersonChooseDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\MDFSearchCombox.xaml.cs">
+      <DependentUpon>MDFSearchCombox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\MDFUploadFileDemo.xaml.cs">
+      <DependentUpon>MDFUploadFileDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\Person.cs" />
+    <Compile Include="ControlStyle\RichTextBox.xaml.cs">
+      <DependentUpon>RichTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\ScrollViewStyleTest.xaml.cs">
+      <DependentUpon>ScrollViewStyleTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\SearchBoxDemo.xaml.cs">
+      <DependentUpon>SearchBoxDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\SilverlightControl1.xaml.cs">
+      <DependentUpon>SilverlightControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\TabControlStyleDemo.xaml.cs">
+      <DependentUpon>TabControlStyleDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\TextBoxDemo.xaml.cs">
+      <DependentUpon>TextBoxDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\TreeViewStyleDemo.xaml.cs">
+      <DependentUpon>TreeViewStyleDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\UploadFileDemo\Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\ValidationTest.xaml.cs">
+      <DependentUpon>ValidationTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStyle\WebBrowser.xaml.cs">
+      <DependentUpon>WebBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControlSample.xaml.cs">
+      <DependentUpon>CustomControlSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataTemplate.xaml.cs">
+      <DependentUpon>DataTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleInit.cs" />
+    <Compile Include="NewTextBoxStyle.xaml.cs">
+      <DependentUpon>NewTextBoxStyle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageStyle2.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>PageStyle2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageStyle3.xaml.cs">
+      <DependentUpon>PageStyle3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ButtonPrivileAction.cs" />
+    <Compile Include="Tools\PortalNavagationCommand.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="ControlStyle\AutoLayoutPlanDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\ChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\ComboxStyleDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\DataChart\LineDataChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\DataGridStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\EquipmentChoooseDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\ExpanderStyleDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\LinkButtonStyleDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\ListBoxStyleDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\MatChooseControlDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\MDFBusyControlDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\MDFButtonDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\MDFDeleteConfirmButtonDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\MDFMeasureChooseDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\MDFPersonChooseDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\MDFSearchCombox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\MDFUploadFileDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\RichTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\ScrollViewStyleTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\SearchBoxDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\SilverlightControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\TabControlStyleDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\TextBoxDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\TreeViewStyleDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\UploadFileDemo\Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\ValidationTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\WebBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControlSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewTextBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageStyle2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageStyle3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Template\MDFSinglePageStyle1.zip" />
+    <None Include="Template\MDFSinglePageStyle2.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SL\MDF.Custom.ControlSL\MDF.Custom.ControlSL.csproj">
+      <Project>{3c73f6dd-fd95-4842-9363-99e6d1339abc}</Project>
+      <Name>MDF.Custom.ControlSL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SL\SMES.Bussiness.ControlSL\SMES.Bussiness.ControlSL.csproj">
+      <Project>{d1e78e2b-c2be-4865-ab13-74d52939abbb}</Project>
+      <Name>SMES.Bussiness.ControlSL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SL\SMES.ShareSource\SMES.ShareSource.csproj">
+      <Project>{fcb45c2c-d5e4-4b4e-92f2-00053c9a7385}</Project>
+      <Name>SMES.ShareSource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SL\SMES.SLFramework\SMES.SLFramework.csproj">
+      <Project>{83468cc8-e224-47ff-bda1-a9c20422e753}</Project>
+      <Name>SMES.SLFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SL\SMES.Style\SMES.Style.csproj">
+      <Project>{2bd5bbb1-8fd0-454e-b384-e34cb322b713}</Project>
+      <Name>SMES.Style</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\InBrowserSettings.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+</Project>

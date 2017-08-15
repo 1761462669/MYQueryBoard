@@ -1,0 +1,134 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    background: #000000;
+    font: normal 12px/22px 宋体;
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+    a:hover {
+        color: #1974A1;
+    }
+
+.fullSlide {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+    .fullSlide .bd {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        z-index: 0;
+        overflow: hidden;
+    }
+
+        .fullSlide .bd ul {
+            width: 100%;
+        }
+
+        .fullSlide .bd li {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+            .fullSlide .bd li a {
+                display: block;
+                height: 400px;
+            }
+
+    .fullSlide .hd {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+        height: 26px;
+        line-height: 26px;
+    }
+
+        .fullSlide .hd ul {
+            text-align: center;
+        }
+
+            .fullSlide .hd ul li {
+                width: 8px;
+                height: 8px;
+                border-radius: 100%;
+                cursor: pointer;
+                display: inline-block;
+                *display: inline;
+                zoom: 1;
+                margin: 0 6px;
+                overflow: hidden;
+                background: #666;
+                border: 2px solid #999;
+                filter: alpha(opacity=50);
+                opacity: 0.5;
+                line-height: 999px;
+            }
+
+                .fullSlide .hd ul li.on {
+                    background: #fff;
+                }
+
+    .fullSlide .prev_next {
+        width: 40px;
+        height: 60px;
+        position: absolute;
+        top: 170px;
+        left: 30%;
+        margin-left: 20%;
+    }
+
+    .fullSlide .prev, .fullSlide .next {
+        position: absolute;
+        margin-top: 300px;
+        top: 0;
+        z-index: 1;
+        width: 40px;
+        height: 60px;
+        border-radius: 5px;
+        background: url(Areas/M/Images/slider-arrow.png) #000 no-repeat;
+        cursor: pointer;
+        filter: alpha(opacity=50);
+        opacity: 0.5;
+        display: none;
+    }
+
+    .fullSlide .prev {
+        left: -600px;
+        background-position: -166px 14px;
+    }
+
+        .fullSlide .prev:hover {
+            background-position: -106px 14px;
+        }
+
+    .fullSlide .next {
+        right: -600px;
+        background-position: -48px 14px;
+    }
+
+        .fullSlide .next:hover {
+            background-position: 12px 14px;
+        }

@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E994F727-DD40-4605-90AF-C79C54BBA204}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMES.FrameworkAdpt</RootNamespace>
+    <AssemblyName>SMES.FrameworkAdpt</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MDF.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=614540173009332e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\MDF.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="MDF.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\MDF.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="MDF.Service.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\MDF.Service.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=1.0.3.3, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop, Version=1.3.0.20349, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.0.20349, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Scheduling.Quartz, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Spring.Scheduling.Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonPara\Model\CommonParaModel.cs" />
+    <Compile Include="CommonPara\Model\CommonParaTypeModel.cs" />
+    <Compile Include="CommonPara\Service\CommonParaService.cs" />
+    <Compile Include="CommonPara\Service\CommonParaUnity.cs" />
+    <Compile Include="CommonPara\Service\ICommonParaService.cs" />
+    <Compile Include="EquipmentChoose\DepartmentModelFAdpt.cs" />
+    <Compile Include="EquipmentChoose\EquipmentModelFAdpt.cs" />
+    <Compile Include="EquipmentChoose\EquipmentModelModelFAdpt.cs" />
+    <Compile Include="EquipmentChoose\EquipmentTypeModelFAdpt.cs" />
+    <Compile Include="EquipmentChoose\ProcessSegmentModelFAdpt.cs" />
+    <Compile Include="EquipmentChoose\Service\IEquipmentService.cs" />
+    <Compile Include="EquipmentChoose\Service\EquipmentService.cs" />
+    <Compile Include="MaterialChooseControl\MaterialModelAdpt.cs" />
+    <Compile Include="MaterialChooseControl\MaterialTypeModelAdpt.cs" />
+    <Compile Include="MaterialChooseControl\Service\ComMaterialTypeService.cs" />
+    <Compile Include="MaterialChooseControl\Service\IComMaterialTypeService.cs" />
+    <Compile Include="MeasureControl\Model\MeasureModel\MeasureModelFAdpt.cs" />
+    <Compile Include="MeasureControl\Model\MeasureTypeModel\MeasureTypeModelFAdpt.cs" />
+    <Compile Include="MeasureControl\Service\IMeasureService.cs" />
+    <Compile Include="MeasureControl\Service\MeasureService.cs" />
+    <Compile Include="OrgInfo\AreaModel.cs" />
+    <Compile Include="OrgInfo\EnterpriseModel.cs" />
+    <Compile Include="OrgInfo\IModel\IResource.cs" />
+    <Compile Include="OrgInfo\PersonModel.cs" />
+    <Compile Include="OrgInfo\PostModel.cs" />
+    <Compile Include="OrgInfo\RelpostpersonModel.cs" />
+    <Compile Include="OrgInfo\Service\IOrgInfoService.cs" />
+    <Compile Include="OrgInfo\Service\OrgInfoService.cs" />
+    <Compile Include="OrgInfo\SiteModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MaterialChooseControl\MaterialModelAdpt.hbm.xml" />
+    <EmbeddedResource Include="MaterialChooseControl\MaterialTypeModelAdpt.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommonPara\Model\CommonParaModel.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommonPara\Model\CommonParaTypeModel.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OrgInfo\AreaModel.hbm.xml" />
+    <EmbeddedResource Include="OrgInfo\EnterpriseModel.hbm.xml" />
+    <EmbeddedResource Include="OrgInfo\PersonModel.hbm.xml" />
+    <EmbeddedResource Include="OrgInfo\PostModel.hbm.xml" />
+    <EmbeddedResource Include="OrgInfo\RelpostpersonModel.hbm.xml" />
+    <EmbeddedResource Include="OrgInfo\SiteModel.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MeasureControl\Model\MeasureModel\MeasureModelFAdpt.hbm.xml" />
+    <EmbeddedResource Include="MeasureControl\Model\MeasureTypeModel\MeasureTypeModelFAdpt.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EquipmentChoose\DepartmentModelFAdpt.hbm.xml" />
+    <EmbeddedResource Include="EquipmentChoose\EquipmentModelFAdpt.hbm.xml" />
+    <EmbeddedResource Include="EquipmentChoose\EquipmentModelModelFAdpt.hbm.xml" />
+    <EmbeddedResource Include="EquipmentChoose\EquipmentTypeModelFAdpt.hbm.xml" />
+    <EmbeddedResource Include="EquipmentChoose\ProcessSegmentModelFAdpt.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMES.Framework\SMES.Framework.csproj">
+      <Project>{766484cb-3f81-4fa0-9ae4-a19685edd83b}</Project>
+      <Name>SMES.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

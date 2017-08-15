@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <!--<import resource="DBConfig.xml"/>-->
+  <object id="MDF.Framework.Bus.JsonKnownTypeInfoConverter" type="MDF.Framework.Bus.JsonKnownTypeInfoConverter,MDF.Framework"/>
+  <!--<object id="MDF.MES.UIControlService.Material.IMaterialService" type="MDF.MES.UIControlService.Material.MaterialService,MDF.MES.UIControlService">
+    <property name="Db" ref="MDF.Framework.Db.IDataBase"/>
+  </object>-->
+  <!--<import resource="PlanManagementConfig.xml"/>-->
+  <!--<import resource="PlanConfig.xml"/>
+  -->
+  <!--其他模块Config配置文件-->
+  <!--<import resource="PlanConfig.xml"/>-->
+
+</objects>
+

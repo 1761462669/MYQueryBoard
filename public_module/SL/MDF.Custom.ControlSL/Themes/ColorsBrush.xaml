@@ -1,0 +1,24 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    
+    <!--start 边框色-->
+    <SolidColorBrush x:Key="ControlBorder_01" Color="#FFAAAAAA"/>
+    <SolidColorBrush x:Key="ControlBorder_02" Color="#FFAAAAAA"/>
+    <!--end 边框色-->
+    
+    
+    <!--start 背景色-->
+    <!--正常背景色-->
+    <SolidColorBrush x:Key="ControlBackground_01" Color="#FFF7F7F7"/>
+    
+    <!--高亮背景色-->
+    <SolidColorBrush x:Key="ControlBackground_02" Color="#FFFFFFFF"/>
+    
+    <!--end 背景色-->
+    
+    
+   
+    
+</ResourceDictionary>

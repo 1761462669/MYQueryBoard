@@ -1,0 +1,79 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:mdf="http://MDF.Custom.Controls/XAML"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/ColorsBrush.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    <Style TargetType="mdf:MDFButton" >
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ControlBorder_01}"/>
+        <Setter Property="Background" Value="{StaticResource ControlBackground_01}"/>
+        <Setter Property="Cursor" Value="Hand"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="mdf:MDFButton">
+                    <Grid>
+                		<VisualStateManager.VisualStateGroups>
+                			<VisualStateGroup x:Name="CommonStates">
+                				<VisualState x:Name="Pressed">
+                					<Storyboard>
+                						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="border">
+                							<DiscreteObjectKeyFrame KeyTime="0">
+                								<DiscreteObjectKeyFrame.Value>
+                									<Visibility>Visible</Visibility>
+                								</DiscreteObjectKeyFrame.Value>
+                							</DiscreteObjectKeyFrame>
+                						</ObjectAnimationUsingKeyFrames>
+                					</Storyboard>
+                				</VisualState>
+                				<VisualState x:Name="MouseOver">
+                					<Storyboard>
+                						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="border">
+                							<DiscreteObjectKeyFrame KeyTime="0">
+                								<DiscreteObjectKeyFrame.Value>
+                									<Visibility>Visible</Visibility>
+                								</DiscreteObjectKeyFrame.Value>
+                							</DiscreteObjectKeyFrame>
+                						</ObjectAnimationUsingKeyFrames>
+                					</Storyboard>
+                				</VisualState>
+                				<VisualState x:Name="Normal"/>
+                				<VisualState x:Name="Disabled"/>
+                			</VisualStateGroup>
+                		</VisualStateManager.VisualStateGroups>
+                		<Border Background="{TemplateBinding Background}"
+                			BorderBrush="{TemplateBinding BorderBrush}"
+                			BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2">
+                			<Grid>
+                                <Border x:Name="border" CornerRadius="2" Background="{StaticResource ControlBackground_02}" Visibility="Collapsed"/>
+                				<Grid Margin="2">
+                            
+							
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="auto"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+
+
+                                        <Image x:Name="image" Visibility="{TemplateBinding ShowImage}" HorizontalAlignment="Center" Stretch="Fill" Width="{TemplateBinding ImageWidth}" Height="{TemplateBinding ImageHeight}" Source="{TemplateBinding Image}" Margin="2,0" >
+
+                                        </Image>
+
+										<ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Content="{TemplateBinding Content}"/>
+									</Grid>
+                            
+                				</Grid>
+                			</Grid>
+                		</Border>
+                        
+                	</Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>

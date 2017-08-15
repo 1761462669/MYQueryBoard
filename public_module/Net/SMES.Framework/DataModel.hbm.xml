@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping auto-import="false" default-lazy="false" xmlns="urn:nhibernate-mapping-2.2" assembly="SMES.Framework" namespace="SMES.Framework">
+  <class name="DataModel" abstract="true">
+    <id name="Id" column="Id" type="Int32">
+      <generator class="hilo">
+        <param name="table">dbo.hibernate_unique_key</param>
+        <param name="column">next_hi</param>
+        <param name="max_lo">100</param>
+      </generator>
+    </id>
+    <property name="Cd" column="Cd" type="String"/>
+    <property name="Name" column="Name" type="String"/>
+    <property name="Ctrl" column="Ctrl" type="String"/>
+    <property name="IsUsed" column="IsUsed" type="Boolean"/>
+   
+  </class>
+
+  <union-subclass name="BaseHierarchyModel" abstract="true"  extends="DataModel">
+
+  </union-subclass>
+
+  <class name="BusinessModel" abstract="true">
+    <id name="Id" type="String" column="Id">
+      <generator class="uuid.hex">
+        <param name="format"></param>
+        <param name="separator"></param>
+      </generator>
+    </id>
+    <property name="Cd" column="Cd" type="String"/>
+    <property name="Name" column="Name" type="String"/>
+    <property name="Ctrl" column="Ctrl" type="String"/>
+    <property name="IsUsed" column="IsUsed" type="Boolean"/>
+
+  </class>
+
+</hibernate-mapping>

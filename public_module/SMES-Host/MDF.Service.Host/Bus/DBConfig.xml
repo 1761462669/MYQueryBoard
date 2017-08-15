@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="MDF.Framework.Db.Imp.Database" type="MDF.Framework.Db.Imp.Database, MDF.Framework">
+    <constructor-arg value="\DB\MESDB.cfg.xml"/>
+  </object>
+  <alias name="MDF.Framework.Db.Imp.Database" alias="MDF.Framework.Db.IDataBase" />
+
+</objects>
+

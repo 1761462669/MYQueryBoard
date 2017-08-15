@@ -1,0 +1,40 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:mdf="clr-namespace:MDF.Custom.ControlSL.Layout">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/MDF.Custom.ControlSL;component/Themes/ColorsBrush.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="mdf:MDF_GroupPanelBorder">
+        <Setter Property="BorderBrush" Value="LightGray"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="BorderThickness" Value="0,0,0,2"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="mdf:MDF_GroupPanelBorder">
+                    <Grid x:Name="grid" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}" Background="{TemplateBinding Background}" Margin="{TemplateBinding Margin}">
+                        <Grid.RenderTransform>
+                            <CompositeTransform/>
+                        </Grid.RenderTransform>
+                        <Grid.Projection>
+                            <PlaneProjection/>
+                        </Grid.Projection>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></ContentPresenter>
+
+                        <Image x:Name="imgLine" Height="1" Stretch="Fill" Grid.Row="1" HorizontalAlignment="Stretch" Source="{StaticResource line_image}"></Image>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

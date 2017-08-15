@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping auto-import = "false"  default-lazy="false" xmlns="urn:nhibernate-mapping-2.2" assembly="SMES.FrameworkAdpt" namespace="SMES.FrameworkAdpt.MaterialChooseControl" schema="pub">
+  <class name="MaterialTypeModelAdpt" table="MaterialType">
+    <id name="Id" column="Id" type="Int32">
+      <generator class="hilo">
+        <param name="table">dbo.hibernate_unique_key</param>
+        <param name="column">next_hi</param>
+        <param name="max_lo">100</param>
+      </generator>
+    </id>
+    <property name="Cd" column="Cd" type="String"/>
+    <property name="Name" column="Name" type="String"/>
+    <property name="Ctrl" column="Ctrl" type="String"/>
+    <property name="IsUsed" column="IsUsed" type="Boolean"/>
+    <property name="Remark" column="Remark" type="String"/>
+    <property name="SequenceNumber" column="SequenceNumber" type="Int32"/>
+    <many-to-one name="Parent" column="parentid" class="SMES.FrameworkAdpt.MaterialChooseControl.MaterialTypeModelAdpt" not-found="ignore"/>
+  </class>
+</hibernate-mapping>

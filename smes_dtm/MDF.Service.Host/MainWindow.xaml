@@ -1,0 +1,121 @@
+﻿<Window x:Class="MDF.Service.Host.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MDF.Service.Host.ViewModel"
+        xmlns:frame="clr-namespace:MDF.Framework.Bus;assembly=MDF.Framework"
+        Title="MDF服务" Height="600" Width="800" Icon="Themas/Icos/host.ico">
+    <Window.Resources>
+        <local:ViewModleMessage x:Name="viewModelMessages" x:Key="ViewModleMessage"/>
+        <local:MessageStateConverter x:Key="MessageStateConverter"/>
+    </Window.Resources>
+    <Grid x:Name="grid">
+        <TabControl>
+            <TabItem Header="服务启动信息" DataContext="{StaticResource ViewModleMessage}" >
+                <StackPanel>
+                    <Border BorderThickness="1">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="重启服务" Width="100" HorizontalAlignment="Left" Click="Button_Click"/>
+                            <!--<Button Content="停止服务" Width="100" Margin="10,0"/>-->
+                        </StackPanel>
+                    </Border>
+                    <GroupBox Header="服务配置进度">
+                        <ListBox ItemsSource="{Binding DataSource}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Seq}" FontSize="20" VerticalAlignment="Center" Foreground="{Binding State, Converter={StaticResource MessageStateConverter}}"/>
+                                        <TextBlock Text="{Binding Message}"  Width="400" Margin="10,0" FontSize="15" VerticalAlignment="Center" Foreground="{Binding State,Converter={StaticResource MessageStateConverter}}"/>
+                                        <TextBlock Text="耗时:"/>
+                                        <TextBlock Text="{Binding ConsumeSeconds}"/>
+                                        <TextBlock Text="秒"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </GroupBox>
+                    <GroupBox Header="服务启动信息">
+                        <Grid>
+                            <Grid.Resources>
+                                <DataTemplate x:Key="listBoxItemTemplate">
+                                    <TextBox Text="{Binding Mode=OneWay}" />
+                                </DataTemplate>
+
+                            </Grid.Resources>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <GroupBox Header="跨域访问服务">
+                                <ListBox ItemsSource="{Binding CrossDomainServiceAdress}"  ItemTemplate="{StaticResource listBoxItemTemplate}"/>
+                            </GroupBox>
+                            <GroupBox Header="业务服务" Grid.Column="1">
+                                <ListBox ItemsSource="{Binding BusinessServiceAdress}" ItemTemplate="{StaticResource listBoxItemTemplate}" >
+
+                                </ListBox>
+                            </GroupBox>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="异常信息">
+                        <TextBox Text="{Binding ExcptionMessage}" Foreground="Red" TextWrapping="Wrap"></TextBox>
+
+                    </GroupBox>
+                </StackPanel>
+
+            </TabItem>
+            <TabItem Header="服务监控信息" Name="tabMonitor">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <GroupBox Header="监控设置">
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsMonitor,Mode=TwoWay}" Content="是否启用服务监控" VerticalAlignment="Center"/>
+                            <TextBlock Text="如果启用服务监控，会降低并发量，请谨慎使用！" Margin="20,0" Foreground="Red" VerticalAlignment="Center"/>
+                            <Button Content="清空监控信息" Margin="10,0" VerticalAlignment="Center" Name="btClearMonitorInfos" Click="btClearMonitorInfos_Click"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <Grid Grid.Row="1">
+                        <DataGrid Name="dataGrid" ItemsSource="{Binding Infos}" AutoGenerateColumns="False" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <DataGrid.Resources>
+                                <local:ColorSucessConverter x:Key="ColorSucessConverter"/>
+                                <Style TargetType="DataGridRow">
+                                    <Setter Property="Background" Value="{Binding IsSuccess,Converter={StaticResource ColorSucessConverter}}"/>
+                                </Style>
+
+                            </DataGrid.Resources>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding UserName}" ClipboardContentBinding="{x:Null}" Header="用户"/>
+                                <DataGridTextColumn Binding="{Binding IpAdress}" ClipboardContentBinding="{x:Null}" Header="Ip地址"/>
+                                <DataGridTextColumn Binding="{Binding ServiceName}" ClipboardContentBinding="{x:Null}" Header="服务名称"/>
+                                <DataGridTextColumn Binding="{Binding MethodName}" ClipboardContentBinding="{x:Null}" Header="调用方法"/>
+                                <DataGridTextColumn Binding="{Binding StartTime, StringFormat=u}" ClipboardContentBinding="{x:Null}" Header="调用开始时间"/>
+                                <DataGridTextColumn Binding="{Binding EndTime,StringFormat=u}" ClipboardContentBinding="{x:Null}" Header="调用结束时间"/>
+                                <DataGridTextColumn Binding="{Binding ConsumeTimes}" ClipboardContentBinding="{x:Null}" Header="耗时(秒)"/>
+                                <DataGridCheckBoxColumn Binding="{Binding IsSuccess}" ClipboardContentBinding="{x:Null}" Header="是否成功"/>
+                                <DataGridTextColumn Binding="{Binding ExceptionMessage}" ClipboardContentBinding="{x:Null}" Header="异常信息"/>
+                                <DataGridTextColumn Binding="{Binding StackTrace}" ClipboardContentBinding="{x:Null}" Header="异常堆栈"/>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="服务异常信息">
+                <ListBox Name="errorListBox"/>
+            </TabItem>
+        </TabControl>
+        <!--<StackPanel>
+            <TextBlock Text="服务启动中....." x:Name="txt"/>
+            <ProgressBar Height="20" Value="20" />
+        </StackPanel>
+        <RichTextBox Name="txtBox" HorizontalAlignment="Left" Height="100" Margin="121,169,0,0" VerticalAlignment="Top" Width="100" >
+            <FlowDocument >
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>-->
+    </Grid>
+</Window>

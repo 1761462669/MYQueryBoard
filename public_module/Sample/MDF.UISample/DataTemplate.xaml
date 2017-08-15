@@ -1,0 +1,46 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Test="http://MDF.Custom.Controls/XAML"   
+    xmlns:Test1="http://MDF.MES.Controls/XAML"
+    xmlns:System="clr-namespace:System;assembly=mscorlib" 
+    xmlns:custom="http://MDF.Custom.Controls/XAML"
+    x:Class="MDF.UISample.DataTemplate"
+    mc:Ignorable="d" d:DesignHeight="400" d:DesignWidth="500">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="custom:LableField" BasedOn="{StaticResource EditLableFieldStyle}"/>
+                <Style TargetType="custom:MDFTextBox" BasedOn="{StaticResource EditMDFTextBoxStyle}"/>                
+                <Style TargetType="custom:MDFRadioButton" BasedOn="{StaticResource EditMDFRadioButtonStyle}"/>
+                
+            </StackPanel.Resources>
+            <custom:LableField Heard="输入框"  Description="描述">
+                <custom:MDFTextBox />
+            </custom:LableField>
+            <custom:LableField Grid.Row="1"  Heard="下拉框" Description="描述" >
+                <custom:MDFComboEditor Height="24"/>
+            </custom:LableField>
+            <custom:LableField Grid.Row="2" Heard="关键字" Description="描述" >
+                <StackPanel Orientation="Horizontal">
+                    <custom:MDFRadioButton Content="A" Width="50" />
+                    <custom:MDFRadioButton Content="B" Width="50"/>
+                </StackPanel>
+            </custom:LableField>
+            <custom:LableField  Grid.Row="3" Heard="关键字" Description="描述" >
+                <custom:MDFTextBox />
+            </custom:LableField>
+            <custom:LableField  Grid.Row="4" Heard="关键字"  Description="描述" >
+                <custom:MDFTextBox  />
+            </custom:LableField>
+            <custom:LableField  Grid.Row="5" Heard="关键字"  Description="描述" >
+                <custom:MDFTextBox />
+            </custom:LableField>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

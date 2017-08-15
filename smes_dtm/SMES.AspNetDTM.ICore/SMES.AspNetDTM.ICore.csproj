@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67E3F46B-BF56-4731-9C51-18421AAEAB5E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMES.AspNetDTM.ICore</RootNamespace>
+    <AssemblyName>SMES.AspNetDTM.ICore</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MDF.Framework">
+      <HintPath>..\..\packages\MDF.Framework.4.0.0.3\lib\net40\MDF.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IDLCJ_NYKB.cs" />
+    <Compile Include="IPCM\ICutStockSrv.cs" />
+    <Compile Include="IPCM\IFL_CutQua.cs" />
+    <Compile Include="IPCM\IFL_JBProduce.cs" />
+    <Compile Include="IPCM\IJBCJ_EquStop.cs" />
+    <Compile Include="IPCM\IJBCJ_JBConsumeKB.cs" />
+    <Compile Include="IPCM\IJBCJ_JBProductKB.cs" />
+    <Compile Include="IPCM\IJBCJ_JBQuaFXKB.cs" />
+    <Compile Include="IPCM\IJBCJ_JBQuaKB.cs" />
+    <Compile Include="IPCM\IJBCJ_JBTotalKB.cs" />
+    <Compile Include="IPCM\IJBConsumption.cs" />
+    <Compile Include="IPCM\IJBProduceEfficiency.cs" />
+    <Compile Include="IPCM\IStockSrv.cs" />
+    <Compile Include="IPCM\ITsStockService.cs" />
+    <Compile Include="IPCM\IZSCJ_ZSProductKB.cs" />
+    <Compile Include="IPCM\IZSProduceEfficiency.cs" />
+    <Compile Include="IPCM\IJBQuaQD.cs" />
+    <Compile Include="IPCM\IZSQuaQD.cs" />
+    <Compile Include="ProduceAncestry\ICutProduceAncestry.cs" />
+    <Compile Include="Pub\IMaterialService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pub\ISqlCommandConfigService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\public_module\Net\SMES.Framework\SMES.Framework.csproj">
+      <Project>{766484cb-3f81-4fa0-9ae4-a19685edd83b}</Project>
+      <Name>SMES.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMES.AspNetDTM.Model\SMES.AspNetDTM.Model.csproj">
+      <Project>{636abf31-385f-4fc9-8966-a6c3aa8fe206}</Project>
+      <Name>SMES.AspNetDTM.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

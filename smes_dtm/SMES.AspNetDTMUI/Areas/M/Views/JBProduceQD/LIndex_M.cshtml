@@ -1,0 +1,173 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    @Scripts.Render("/Content/datepicker");
+    <link href="~/Areas/M/Styles/JBProduceQD.css" rel="stylesheet" />
+}
+
+<div id="main" style="width:100%;height:100%;margin:0px,0px,0px,0px;padding:0px,0px,0px,0px" ng-app="jbapp" ng-controller="jbctl">
+
+    <div class="main-left">
+        <div class="module1 title">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;width:100%;">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            卷包生产
+                        </div>
+                        <div class="col-xs-6">
+                            <div id="ProducteWeek" class="week">@ViewBag.Week</div>
+                            <div id="datetimes" class="date">{{clock}}</div>
+                            <div id="ProducteDate" class="date" style="display: none">@ViewBag.Date</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module2 bg-color-1">
+            <div class="module2-body" style="text-align: center; vertical-align: middle">
+                <div class="row">
+                    <div class="col-xs-4" style="font-size:20px;">
+                        卷接机
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module2 bg-color-2">
+            <div class="module2-body">
+                <div class="row">
+                    <div class="col-xs-4" style="font-size:20px">
+                        包装机
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="module4 bg-color-3">
+            <div class="module2-body">
+                <div class="row">
+                    <div class="col-xs-4" style="font-size:20px">
+                        产量统计
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-content exist-left">
+        <div class="module3 title" style="background-color:#4D4D4D">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;text-align:center;width:100%;">
+                    <div class="row" style="display:none">
+                        <form class="form-horizontal">
+                            <div class="form-group" style="margin:0px 0px 0px 0px;font-size:small;">
+                                <label class="col-xs-2 control-label" style="padding-left:0px;padding-right:0px;">开始日期：</label>
+                                <div class="col-xs-2" style="padding-left:0px;">
+                                    <input id="StartDate" type="text" data-format="yyyy-MM-dd" class="form-control datepicker-here" />
+                                </div>
+
+                                <label class="col-xs-2 control-label" style="padding-left:0px;padding-right:0px;">结束日期：</label>
+                                <div class="col-xs-2" style="padding-left:0px;">
+                                    <input id="EndDate" type="text" data-format="yyyy-MM-dd" class="form-control datepicker-here" />
+                                </div>
+
+                                <div class="col-xs-2" style="padding-left:10px;padding-right:0px;vertical-align:middle">
+                                    <button class="btn" ng-click="QueryData()" style="background-color:#214E85;border-radius:5px;width:80px;">查询</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row" style="text-align: left; font-size: 24px; color: #4595ec; ">
+                        <table>
+                            <tr>
+                                <td>
+                                    本月
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="datatimetip" style="text-align: right; font-size: 12px; color: lightblue;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content1" id="MainContent">
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:25%;" ng-repeat="obj in JJResultList">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text"><b>{{obj.EquModelNm}}</b></div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <form>
+                                <table style="column-width:30px;">
+                                    <tr>
+                                        <th width="30px">&nbsp;&nbsp;</th>
+                                        <th width="100px">前五</th>
+                                        <th width="100px">产量</th>
+                                        <th width="100px">后五</th>
+                                        <th width="100px">产量</th>
+                                    </tr>
+                                    <tr><td>1</td><td>{{obj.StartFirst}}</td><td style="color:orangered">{{obj.StartFirstQTY}}</td><td>{{obj.EndFirst}}</td><td style="color:orangered">{{obj.EndFirstQTY}}</td></tr>
+                                    <tr><td>2</td><td>{{obj.StartSecond}}</td><td style="color:orangered">{{obj.StartSecondQTY}}</td><td>{{obj.EndSecond}}</td><td style="color:orangered">{{obj.EndSecondQTY}}</td></tr>
+                                    <tr><td>3</td><td>{{obj.StartThird}}</td><td style="color:orangered">{{obj.StartThirdQTY}}</td><td>{{obj.EndThird}}</td><td style="color:orangered">{{obj.EndThirdQTY}}</td></tr>
+                                    <tr><td>4</td><td>{{obj.StartFourth}}</td><td style="color:orangered">{{obj.StartFourthQTY}}</td><td>{{obj.EndtFourth}}</td><td style="color:orangered">{{obj.EndtFourthQTY}}</td></tr>
+                                    <tr><td>5</td><td>{{obj.StartFifty}}</td><td style="color:orangered">{{obj.StartFiftyQTY}}</td><td>{{obj.EndFifty}}</td><td style="color:orangered">{{obj.EndFiftyQTY}}</td></tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:25%;" ng-repeat="obj in BZResultList">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text"><b>{{obj.EquModelNm}}</b></div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <form style="vertical-align:middle;">
+                                <table>
+                                    <tr>
+                                        <th width="30px">&nbsp;&nbsp;</th>
+                                        <th width="100px">前五</th>
+                                        <th width="100px">产量</th>
+                                        <th width="100px">后五</th>
+                                        <th width="100px">产量</th>
+                                    </tr>
+                                    <tr><td>1</td><td>{{obj.StartFirst}}</td><td style="color:orangered">{{obj.StartFirstQTY}}</td><td>{{obj.EndFirst}}</td><td style="color:orangered">{{obj.EndFirstQTY}}</td></tr>
+                                    <tr><td>2</td><td>{{obj.StartSecond}}</td><td style="color:orangered">{{obj.StartSecondQTY}}</td><td>{{obj.EndSecond}}</td><td style="color:orangered">{{obj.EndSecondQTY}}</td></tr>
+                                    <tr><td>3</td><td>{{obj.StartThird}}</td><td style="color:orangered">{{obj.StartThirdQTY}}</td><td>{{obj.EndThird}}</td><td style="color:orangered">{{obj.EndThirdQTY}}</td></tr>
+                                    <tr><td>4</td><td>{{obj.StartFourth}}</td><td style="color:orangered">{{obj.StartFourthQTY}}</td><td>{{obj.EndtFourth}}</td><td style="color:orangered">{{obj.EndtFourthQTY}}</td></tr>
+                                    <tr><td>5</td><td>{{obj.StartFifty}}</td><td style="color:orangered">{{obj.StartFiftyQTY}}</td><td>{{obj.EndFifty}}</td><td style="color:orangered">{{obj.EndFiftyQTY}}</td></tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="producerow1">
+            <div class="row" style="margin-left:10px;height:100%;;margin-right:10px">
+                <div id="BrandProgressChart" style="height:100%;width:100%">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/chart");
+    <script src="~/Areas/M/Scripts/QDLSD/JBProduceQD_LM.js"></script>
+}
+

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping default-lazy="false"
+                   auto-import = "false"
+                   xmlns="urn:nhibernate-mapping-2.2" 
+                   assembly="SMES.FrameworkAdpt" 
+                   namespace="SMES.FrameworkAdpt.OrgInfo" 
+                   schema="pub">
+
+  <class name="RelpostpersonModel" table="Relpostperson">
+    <id name="Id" type="String">
+      <column name="Id" not-null="true" length="32" />
+      <generator class="uuid.hex">
+        <param name="format"></param>
+        <param name="separator"></param>
+      </generator>
+    </id>
+    
+    <many-to-one name="PostModel" class="SMES.FrameworkAdpt.OrgInfo.PostModel" not-found="ignore">
+      <column name="PostId" not-null="false" />
+    </many-to-one>
+    
+    <many-to-one name="PersonModel" class="SMES.FrameworkAdpt.OrgInfo.PersonModel" not-found="ignore">
+      <column name="PersonId" not-null="false" />
+    </many-to-one>
+    
+    <property name="SequenceNumber" type="Int32" column="SequenceNumber" not-null="false"  />
+  
+    <property name="Remark" type="String" column ="Remark" not-null="false"  />
+
+    
+  </class>
+</hibernate-mapping>

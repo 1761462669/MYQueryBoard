@@ -1,0 +1,14 @@
+﻿<custom:MDFPopupWindow x:Class="MDF.UISample.ControlStyle.UploadFileDemo.Test"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:custom="http://MDF.Custom.Controls/XAML"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400" Width="400" Height="200">
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <custom:MDFUploadFileControl FileDriKey="File_PublicInfo_Folder" Width="300" Margin="10,0,0,0" HorizontalAlignment="Left"></custom:MDFUploadFileControl>
+
+    </Grid>
+</custom:MDFPopupWindow>

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
+  <!--配置Database-->
+  <session-factory name="NHibernate_MESDB">
+    <!--数据库驱动-->
+    <property name="connection.driver_class">NHibernate.Driver.OracleClientDriver</property>
+    <!--数据库连接字符串-->
+    <property name="connection.connection_string">
+      User ID=system;Password=ABCabc123;Data Source=10.46.157.132/NBSMEST;
+    </property>
+    <!--数据库方言MsSql2008Dialect-->
+    <property name="dialect">NHibernate.Dialect.Oracle10gDialect</property>
+    <!--配置Session上下文，可选项wcf_operation、call、thread_static、web-->
+    <property name="current_session_context_class">wcf_operation</property>
+    <!--配置动态代理-->
+    <property name="connection.release_mode">after_transaction</property>
+    <!--配置是否显示Sql-->
+    <property name="show_sql">true</property>
+    <!--配置实体对象程序集-->
+    <!--<mapping assembly="MDF.Sample"/>-->
+    <mapping assembly="SMES.Framework"/>
+    <mapping assembly="SMES.FrameworkAdpt"/>
+
+
+    <mapping assembly="SMES.Com.CostManagmentCore"/>
+    <mapping assembly="SMES.Com.CostManagmentAdpt"/>
+
+    <mapping assembly="SMES.Com.ProdMatCostCore"/>
+    <mapping assembly="SMES.Com.ProdMatCostAdpt"/>
+
+    <mapping assembly="SMES.Com.FactoryCalendarAdpt"/>
+    <mapping assembly="SMES.Com.FactoryCalendarCore"/>
+
+    <mapping assembly="SMES.Com.DispatchAdpt"/>
+    <mapping assembly="SMES.Com.DispatchCore"/>
+
+
+    <mapping assembly="SMES.Com.FactoryModelAdpt"/>
+    <mapping assembly="SMES.Com.FactoryModelCore"/>
+
+
+    <mapping assembly="SMES.Com.ScheduleAdpt"/>
+    <mapping assembly="SMES.Com.ScheduleCore"/>
+
+    <mapping assembly="SMES.Component.BomAdpt"/>
+    <mapping assembly="SMES.Component.BomCore"/>
+
+    <mapping assembly="SMES.Component.Pack.Aps.DomainModel"/>
+    <mapping assembly="SMES.Component.Pack.Aps.Core"/>
+    <mapping assembly="SMES.Component.Pack.Aps.Adpt"/>
+
+    <mapping assembly="SMES.Portal.Adpt"/>
+    <mapping assembly="SMES.Portal.Core"/>
+
+    <mapping assembly="SMES.Com.PrivilegeAdpt"/>
+    <mapping assembly="SMES.Com.PrivilegeCore"/>
+
+    <mapping assembly="SMES.Com.MaterialCore"/>
+    <mapping assembly="SMES.Com.MaterialSvc"/>
+    <mapping assembly="SMES.Com.MaterialAdpt"/>
+
+    <mapping assembly="SMES.Com.OrganizationCore"/>
+    <mapping assembly="SMES.Com.OrganizationSvc"/>
+
+    <mapping assembly="SMES.Com.EquipmentCore"/>
+    <mapping assembly="SMES.Com.EquipmentSvc"/>
+
+    <mapping assembly="SMES.Com.ProductStandardCore"/>
+    <mapping assembly="SMES.Com.ProductStandardAdpt"/>
+    <mapping assembly="SMES.Com.ProductStandardSvc"/>
+
+    <mapping assembly="SMES.Com.PlanCore"/>
+    <mapping assembly="SMES.Com.PlanAdpt"/>
+
+    <mapping assembly="SMES.Com.Measure.Adpt"/>
+    <mapping assembly="SMES.Com.Measure.Core"/>
+    <mapping assembly="SMES.Com.MeasureSvc"/>
+
+    <mapping assembly="SMES.Com.QualityCore"/>
+    <mapping assembly="SMES.Com.QualitySvc"/>
+    <mapping assembly="SMES.Com.QualityAdpt"/>
+    <mapping assembly="SMES.Com.QualityAdptIfs"/>
+
+    <mapping assembly="SMES.Com.WMS.Core"/>
+    <mapping assembly="SMES.Com.WMS.Svc"/>
+    <mapping assembly="SMES.Com.WMS.Adpt"/>
+    <mapping assembly="SMES.Com.QualityInspection"/>
+    <mapping assembly="SMES.Integration.Interface"/>
+    <mapping assembly="NBMES.ITG"/>
+    <mapping assembly="Proficy.Historian.ClientAccess.API"/>
+
+    <mapping assembly="SMES.Com.AspnetSample.Model"/>
+
+  </session-factory>
+</hibernate-configuration>

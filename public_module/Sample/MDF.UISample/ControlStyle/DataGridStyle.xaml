@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="MDF.UISample.ControlStyle.DataGridStyle"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:custom="http://MDF.Custom.Controls/XAML"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    d:DesignHeight="300" d:DesignWidth="400">
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <custom:MDFGrid Width="300" x:Name="grid" AutoGenerateColumns="False">
+            <custom:MDFGrid.Columns>
+                <sdk:DataGridTextColumn Width="*" Header="ID" Binding="{Binding CD}"></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Width="*" Header="Name" Binding="{Binding CTRL}"></sdk:DataGridTextColumn>
+            </custom:MDFGrid.Columns>
+        </custom:MDFGrid>
+    </Grid>
+</UserControl>

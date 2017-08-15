@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
+  <!--配置Database-->
+  <session-factory name="NHibernate_MESDB">
+    <!--数据库驱动-->
+    <property name="connection.driver_class">NHibernate.Driver.OracleClientDriver</property>
+    <!--数据库连接字符串-->
+    <!--<property name="connection.connection_string">
+      User ID=system;Password=123;Data Source=10.99.200.132/TSMESDB;
+    </property>-->
+    <property name="connection.connection_string">
+      User ID=system;Password=nnmes;Data Source=NNTest;
+    </property>
+    <!--数据库方言MsSql2008Dialect-->
+    <property name="dialect">NHibernate.Dialect.Oracle10gDialect</property>
+    <!--配置Session上下文，可选项wcf_operation、call、thread_static、web-->
+    <property name="current_session_context_class">wcf_operation</property>
+    <!--配置动态代理-->
+    <property name="connection.release_mode">after_transaction</property>
+    <!--配置是否显示Sql-->
+    <property name="show_sql">true</property>
+    <!--配置实体对象程序集-->
+    <!--<mapping assembly="MDF.Sample"/>-->
+    
+    <mapping assembly="SMES.AspNetDTM.Model"/>
+
+  </session-factory>
+</hibernate-configuration>

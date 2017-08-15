@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
+  <session-factory name="NHibernate_MESDB">
+    <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+    <property name="connection.connection_string">
+      Server=.;initial catalog=MESDB;uid=sa;pwd=8888;
+    </property>
+    <property name="dialect">NHibernate.Dialect.MsSql2008Dialect</property>
+    <property name="current_session_context_class">wcf_operation</property>
+    <property name="connection.release_mode">after_transaction</property>
+    <property name="show_sql">true</property>
+    <mapping assembly="MDF.MES.DomainModel"/>
+  </session-factory>
+</hibernate-configuration>

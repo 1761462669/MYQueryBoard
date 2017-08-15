@@ -1,0 +1,158 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"     
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:custom="http://MDF.Custom.Controls/XAML" >
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/SMES.ShareSource;component/MergedDictionaries.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <!--加上左边的收缩三角形按钮-->
+    <Style x:Key="ThreePage_MDFOperatePanelStyle"  TargetType="custom:MDFOperatePanel">
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Padding" Value="2"/>
+        <Setter Property="BorderThickness" Value="0,0,0,0"/>
+        <Setter Property="BorderBrush" Value="DarkGray"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="custom:MDFOperatePanel">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <ContentControl   Padding="0,7,0,0" >
+                                <custom:MDFButton ImageHeight="10" ImageWidth="10" Style="{StaticResource ThreeSide_ToolBar_Button_black_trigon_Style}"/>
+                            </ContentControl>
+                            <ContentPresenter Grid.Column="1" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--用于内容界面（左边菜单 三个部分 上中下 分别对应 Style_1、Style_2、Style_3）-->
+    <Style x:Key="content_MDFOperatePanelStyle_1"  TargetType="custom:MDFOperatePanel">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Height" Value="48"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="custom:MDFOperatePanel">
+                    <Grid Margin="{TemplateBinding Margin}">
+                        <Border BorderThickness="0,2,0,0" Background="{StaticResource BackGround_006}" BorderBrush="{StaticResource Border_001}">
+                            <StackPanel VerticalAlignment="Center" Margin="5,0" Orientation="Horizontal">
+                                <ContentPresenter></ContentPresenter>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="content_MDFOperatePanelStyle_2"  TargetType="custom:MDFOperatePanel">
+        <Setter Property="Margin" Value="0,0,0,0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="160"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="custom:MDFOperatePanel">
+                    <Grid Margin="{TemplateBinding Margin}">
+                        <Border BorderThickness="0,2,0,0" Background="{StaticResource BackGround_006}" BorderBrush="{StaticResource Border_001}">
+                            <StackPanel VerticalAlignment="Center" Margin="5,0" Orientation="Horizontal">
+                                <ContentPresenter></ContentPresenter>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="content_MDFOperatePanelStyle_3"  TargetType="custom:MDFOperatePanel">
+        <Setter Property="Margin" Value="0,0,0,0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="custom:MDFOperatePanel">
+
+                    <Border BorderThickness="0,2,0,0" Background="#FF2e3033" BorderBrush="{StaticResource Border_001}">
+
+                        <ContentPresenter></ContentPresenter>
+
+                    </Border>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--顶部菜单-->
+    <Style x:Key="content_MDFOperatePanelStyle_top"  TargetType="custom:MDFOperatePanel">
+
+        <Setter Property="Margin" Value="18,0,0,0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="custom:MDFOperatePanel">
+                    <Border Margin="0,0,0,1" BorderThickness="0,0,0,1"  BorderBrush="{StaticResource Border_003}">
+                            <Border Margin="0,0,0,1"   BorderThickness="0,0,0,1"  BorderBrush="{StaticResource Border_002}">
+                                <ContentPresenter>
+                                </ContentPresenter>
+                            </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+    <Style x:Key="content_MDFOperatePanelStyle_top_02"  TargetType="custom:MDFOperatePanel">
+
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="custom:MDFOperatePanel">
+                    <Border Margin="0,0,0,1" BorderThickness="0,0,0,1"  BorderBrush="{StaticResource Border_003}">
+                        <Border Margin="0,0,0,1"   BorderThickness="0,0,0,1"  BorderBrush="{StaticResource Border_002}">
+                            <ContentPresenter>
+                            </ContentPresenter>
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+    <!--底部分页-->
+    <Style x:Key="content_MDFOperatePanelStyle_bottom"  TargetType="custom:MDFOperatePanel">
+        <Setter Property="Margin" Value="3"/>
+       
+        <Setter Property="Background" Value="{StaticResource BackGround_010}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="custom:MDFOperatePanel">
+                    <Border Margin="0,0,0,1" Background="{StaticResource BackGround_010}"  >
+                            <ContentPresenter  VerticalAlignment="Center" HorizontalAlignment="Right">
+                            </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+</ResourceDictionary>

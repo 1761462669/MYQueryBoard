@@ -1,0 +1,198 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <link href="~/Areas/M/Styles/JBHaltStatistics.css" rel="stylesheet" />
+    }
+
+<div style="width:100%;height:100%;margin:0px;padding:0px" ng-app="JbHaltStatisApp" ng-controller="JbHaltStatisCtl">
+    <div class="module1 title">
+        <div class="top-left">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;width:100%;">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            卷包停机
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="week">@ViewBag.Week</div>
+                            <div class="date">@ViewBag.Date</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-right">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;width:100%;">
+                    <div class="row">
+                        <div class="pull-right">
+                            <div class="form-group" style="font-size:small;padding-right:40px;">
+                                <div class="col-xs-2" style="height:25px;padding:0px;margin-right:5px;text-align:right;vertical-align:middle;">开始日期</div>
+                                <div class="col-xs-2" style="padding:0px;margin:0px;width:100px">
+                                    <input id="StartDate" type="text" data-format="yyyy-MM-dd" class="form-control datepicker-here" style="width:100px;height:25px;" />
+                                </div>
+
+                                <div class="col-xs-2" style="height:25px;padding:0px;margin-right:5px;text-align:right;vertical-align:middle;">结束日期</div>
+                                <div class="col-xs-2" style="padding:0px;margin:0px;width:100px;">
+                                    <input id="EndDate" type="text" data-format="yyyy-MM-dd" class="form-control datepicker-here" style="width:100px;height:25px;" />
+                                </div>
+
+                                <div class="col-xs-1">
+                                    <button class="btn" ng-click="RefreshData()" style="background-color:#214E85;border-radius:5px;width:60px;height:25px;padding:0px;vertical-align:middle;">查询</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content1">
+        <div id="Scroll1" style="padding-right:10px">
+            <div class="producerow">
+                <div class="col-xs-2" style="background-color:#625562;text-align:center;height:100%;">
+                    <div style="display:table;width:100%;height:100%;">
+                        <div style="display:table-cell;vertical-align:middle;width:100%;">
+                            <div class="item-title" style="color:#45BADD">卷接10分钟以下停机</div>
+                            <div class="item-subtitle">{{Cnt1}}次/{{Duration1}}分钟</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-10" style="height:100%;margin:0px;padding:0px;">
+                        <div class="col-xs-2" style="position:relative;width:20%;height:100%;margin:0px;padding:0px;border-right:1px solid #B3AEB3;" ng-repeat="obj1 in ResultList1">
+                            <div class="group" style="height:100%;padding-top:5px">
+                                <div class="group-title">
+                                    <div class="triangle-bottomright"></div>
+                                    <div class="text">{{obj1.equ}}</div>
+                                </div>
+                                <div style="padding-top:5px;">{{obj1.reason}}</div>
+                                <div style="padding-top:5px;">停机次数 {{obj1.num}}次</div>
+                                <div style="padding-top:5px;">停机时间{{obj1.time}}min</div>
+                             </div>
+                         </div>
+                </div>
+            </div>
+            <div class="producerow">
+                <div class="col-xs-2" style="background-color:#625562;text-align:center;height:100%;">
+                    <div style="display:table;width:100%;height:100%;">
+                        <div style="display:table-cell;vertical-align:middle;width:100%;">
+                            <div class="item-title" style="color:#45BADD">卷接10～30分钟停机</div>
+                            <div class="item-subtitle">{{Cnt2}}次/{{Duration2}}分钟</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-10" style="height:100%;margin:0px;padding:0px;">
+                    <div class="col-xs-2" style="position:relative;width:20%;height:100%;margin:0px;padding:0px;border-right:1px solid #B3AEB3;" ng-repeat="obj2 in ResultList2">
+                        <div class="group" style="height:100%;padding-top:5px">
+                            <div class="group-title">
+                                <div class="triangle-bottomright"></div>
+                                <div class="text">{{obj2.equ}}</div>
+                            </div>
+                            <div style="padding-top:5px;">{{obj2.reason}}</div>
+                            <div style="padding-top:5px;">停机次数 {{obj2.num}}次</div>
+                            <div style="padding-top:5px;">停机时间{{obj2.time}}min</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="producerow">
+                <div class="col-xs-2" style="background-color:#625562;text-align:center;height:100%;">
+                    <div style="display:table;width:100%;height:100%;">
+                        <div style="display:table-cell;vertical-align:middle;width:100%;">
+                            <div class="item-title" style="color:#45BADD">卷接30分钟以上停机</div>
+                            <div class="item-subtitle">{{Cnt3}}次/{{Duration3}}分钟</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-10" style="height:100%;margin:0px;padding:0px;">
+                    <div class="col-xs-2" style="position:relative;width:20%;height:100%;margin:0px;padding:0px;border-right:1px solid #B3AEB3;" ng-repeat="obj3 in ResultList3">
+                        <div class="group" style="height:100%;padding-top:5px">
+                            <div class="group-title">
+                                <div class="triangle-bottomright"></div>
+                                <div class="text">{{obj3.equ}}</div>
+                            </div>
+                            <div style="padding-top:5px;">{{obj3.reason}}</div>
+                            <div style="padding-top:5px;">停机次数 {{obj3.num}}次</div>
+                            <div style="padding-top:5px;">停机时间{{obj3.time}}min</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="producerow">
+                <div class="col-xs-2" style="background-color:#625562;text-align:center;height:100%;">
+                    <div style="display:table;width:100%;height:100%;">
+                        <div style="display:table-cell;vertical-align:middle;width:100%;">
+                            <div class="item-title" style="color:#45BADD">包装10分钟以下停机</div>
+                            <div class="item-subtitle">{{Cnt4}}次/{{Duration4}}分钟</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-10" style="height:100%;margin:0px;padding:0px;">
+                    <div class="col-xs-2" style="position:relative;width:20%;height:100%;margin:0px;padding:0px;border-right:1px solid #B3AEB3;" ng-repeat="obj4 in ResultList4">
+                        <div class="group" style="height:100%;padding-top:5px">
+                            <div class="group-title">
+                                <div class="triangle-bottomright"></div>
+                                <div class="text">{{obj4.equ}}</div>
+                            </div>
+                            <div style="padding-top:5px;">{{obj4.reason}}</div>
+                            <div style="padding-top:5px;">停机次数 {{obj4.num}}次</div>
+                            <div style="padding-top:5px;">停机时间{{obj4.time}}min</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="producerow">
+                <div class="col-xs-2" style="background-color:#625562;text-align:center;height:100%;">
+                    <div style="display:table;width:100%;height:100%;">
+                        <div style="display:table-cell;vertical-align:middle;width:100%;">
+                            <div class="item-title" style="color:#45BADD">包装10～30分钟停机</div>
+                            <div class="item-subtitle">{{Cnt5}}次/{{Duration5}}分钟</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-10" style="height:100%;margin:0px;padding:0px;">
+                    <div class="col-xs-2" style="position:relative;width:20%;height:100%;margin:0px;padding:0px;border-right:1px solid #B3AEB3;" ng-repeat="obj5 in ResultList5">
+                        <div class="group" style="height:100%;padding-top:5px">
+                            <div class="group-title">
+                                <div class="triangle-bottomright"></div>
+                                <div class="text">{{obj5.equ}}</div>
+                            </div>
+                            <div style="padding-top:5px;">{{obj5.reason}}</div>
+                            <div style="padding-top:5px;">停机次数 {{obj5.num}}次</div>
+                            <div style="padding-top:5px;">停机时间{{obj5.time}}min</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="producerow">
+                <div class="col-xs-2" style="background-color:#625562;text-align:center;height:100%;">
+                    <div style="display:table;width:100%;height:100%;">
+                        <div style="display:table-cell;vertical-align:middle;width:100%;">
+                            <div class="item-title" style="color:#45BADD">包装30分钟以上停机</div>
+                            <div class="item-subtitle">{{Cnt6}}次/{{Duration6}}分钟</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-10" style="height:100%;margin:0px;padding:0px;">
+                    <div class="col-xs-2" style="position:relative;width:20%;height:100%;margin:0px;padding:0px;border-right:1px solid #B3AEB3;" ng-repeat="obj6 in ResultList6">
+                        <div class="group" style="height:100%;padding-top:5px">
+                            <div class="group-title">
+                                <div class="triangle-bottomright"></div>
+                                <div class="text">{{obj6.equ}}</div>
+                            </div>
+                            <div style="padding-top:5px;">{{obj6.reason}}</div>
+                            <div style="padding-top:5px;">停机次数 {{obj6.num}}次</div>
+                            <div style="padding-top:5px;">停机时间{{obj6.time}}min</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Areas/M/Scripts/JBHaltStatistics.js"></script>
+    }

@@ -1,0 +1,343 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+
+@section styles{
+    <link href="~/Areas/M/Styles/ZSProduceConsume.css" rel="stylesheet" />
+}
+
+<div class="main-left">
+    <div class="module1 title">
+        <div style="display:table;width:100%;height:100%;">
+            <div style="display:table-cell;vertical-align:middle;width:100%;">
+                <div class="row">
+                    <div class="col-xs-6">
+                        制丝产耗
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="week">@ViewBag.Week</div>
+                        <div class="date">@ViewBag.Date</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="module1 bg-color-1">
+        <div class="module1-title">
+            当天气流线烟丝产出(批)
+        </div>
+        <div class="module1-body">
+            <div class="module1-body-content1">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <span class="font-big">4</span>
+                    </div>
+                    <div class="col-xs-6" style="text-align:right">
+                        <span class="font-big">25%</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        产量缺失:4
+                    </div>
+                    <div class="col-xs-4">
+                        消耗缺失:1
+                    </div>
+                    <div class="col-xs-4">
+                        月产出:4
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="module1 bg-color-2">
+        <div class="module1-title">
+            当天滚筒线烟丝产出(批)
+        </div>
+        <div class="module1-body">
+            <div class="module1-body-content1">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <span class="font-big">4</span>
+                    </div>
+                    <div class="col-xs-6" style="text-align:right">
+                        <span class="font-big">25%</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        产量缺失:4
+                    </div>
+                    <div class="col-xs-4">
+                        消耗缺失:1
+                    </div>
+                    <div class="col-xs-4">
+                        月产出:4
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="module1 bg-color-3">
+        <div class="module1-title">
+            当天梗丝线产出(批)
+        </div>
+        <div class="module1-body">
+            <div class="module1-body-content1">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <span class="font-big">4</span>
+                    </div>
+                    <div class="col-xs-6" style="text-align:right">
+                        <span class="font-big">25%</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        产量缺失:4
+                    </div>
+                    <div class="col-xs-4">
+                        消耗缺失:1
+                    </div>
+                    <div class="col-xs-4">
+                        月产出:4
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="main-content exist-left">
+    <div class="row">
+        <div class="col-xs-9 producecol">
+            <div class="producerow" style="height:75%">
+                <div class="group">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">本月产耗情况</div>
+                    </div>
+                    <div class="groupbody">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                本月已归档(批)
+                                <div class="font-autosize-h1 color-1">12</div>
+                            </div>
+
+                            <div class="col-xs-4">
+
+                            </div>
+
+                            <div class="col-xs-4" style="text-align:right;">
+                                月归档进度
+                                <div class="font-autosize-h2 color-2">80%</div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top:20px">
+                            <div class="col-xs-4">
+                                月产出批
+                                <div class="font-autosize-h2 color-2">12</div>
+                            </div>
+                            <div class="col-xs-4">
+                                待归档批
+                                <div class="font-autosize-h2 color-2">12</div>
+                            </div>
+                            <div class="col-xs-4">
+                                今天归档
+                                <div class="font-autosize-h2 color-2">12 </div>
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top:20px">
+                            <div class="H-Progress-1">
+                                <div style="width:20%;">
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    月归档产量
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    20%
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:20px">
+                            <div class="H-Progress-2">
+                                <div style="width:40%;">
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    今天归档产量
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    40%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+            <div class="producerow">
+                <div class="row" style="margin:5px 0px 0px 0px;height:100%">
+                    <div class="col-xs-4" style="padding:0px;height:100%">
+                        <div class="group" style="height:100%;margin-right:5px;">
+                            <div class="group-title">
+                                <div class="triangle-bottomright"></div>
+                                <div class="text">截止当天气流线烟丝归档</div>
+
+                            </div>
+                            <div id="barchart1" class="groupbody groupbody-ext">
+                                <div class="group-body-table">
+                                    <div>
+                                        <span style="font-size:1.25em;">12</span>/<span style="font-size:.75em;">12</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4" style="padding:0px;height:100%">
+                        <div class="group" style="height:100%;margin:0px 5px;">
+                            <div class="group-title">
+                                <div class="triangle-bottomright"></div>
+                                <div class="text">截止当天滚筒线烟丝归档</div>
+
+                            </div>
+                            <div class="groupbody groupbody-ext">
+                                <div class="group-body-table">
+                                    <div>
+                                        <span style="font-size:1.25em;">12</span>/<span style="font-size:.75em;">2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4" style="padding:0px;height:100%">
+                        <div class="group" style="height:100%;margin-left:5px;">
+                            <div class="group-title">
+                                <div class="triangle-bottomright"></div>
+                                <div class="text">截止当天梗丝线梗丝归档</div>
+
+                            </div>
+                            <div class="groupbody groupbody-ext roundchart">
+                                <div class="group-body-table">
+                                    <div>
+                                        <span style="font-size:1.25em;">12</span>/<span style="font-size:.75em;">2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-xs-3 producecol">
+            <div class="producerow">
+                <div class="group">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">气流线烟丝出丝率</div>
+                    </div>
+                    <div class="groupbody groupbody-ext">
+                        <div class="group-body-table">
+                            <div>
+                                <img src="~/Areas/M/Images/up.png" />80%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producerow">
+                <div class="group">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">滚筒线烟丝出丝率</div>
+                    </div>
+                    <div class="groupbody groupbody-ext">
+                        <div class="group-body-table">
+                            <div>
+                                <img src="~/Areas/M/Images/down.png" />80%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producerow">
+                <div class="group">
+                    <div class="group-title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">梗丝线出丝率</div>
+                    </div>
+                    <div class="groupbody groupbody-ext">
+                        <div class="group-body-table">
+                            <div>
+                                <img src="~/Areas/M/Images/up.png" />80%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producerow">
+                <div class="group">
+                    @*<div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">设备OEE</div>
+                        </div>
+                        <div class="groupbody groupbody-ext">
+                            <div class="group-body-table">
+                                <div>
+                                    <img src="~/Images/up.png" />98%
+                                </div>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section scripts{
+    <script src="~/Areas/M/Scripts/ZSProduceConsume.js"></script>
+
+
+    <script>
+        $(function () {
+            //这个是请求的数据参数
+            var pars = [
+                { Name: ":MatTp", DbType: SqlDbType.Int32, Value: 73555 },
+                { Name: ":Ctrl", DbType: SqlDbType.String, Value: "0641" }
+            ]
+
+            //这里去请求数据
+            SqlCmd.QueryDatasByCd("GetOneBrand", pars, function (data) {
+                debugger;
+            });
+        })
+    </script>
+}

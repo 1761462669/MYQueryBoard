@@ -1,0 +1,510 @@
+﻿body {
+    background-color:#fafafa;
+    font-family:"Microsoft YaHei","Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:12px;
+}
+
+.div-main {
+    background-color:#fff;
+    position:absolute;
+    left:40px;
+    right:40px;
+    top:10px;
+    bottom:10px;
+    border:1px solid #d3d3d3;
+}
+
+.div-content {
+    /*background-color:red;*/
+    /*position:absolute;*/    
+    padding-left:8px;
+    padding-right:8px;
+    margin:0px 2px;   
+    position:relative;
+}
+
+.main-title {      
+    margin:0px 2px;
+    background-color:#fafafa;  
+    padding:0px 8px;
+    height:32px;
+}
+
+.mian-srcoll {
+    margin-top:5px;
+}
+
+.maim-title-sjx {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 20px solid #4595ec;
+    border-bottom: 10px solid transparent;    
+    float:left;
+    margin-top:6px;
+}
+
+.main-title-world {
+    background-color:#4595ec;
+    height:20px;
+    color:#fff;
+    padding:0px 20px;
+    line-height:20px;
+    margin-top:6px;
+    float:left;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #4595ec;
+  border-color: #2e6da4;
+}
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  background-color: #589ce7;
+  border-color: #122b40;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #589ce7;
+  border-color: #204d74;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #589ce7;
+  border-color: #204d74;
+}
+
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+  color: #fff;
+  background-color: #247cdc;
+  border-color: #2c80c6;
+}
+
+.btn {
+    /*border-radius:0px;*/
+}
+
+.heard-table {
+    margin-bottom:0px;    
+}
+
+    .heard-table th {
+        font-weight:normal;
+    }
+
+.heard-table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 1px solid #ddd;
+}
+
+.data-table {
+    margin-bottom:0px;
+}
+
+.pagination {
+    margin-top:10px;
+    margin-bottom:0px;
+}
+
+.modal-content {
+    border-radius:0px;
+}
+.modal-header {
+    background-color:#44b9dc;
+    color:#fff;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.modal-footer {
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+.top-area {
+    padding:5px 0px;
+    /*margin-bottom:10px;*/
+}
+
+    .top-area .form-inline > .form-group {
+        margin-right:10px;
+    }
+    .top-area .form-inline label {
+        font-weight:normal;    
+    }
+
+.btn, .form-control {
+    font-size:12px;
+}
+
+.data-area {
+    /*margin-top:10px;*/
+    /*padding:5px 0px;*/
+    position:relative;
+}
+
+.bottom-area {
+    text-align:right;
+    padding:0px 8px;
+    background-color:#fafafa;
+    margin-left:-6px;
+    margin-right:-6px;
+
+}
+
+.data-area-leftright {
+    
+}
+
+    .data-area-leftright .data-area-left {    
+        position:absolute;
+        top:0px;
+        padding:0px 0px;
+        width:250px;
+        left:0px;
+        /*right:0px;*/
+        bottom:0px;
+        background-color:#d4d5d9;
+    }
+
+    .data-area-leftright .data-area-body {
+        margin-left:258px;
+    }
+
+.white.jconfirm .jconfirm-box .buttons button {
+    border:1px !important;
+}
+
+.help-hint {
+     display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373 !important;
+}
+
+.has-error .help-hint {
+    display:none;
+}
+
+.block-data-item {
+     display: block;
+  padding: 10px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: border .2s ease-in-out;
+       -o-transition: border .2s ease-in-out;
+          transition: border .2s ease-in-out;
+
+          -webkit-transition: background-color .2s ease-in-out;
+       -o-transition: background-color .2s ease-in-out;
+          transition: background-color .2s ease-in-out;
+
+          color:#999;
+}
+
+    .block-data-item:hover {
+        border-color:#4595ec;
+        background-color:#fafafa;
+
+    }
+
+    .block-data-item .block-data-item-title {
+        color: #4595ec;
+        font-size: 16px;
+        text-align: center;
+        padding: 4px 0px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+.btn-disc {
+    border-radius:100%;
+    color:inherit;
+}
+
+.block-data-item-footer {
+    text-align:right;
+}
+
+/*树*/
+
+.tree {
+    margin:0px;
+    padding:5px 0px;
+    /*list-style:none;*/
+}
+
+    .tree li {
+        list-style:none;
+    }
+
+    .tree > li {
+        margin:1px 0px;
+    }
+    .tree a {        
+        display:block;
+        position:relative;
+        padding:5px;
+        margin:1px 4px;
+        color:#666;
+        font-size:16px;
+        outline:none;
+        text-decoration:none;
+    }
+
+.tree-list-style {
+    transition: all linear 0.2s;
+        transform:rotate(0deg);
+    color:#999;
+    margin-right:4px;
+}
+
+.tree-list-style:before {
+  content: "\f04b";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sub-tree {
+    margin:0px;
+    padding:0px;
+    /*list-style:none;*/
+    display:none;    
+}
+
+/*二级树*/
+.sub-tree > li a {
+        padding-left:20px;
+        font-size:14px;       
+    }
+
+/*三级树*/
+    .sub-tree > li > ul > li > a {
+        padding-left:35px;
+    }
+
+    /*四级树*/
+    .sub-tree > li > ul > li > ul>li>a {
+        padding-left:50px;
+    }
+
+    /*五级树*/
+    .sub-tree > li > ul > li > ul>li>ul>li>a {
+        padding-left:65px;
+    }
+
+     /*六级树*/
+    .sub-tree > li > ul > li > ul>li>ul>li>ul>li>a {
+        padding-left:80px;
+    }
+
+     /*七级树*/
+    .sub-tree > li > ul > li > ul>li>ul>li>ul>li>ul>li>a {
+        padding-left:95px;
+    }
+
+    .tree a:hover {
+        background-color:#e5e6e8;
+    }
+
+.tree-open {
+    
+}
+
+    .tree-open>a>.tree-list-style {
+        transition: all linear 0.2s;
+        transform:rotate(90deg);
+        -moz-transform:rotate(90deg);
+        -webkit-transform:rotate(90deg);
+        color:#999;
+    }
+
+    .tree-open > a {
+        /*background-color:#e5e6e8;*/
+    }
+
+    .tree-open > .sub-tree {
+        /*transition: all linear 0.5s;
+        display:block;*/
+    }
+
+.tree-select>a {
+    transition: all linear 0.2s;
+    background-color:#44bbdd;
+    color:#fff;
+}
+
+    .tree-select > a:hover {
+        background-color:#44bbdd;
+    }
+/*树 结束*/
+
+
+
+/*下拉框DropDwon 开始*/
+
+.smes-dropdown {
+    padding-right: 24px;
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+}
+
+.form-inline .smes-dropdown {
+    width: 180px !important;
+}
+
+.smes-dropdown > .smes-dropdown-display {
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow: hidden;
+}
+
+.smes-dropdown > i {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.smes-dropdown-open > i {
+    color: #44bbdd;
+}
+
+.smes-dropdown > .smes-dropdown-items {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    left: 0px;
+    display: none;
+    max-height: 300px;
+    min-height: 100px;
+    z-index:9999;
+}
+
+.smes-dropdown-items ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+    .smes-dropdown-items ul > li {
+        list-style: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        white-space: nowrap;
+        word-break: keep-all;
+    }
+
+        .smes-dropdown-items ul > li:hover {
+            background-color: #75d7f3;
+            color: #fff;
+        }
+
+.smes-dropdown-selected {
+    background-color: #44bbdd;
+    color: #fff;
+}
+
+.smes-dropdown > i:hover {
+    color: #44bbdd;
+}
+/*下拉框 DropDwon 结束*/
+
+/*List View 开始*/
+
+.smes-listview {
+    margin:0px;
+    padding:5px 0px;
+}
+
+.smes-listview > li {
+        margin:1px 0px;
+    }
+    .smes-listview a {        
+        display:block;
+        position:relative;
+        padding:5px;
+        margin:1px 4px;
+        color:#666;
+        font-size:16px;
+        outline:none;
+        text-decoration:none;
+    }
+
+    .smes-listview a:hover {
+        background-color:#e5e6e8;
+    }
+
+    .smes-listview-select>a {
+    transition: all linear 0.2s;
+    background-color:#44bbdd;
+    color:#fff;
+}
+
+    .smes-listview-select > a:hover {
+        background-color:#44bbdd;
+    }
+/*list View 结束*/
+
+
+/*下拉树*/
+
+.smes-dropdowntree {
+    padding-right: 24px;
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+}
+
+.form-inline .smes-dropdowntree {
+    width: 180px !important;
+}
+
+.smes-dropdowntree > .smes-dropdowntree-display {
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow: hidden;
+}
+
+.smes-dropdowntree > i {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.smes-dropdowntree-open > i {
+    color: #44bbdd;
+}
+
+.smes-dropdowntree > .smes-dropdowntree-panels {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    left: 0px;
+    display: none;
+    height:300px;
+    z-index:9999;
+}
+
+
+/* end 下拉树*/

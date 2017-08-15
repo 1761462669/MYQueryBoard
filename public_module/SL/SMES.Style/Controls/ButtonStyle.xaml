@@ -1,0 +1,347 @@
+﻿<ResourceDictionary xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:smes="http://MDF.Custom.Controls/XAML"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/SMES.ShareSource;component/MergedDictionaries.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <!--按钮基础样式-->
+    <Style x:Key="ToolBar_Button_Style" TargetType="smes:MDFButton">
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+
+    <!--***********************操作按钮added by zongyh*******************************************-->
+    <!--内容确认执行-->
+    <Style x:Key="ToolBar_Button_operateSave_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="Width" Value="22"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="ToolTipService.ToolTip" Value="确认执行"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Width="22" Height="22" Source="{StaticResource ToolBar_Button_operateSave}"></Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--内容取消-->
+    <Style x:Key="ToolBar_Button_operateCancel_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="Width" Value="22"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="ToolTipService.ToolTip" Value="取消"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Width="22" Height="22" Source="{StaticResource ToolBar_Button_operateCancel}"></Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--内容取消-->
+    <Style x:Key="ToolBar_Button_operateCopy_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="Width" Value="22"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="ToolTipService.ToolTip" Value="复制"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Width="22" Height="22" Source="{StaticResource ToolBar_Button_operateCopy}"></Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+
+    <!--内容删除图标-->
+    <Style x:Key="ToolBar_Button_operateDel_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="Width" Value="22"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="ToolTipService.ToolTip" Value="删除"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Width="22" Height="22" Source="{StaticResource ToolBar_Button_operateDelete}"></Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--向上箭头-->
+    <Style x:Key="ToolBar_Button_operateUp_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="Width" Value="22"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="ToolTipService.ToolTip" Value="升序" ></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Width="22" Height="22" Source="{StaticResource ToolBar_Button_operateUp}"></Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--向下箭头-->
+    <Style x:Key="ToolBar_Button_operateDown_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="Width" Value="22"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="ToolTipService.ToolTip" Value="降序" ></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Width="22" Height="22" Source="{StaticResource ToolBar_Button_operateDown}"></Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--内容删除图标-->
+    <Style x:Key="ToolBar_Button_operateDelLink_Style"  TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="ToolTipService.ToolTip" Value="删除"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <TextBlock Foreground="{StaticResource Smes_Brush_AssistColorBlueDes1}" VerticalAlignment="Center" Text="删除"></TextBlock>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="ToolBar_Button_operateDelForever_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="Width" Value="22"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="ToolTipService.ToolTip" Value="删除操作，删除后不可恢复"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Width="22" Height="22" Source="{StaticResource img_del}"></Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--内容还原图标-->
+    <Style x:Key="ToolBar_Button_operateReturn_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="Width" Value="22"></Setter>
+        <Setter Property="Height" Value="22"></Setter>
+        <Setter Property="ToolTipService.ToolTip" Value="还原"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Width="22" Height="22" Source="{StaticResource img_undo}"></Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--内容编辑图标-->
+    <Style x:Key="ToolBar_Button_operateEdit_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="ToolTipService.ToolTip" Value="编辑"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Width="22" Height="22" Source="{StaticResource ToolBar_Button_operateEdit}"></Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--下载-->
+    <Style x:Key="ToolBar_Button_operateDownLoad_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="ToolTipService.ToolTip" Value="下载"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Path Data="M1,1 L60,1 L60,60 L1,60 z M31,13 L31,47.014 M30.5,48.514 L13.377,31.391 M30,48.014 L13.877,31.891 M31,48.014 L47.062,31.952" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stretch="Fill" 
+                          Stroke="#FF1578F0" StrokeThickness="2" UseLayoutRounding="False" VerticalAlignment="Top"  Height="20" Width="18"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--上传-->
+    <Style x:Key="ToolBar_Button_operateUpload_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="ToolTipService.ToolTip" Value="上传"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Source="{StaticResource imgUpload}" Width="20" Height="20"></Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--购买-->
+    <Style x:Key="ToolBar_Button_operateBuy_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="ToolTipService.ToolTip" Value="激活"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Path Data="M0.5,0.5 L60.5,0.5 L60.5,60.5 L0.5,60.5 z M31.4374,32.5569 L31.4374,45.4007 C33.0779,45.1976 34.4334,44.4866 35.5037,43.2678 C36.574,42.0491 37.1092,40.5413 37.1092,38.7444 C37.1092,37.2131 36.7303,35.9827 35.9725,35.053 C35.2146,34.1233 33.7029,33.2913 31.4374,32.5569 z M28.953,16.2443 C27.3124,16.4943 26.0195,17.1505 25.0742,18.213 C24.1289,19.2755 23.6562,20.5333 23.6562,21.9865 C23.6562,23.424 24.0586,24.6271 24.8632,25.5959 C25.6679,26.5647 27.0311,27.3381 28.953,27.9163 z M28.953,10.713 L31.4374,10.713 L31.4374,12.7286 C33.8904,12.963 35.8357,13.6818 37.2732,14.8849 C39.1169,16.4162 40.2263,18.5177 40.6013,21.1896 L36.242,21.8458 C35.992,20.1896 35.4725,18.9201 34.6834,18.0372 C33.8943,17.1544 32.8123,16.5724 31.4374,16.2912 L31.4374,28.4553 C33.5623,28.9866 34.9686,29.4006 35.656,29.6975 C36.9686,30.2756 38.0389,30.9788 38.8669,31.8069 C39.695,32.635 40.3317,33.6194 40.777,34.76 C41.2224,35.9006 41.445,37.135 41.445,38.4631 C41.445,41.385 40.5153,43.8226 38.656,45.7757 C36.7967,47.7289 34.3904,48.7757 31.4374,48.9164 L31.4374,53.182 L28.953,53.182 L28.953,48.9632 C26.8437,48.6976 25.1289,48.2249 23.8086,47.5453 C22.4883,46.8656 21.3477,45.7679 20.3868,44.2523 C19.4258,42.7366 18.8672,40.885 18.711,38.6975 L22.9531,37.9006 C23.2812,40.1663 23.8594,41.8303 24.6875,42.8928 C25.8749,44.3928 27.2968,45.2289 28.953,45.4007 L28.953,31.9709 C27.2187,31.6428 25.4453,30.9709 23.6328,29.9553 C22.2891,29.2053 21.2539,28.1663 20.5274,26.8381 C19.8008,25.51 19.4375,24.0021 19.4375,22.3146 C19.4375,19.3146 20.5,16.8849 22.625,15.0255 C24.0468,13.7755 26.1562,13.0099 28.953,12.7286 z" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stretch="Fill" 
+                          Stroke="#FF1578F0" UseLayoutRounding="False" VerticalAlignment="Top" Height="20" Width="18" StrokeThickness="1"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--新增-->
+    <Style x:Key="ToolBar_Button_operateAdd_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="ToolTipService.ToolTip" Value="新增"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Width="22" Height="22" Source="{StaticResource ToolBar_Button_operateAdd}"></Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--查看明细-->
+    <Style x:Key="ToolBar_Button_operateDetail_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="ToolTipService.ToolTip" Value="查看明细"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Width="22" Height="22" Source="{StaticResource ToolBar_Button_operateDetail}"></Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--***********************操作按钮added by zongyh*******************************************-->
+    
+	<Style x:Key="NoBackGroundButtonStyle" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"></Setter>
+		<Setter Property="Padding" Value="0"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Grid x:Name="grid" OpacityMask="#99000000" Background="Transparent">
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="CommonStates">
+								<VisualState x:Name="Pressed">
+									<Storyboard>
+										<ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(UIElement.OpacityMask).(SolidColorBrush.Color)" Storyboard.TargetName="grid"/>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="MouseOver">
+									<Storyboard>
+										<ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(UIElement.OpacityMask).(SolidColorBrush.Color)" Storyboard.TargetName="grid" />
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Normal"/>
+								<VisualState x:Name="Disabled"/>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+						<ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="TaskButtonStyle" TargetType="Button">
+		<Setter Property="Padding" Value="0"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Grid x:Name="grid" Background="Transparent">
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="CommonStates">
+								<VisualState x:Name="Pressed">
+									<Storyboard>
+										<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="MouseOver">
+                                    
+									<Storyboard>
+										<DoubleAnimation Duration="0:0:0.1" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+									</Storyboard>
+                                    
+								</VisualState>
+								<VisualState x:Name="Normal"/>
+								<VisualState x:Name="Disabled"/>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+                        <Border BorderThickness="0,0,2,0" BorderBrush="{StaticResource Border_004}">
+							
+							<Grid>
+								<Rectangle x:Name="rectangle" Fill="{StaticResource BackGround_003}" Opacity="0"/>
+								<ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+							</Grid>
+						</Border>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Foreground" Value="{StaticResource Foreground_001}"/>
+	</Style>
+
+
+    <Style x:Key="MDF_Button_NoImage" TargetType="smes:MDFButton">   
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="smes:MDFButton">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="border">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="border">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Disabled"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border Background="{TemplateBinding Background}"
+                			BorderBrush="{TemplateBinding BorderBrush}"
+                			BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2">
+                            <Grid>
+                                <Border x:Name="border" CornerRadius="2" Visibility="Collapsed"/>
+                                <Grid Margin="4,2">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Content="{TemplateBinding Content}"/>                                    
+                                </Grid>
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToolBar_Button_operateSearchDetail_Style" TargetType="smes:MDFButton" BasedOn="{StaticResource ToolBar_Button_Style}">
+        <Setter Property="ToolTipService.ToolTip" Value="物料详情"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Image Width="20" Height="20" Source="{StaticResource img_control_btnlinedpaper32}"></Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>

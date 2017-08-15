@@ -1,0 +1,42 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:System="clr-namespace:System;assembly=mscorlib" 
+    x:Class="MDF.UISample.ControlStyle.TreeViewStyleDemo"
+    mc:Ignorable="d"
+    d:DesignHeight="500" d:DesignWidth="400">
+    
+	<Grid x:Name="LayoutRoot" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <sdk:TreeView x:Name="tvMenu" Grid.Column="0" HorizontalAlignment="Center">
+            <sdk:TreeViewItem Header="人员与组织机构" IsExpanded="True">
+                <sdk:TreeViewItem Header="员工" Foreground="Black" Tag="EmployeeList"/>
+                <sdk:TreeViewItem Header="账户" Foreground="Black" Tag="AccountList"/>
+                <sdk:TreeViewItem Header="角色（职位）" Foreground="Black" Tag="None" />
+                <sdk:TreeViewItem Header="部门机构" Foreground="Black" Tag="None" />
+                <sdk:TreeViewItem Header="人员与组织机构" IsExpanded="True">
+                    <sdk:TreeViewItem Header="员工" Foreground="Black" Tag="EmployeeList"/>
+                    <sdk:TreeViewItem Header="账户" Foreground="Black" Tag="AccountList"/>
+                    <sdk:TreeViewItem Header="角色（职位）" Foreground="Black" Tag="None" />
+                    <sdk:TreeViewItem Header="部门机构" Foreground="Black" Tag="None" />
+                    <sdk:TreeViewItem Header="组（组合单位）" Foreground="Black" Tag="None" />
+                </sdk:TreeViewItem>
+            </sdk:TreeViewItem>
+            <sdk:TreeViewItem Header="系统功能定义" IsExpanded="True">
+                <sdk:TreeViewItem Header="功能树" Foreground="Black" Tag="None"/>
+                <sdk:TreeViewItem Header="操作类型定义" Foreground="Black" Tag="None"/>
+                <sdk:TreeViewItem Header="功能类型定义" Foreground="Black" Tag="None"/>
+            </sdk:TreeViewItem>
+            <sdk:TreeViewItem Header="权限分配" IsExpanded="True">
+                <sdk:TreeViewItem Header="功能权限分配" Foreground="Black" Tag="None"/>
+                <sdk:TreeViewItem Header="数据权限分配" Foreground="Black" Tag="None"/>
+            </sdk:TreeViewItem>
+        </sdk:TreeView>
+    </Grid>
+</UserControl>

@@ -1,0 +1,68 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="SmesColors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--************************************背景色系笔刷Begin************************************-->
+    <!--主色黑-->
+    <SolidColorBrush x:Key="Smes_Brush_MainBackGroundDeep" Color="{StaticResource Smes_Color_MainBlack}"></SolidColorBrush>
+    <!--背景白-->
+    <SolidColorBrush x:Key="Smes_Brush_MainWhite" Color="{StaticResource Smes_Color_MainWhite}"></SolidColorBrush>
+    <!--底色浅灰-->
+    <SolidColorBrush x:Key="Smes_Brush_BottomLightGrave" Color="{StaticResource Smes_Color_BottomLightGrave}"></SolidColorBrush>
+    <!--底色浅灰+-->
+    <SolidColorBrush x:Key="Smes_Brush_BottomLightGravePlus" Color="{StaticResource Smes_Color_BottomLightGravePlus}"></SolidColorBrush>
+    <!--底色鼠标经过色-->
+    <SolidColorBrush x:Key="Smes_Brush_LightBottomMouseOver" Color="{StaticResource Smes_Color_LightBottomMouseOver}"></SolidColorBrush>
+    <!--底色鼠标选中色-->
+    <SolidColorBrush x:Key="Smes_Brush_LightBottomMouseSelected" Color="{StaticResource Smes_Color_LightBottomMouseOver}"></SolidColorBrush>
+
+    <!--************************************背景色系笔刷Begin************************************-->
+
+
+    <!--************************************边框色系笔刷Begin************************************-->
+    <!--分隔线色（浅）-->
+    <SolidColorBrush x:Key="Smes_Brush_Border" Color="{StaticResource Smes_Color_SplitLineDeep}"></SolidColorBrush>
+
+    <!--************************************边框色系笔刷End************************************-->
+
+
+
+    <!--************************************分割线笔刷Begin************************************-->
+    <!--分隔线色（浅）-->
+    <SolidColorBrush x:Key="Smes_Brush_SplitLineLow" Color="{StaticResource Smes_Color_SplitLineLow}"></SolidColorBrush>
+    <!--分隔线色（深）-->
+    <SolidColorBrush x:Key="Smes_Brush_SplitLineDeep" Color="{StaticResource Smes_Color_SplitLineDeep}"></SolidColorBrush>
+    <!--************************************分割线笔刷End************************************-->
+
+    
+    <!--*********************字体色系Begin**********************-->
+    <!--白色-->
+    <SolidColorBrush x:Key="Smes_Brush_FontWhite" Color="{StaticResource Smes_Color_FontWhite}"></SolidColorBrush>
+    <!--深黑色（背景黑）-->      
+    <SolidColorBrush x:Key="Smes_Brush_FontDeepColor" Color="{StaticResource Smes_Color_FontDeepColor}"></SolidColorBrush>
+    <!--灰色-->                  
+    <SolidColorBrush x:Key="Smes_Brush_FontLowColor" Color="{StaticResource Smes_Color_FontLowColor}"></SolidColorBrush>
+    <!--*********************字体色系End**********************-->
+
+
+
+    <!--************************************辅助色笔刷Begin************************************-->
+    <!--辅助蓝-->
+    <SolidColorBrush x:Key="Smes_Brush_AssistColorBlue" Color="{StaticResource Smes_Color_AssistColorBlue}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Smes_Brush_AssistColorBlueDes1" Color="{StaticResource Smes_Color_AssistColorBlueDes1}"></SolidColorBrush>
+    <SolidColorBrush x:Key="Smes_Brush_AssistColorBlueDes2" Color="{StaticResource Smes_Color_AssistColorBlueDes2}"></SolidColorBrush>
+    <!--前景蓝-->
+    <SolidColorBrush x:Key="Smes_Brush_AssistForgroundColorBlue" Color="{StaticResource Smes_Color_AssistForgroundColorBlue}"></SolidColorBrush>
+
+    <!--辅助绿-->
+    <SolidColorBrush x:Key="Smes_Brush_AssistColorGreen" Color="{StaticResource Smes_Color_AssistColorGreen}"></SolidColorBrush>
+    <!--************************************辅助色笔刷End************************************-->
+
+    <!--交替行背景-->
+    <SolidColorBrush x:Key="Smes_Bursh_AlterBackGround" Color="{StaticResource Smes_Color_LightBottomAlterBackground}"></SolidColorBrush>
+
+</ResourceDictionary>

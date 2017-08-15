@@ -1,0 +1,34 @@
+﻿.mask {
+    background-color:rgba(0,0,0,0.2);
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    left:0px;
+    display:none;
+    z-index:99999;
+}
+
+    .mask > iframe {
+        height:100%;
+        width:100%;
+        border:0px;
+        overflow:hidden;
+        
+    }
+
+.H-Progress {
+    border-radius:4px;
+    height:10px;
+    background-color:#b0b0b0;
+    /*border:1px solid #e5e5e5;*/
+    margin:4px 0px;
+}
+
+    .H-Progress > div {
+        float:left;
+        height:10px;
+        border-radius:4px;
+        background-color:#4595ec;
+    }
+

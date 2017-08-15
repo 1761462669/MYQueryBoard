@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A95C3EF3-C812-4D9E-B52E-C9D3A0A67B55}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MES.Framework</RootNamespace>
+    <AssemblyName>MES.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MDF.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=614540173009332e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\MDF.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="MDF.Service">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\MDF.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="MDF.Service.Client">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\MDF.Service.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Scheduling.Quartz">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Spring.Scheduling.Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exceptions\DuplicationValueException.cs" />
+    <Compile Include="Exceptions\PropertyValueIsNullException.cs" />
+    <Compile Include="IModel\ICapability.cs" />
+    <Compile Include="IModel\IPlan.cs" />
+    <Compile Include="IModel\ISequence.cs" />
+    <Compile Include="IModel\ITimeSegment.cs" />
+    <Compile Include="IModel\Material\IMaterialAttribute.cs" />
+    <Compile Include="IModel\Material\IMaterialAttributeValue.cs" />
+    <Compile Include="IModel\Material\IMaterialDefine.cs" />
+    <Compile Include="IModel\Material\IMaterialTypeDefine.cs" />
+    <Compile Include="IModel\Schedule\IBatch.cs" />
+    <Compile Include="IModel\Schedule\IProductOrder.cs" />
+    <Compile Include="IModel\Schedule\IWorkOrder.cs" />
+    <Compile Include="IService\IHierarchyModelService.cs" />
+    <Compile Include="IService\IBaseModelService.cs" />
+    <Compile Include="IService\Material\IMaterialTypeService.cs" />
+    <Compile Include="Model\BaseModel.cs" />
+    <Compile Include="Model\HierarchyModel.cs" />
+    <Compile Include="IModel\IBaseModel.cs" />
+    <Compile Include="IModel\Organization\IDepartment.cs" />
+    <Compile Include="IModel\Equipment\IEquipment.cs" />
+    <Compile Include="IModel\Equipment\IEquipmentType.cs" />
+    <Compile Include="IModel\IHierarchyModel.cs" />
+    <Compile Include="IModel\Material\IMaterial.cs" />
+    <Compile Include="IModel\Material\IMaterialType.cs" />
+    <Compile Include="IModel\IMeasure.cs" />
+    <Compile Include="IModel\Organization\IPerson.cs" />
+    <Compile Include="IModel\Organization\IPost.cs" />
+    <Compile Include="IModel\IResource.cs" />
+    <Compile Include="Model\Material\MaterialTypeModel.cs" />
+    <Compile Include="Model\Plan.cs" />
+    <Compile Include="Model\TimeSegment.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\BaseModelService.cs" />
+    <Compile Include="Service\HierarchyModelService.cs" />
+    <Compile Include="Service\Material\MaterialTypeService.cs" />
+    <Compile Include="Strategy\CompositeCapability.cs" />
+    <Compile Include="Strategy\ISchedule.cs" />
+    <Compile Include="Strategy\ITimeNeatSchedule.cs" />
+    <Compile Include="Strategy\ResourceCapability.cs" />
+    <Compile Include="Strategy\TimeNeatSchedule.cs" />
+    <Compile Include="Utility\BaseModelHelper.cs" />
+    <Compile Include="Utility\ResponsibilityChain.cs" />
+    <Compile Include="Utility\SequenceHelper.cs" />
+    <Compile Include="Utility\HierarchyModelHelper.cs" />
+    <Compile Include="Utility\TimeSegmentHelper.cs" />
+    <Compile Include="Utility\ValidationHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IModel\Material\设计.cd" />
+    <None Include="IModel\Schedule\设计.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Simulation\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

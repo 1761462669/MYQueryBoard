@@ -1,0 +1,33 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mdf="clr-namespace:MDF.Custom.ControlSL.Layout">
+
+    <Style TargetType="mdf:MDFOperatePanel">
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+        <Setter Property="BorderBrush" Value="LightGray"></Setter>
+        <Setter Property="Background" Value="#FFFBFBFB"></Setter>
+        <Setter Property="Margin" Value="1,3,1,1"></Setter>
+        <Setter Property="Padding" Value="5"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="mdf:MDFOperatePanel">
+                    <Grid Margin="{TemplateBinding Margin}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="1" Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></ContentPresenter>
+                        </Border>
+
+                        <Grid Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding Width,ElementName=grdText}" Height="1" Background="{TemplateBinding Background}">
+
+                        </Grid>
+
+                        <Grid x:Name="grdText" Margin="10,-7,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  >
+                            <TextBlock Text="{TemplateBinding Title}"  FontSize="11" Foreground="{TemplateBinding Foreground}" />
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

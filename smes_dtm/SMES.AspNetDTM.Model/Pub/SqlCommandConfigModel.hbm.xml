@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping auto-import = "false"  default-lazy="false" xmlns="urn:nhibernate-mapping-2.2" assembly="SMES.AspNetDTM.Model" 
+                   namespace="SMES.AspNetDTM.Model.Pub" schema="pub">
+  <class name="SqlCommandConfigModel" table="sqlcommandconfig">
+    <id name="Id" column="Id" type="Int32">
+      <generator class="hilo">
+        <param name="table">dbo.hibernate_unique_key</param>
+        <param name="column">next_hi</param>
+        <param name="max_lo">100</param>
+      </generator>
+    </id>
+    <property name="Code" column="Code" type="String"/>
+    <property name="Script" column="Script" type="String"/>
+    <property name="IsUsed" column="IsUsed" type="Boolean"/>
+    <property name="PageNm" column="PageNm" type="String"/>
+    <property name="StrCon" column="StrCon" type="String"/>
+    <property name="Remark" column="Remark" type="String"/>
+  </class>
+</hibernate-mapping>
+

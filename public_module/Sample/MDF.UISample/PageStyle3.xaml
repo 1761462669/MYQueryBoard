@@ -1,0 +1,144 @@
+﻿<custom:PageBase xmlns:ig="http://schemas.infragistics.com/xaml"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+    xmlns:custom="http://MDF.Custom.Controls/XAML"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns:System="clr-namespace:System;assembly=mscorlib" 
+    x:Class="MDF.UISample.PageStyle3"
+    x:Name="userControl"
+    mc:Ignorable="d"
+    d:DesignHeight="600" d:DesignWidth="1000" >
+
+
+    <Grid  Background="{StaticResource BackGround_005}" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <custom:MDFOperatePanel   Style="{StaticResource content_MDFOperatePanelStyle_1}" Grid.Row="0" >
+                <TextBlock Text="物料类型" Style="{StaticResource TwoSide_upper_left_corner_TextBoxStyle}" />
+            </custom:MDFOperatePanel>
+            <custom:MDFOperatePanel   Style="{StaticResource content_MDFOperatePanelStyle_2}" Grid.Row="1" >
+                <StackPanel Style="{StaticResource leftMeau_ToolBar_Button_Container_left}">
+                    <custom:MDFButton  Style="{StaticResource TwoSide_ToolBar_Button_add_Style}"/>
+                    <custom:MDFButton  Style="{StaticResource TwoSide_ToolBar_Button_edit_Style}"/>
+                    <custom:MDFButton  Style="{StaticResource TwoSide_ToolBar_Button_del_Style}"/>
+                </StackPanel>
+            </custom:MDFOperatePanel>
+
+            <custom:MDFOperatePanel  Style="{StaticResource content_MDFOperatePanelStyle_3}"  Grid.Row="2" >
+
+                <custom:MDFTree Style="{StaticResource Menu_TreeViewStyle}"  >
+                    <custom:MDFTreeItem IsExpanded="True" Header="卷包生产调度"  ItemContainerStyle="{StaticResource Menu_TreeViewItemStyle2}"  >
+                        <custom:MDFTreeItem  IsExpanded="True" Header="卷包生产调度" ItemContainerStyle="{StaticResource Menu_TreeViewItemStyle3}"  >
+                            <custom:MDFTreeItem IsExpanded="True" Header="卷包生产调度" />
+                            <custom:MDFTreeItem IsExpanded="True" Header="卷包生产调度" />
+                            <custom:MDFTreeItem IsExpanded="True" Header="卷包生产调度" />
+                            <custom:MDFTreeItem IsExpanded="True" Header="卷包生产调度" />
+                        </custom:MDFTreeItem>
+                    </custom:MDFTreeItem>
+                </custom:MDFTree>
+
+            </custom:MDFOperatePanel>
+
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid x:Name="LayoutRoot">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <custom:MDFOperatePanel  Style="{StaticResource content_MDFOperatePanelStyle_top}" >
+                    <Grid  >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <custom:MDFSearchTextBox Style="{StaticResource TwoSideMDFSearchTextBoxStyle}" />
+                        </StackPanel>
+
+                        <StackPanel  Grid.Column="1" Style="{StaticResource ToolBar_Button_Container}">
+                            <custom:MDFButton  Style="{StaticResource ToolBar_Button_add_Style}"/>
+                            <custom:MDFButton  Style="{StaticResource ToolBar_Button_edit_Style}"/>
+                            <custom:MDFButton  Style="{StaticResource ToolBar_Button_del_Style}"/>
+                        </StackPanel>
+
+                    </Grid>
+                </custom:MDFOperatePanel>
+
+                <custom:MDFDataPanel  Style="{StaticResource TwoSide_Grid_MDFDataPanel}" Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="50" />
+                        </Grid.RowDefinitions>
+                        <custom:MDFGrid x:Name="testgrid" Style="{StaticResource ResourceKey=TwoSideGrid}" AutoGenerateColumns="False" ItemsSource="{Binding DataSource}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" SelectionMode="Single">
+                            <custom:MDFGrid.Columns>
+                                <sdk:DataGridTemplateColumn>
+
+                                    <sdk:DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="sdk:DataGridColumnHeader" BasedOn="{StaticResource DataGridColumnHeaderStyle1}" >
+                                            <Setter Property="ContentTemplate">
+                                                <Setter.Value>
+                                                    <DataTemplate>
+                                                        <custom:MDFCheckBox Style="{StaticResource Grid_checkAll_CheckBox}" />
+                                                    </DataTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </sdk:DataGridTemplateColumn.HeaderStyle>
+
+                                    <sdk:DataGridTemplateColumn.CellTemplate >
+
+                                        <DataTemplate >
+                                            <custom:MDFCheckBox Style="{StaticResource Grid_check_CheckBox}" IsChecked="{Binding ISCHECKED, Mode=TwoWay}" HorizontalAlignment="Center"/>
+                                        </DataTemplate>
+                                    </sdk:DataGridTemplateColumn.CellTemplate>
+                                </sdk:DataGridTemplateColumn>
+                                <sdk:DataGridTextColumn Header="名称" Width="*" Binding="{Binding NAME}" />
+                                <sdk:DataGridTextColumn Header="CD" Width="*" Binding="{Binding CD}"  />
+                                <sdk:DataGridTextColumn Header="控制码" Width="*" Binding="{Binding CTRL}" />
+                                <sdk:DataGridTemplateColumn Header="启用" Width="*" >
+                                    <sdk:DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <custom:MDFCheckBox Style="{StaticResource Grid_check_CheckBox}" IsChecked="{Binding ISCHECKED, Mode=TwoWay}" HorizontalAlignment="Center"/>
+                                        </DataTemplate>
+                                    </sdk:DataGridTemplateColumn.CellTemplate>
+                                </sdk:DataGridTemplateColumn>
+                                <sdk:DataGridTemplateColumn Header="操作">
+                                    <sdk:DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <custom:MDFButton Style="{StaticResource Grid_Operate_edit_Button}"	CommandParameter="edit" />
+                                                <custom:MDFButton Style="{StaticResource Grid_Operate_del_Button}" CommandParameter="del"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </sdk:DataGridTemplateColumn.CellTemplate>
+                                </sdk:DataGridTemplateColumn>
+                            </custom:MDFGrid.Columns>
+                        </custom:MDFGrid>
+                        <custom:MDFOperatePanel Style="{StaticResource content_MDFOperatePanelStyle_bottom}"  Grid.Row="1" >
+                            <sdk:DataPager Style="{StaticResource DataPager}"  PageSize="10" />
+                        </custom:MDFOperatePanel>
+                    </Grid>
+                </custom:MDFDataPanel>
+
+            </Grid>
+
+            <!--<custom:MDFChildWindow  x:Name="msgwin"/>-->
+
+        </Grid>
+    </Grid>
+</custom:PageBase>

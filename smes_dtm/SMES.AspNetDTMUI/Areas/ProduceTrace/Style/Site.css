@@ -1,0 +1,180 @@
+﻿body {
+    background-color:#2f3034;
+    color:#fafafa;    
+    overflow:hidden;
+}
+
+.content1 {
+    
+    position:absolute;
+    box-shadow:0px -2px 5px 0px rgba(0,0,0,0.1);
+    /*-moz-box-shadow:0px -2px 10px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow:0px -2px 10px 0px rgba(0,0,0,0.1);*/
+    top:30px;
+    bottom:30px;
+    left:20px;
+    right:20px;
+}
+
+.left {
+            background-color: #3e3f44;
+            position: absolute;
+            top: 0px;
+            width: 262px;
+            bottom: 0px;
+            padding: 20px 10px;
+            overflow: hidden;
+        }
+
+        .main {
+            background-color: #3e3f44;
+            position: absolute;
+            top: 0px;
+            left: 272px;
+            bottom: 0px;
+            right: 0px;
+            padding: 20px 0px;
+            overflow: hidden;
+        }
+
+.modal {
+    overflow:hidden;
+    overflow-y:hidden;    
+}
+
+.modal-dialog {
+    /*padding-top:100px;*/
+}
+
+.modal-content {
+    border-radius:0px;
+    -webkit-border-radius:0px;
+    -moz-border-radius:0px;
+    background-color:rgba(255,255,255,0.3);
+}
+
+.modal-header {
+    background-color:#44b9dc;
+    padding:10px 20px;
+    border:0px;
+}
+
+.modal-body {
+    background-color:rgba(255,255,255,0.9);
+    padding:0px;
+    margin:20px;
+    padding:30px 20px;
+    color:#999
+}
+
+@media screen and (min-width: 768px) {
+     .modal-dialog {
+    right: auto;
+    /*left: 50%;*/
+    width: 832px;
+    padding-top: 60px;
+    padding-bottom: 30px;
+  }
+}
+
+.row-margin {
+    margin:0px;
+}
+
+.col-margin {
+    margin:0px -15px;
+    padding:5px;
+}
+
+.col-10-1 {
+    /*display:inline-block;*/
+    float:left;
+    width:10%;
+}
+
+.col-10-2 {
+    float:left;
+    width:20%;
+}
+
+.col-10-3 {
+   float:left;
+    width:30%;
+}
+.col-10-4 {
+    float:left;
+    width:40%;
+}
+
+.col-10-5 {
+    float:left;
+    width:50%;
+}
+
+.col-10-6 {
+    float:left;
+    width:60%;
+}
+
+.col-10-7 {
+    float:left;
+    width:70%;
+}
+
+.col-10-8 {
+    float:left;
+    width:80%;
+}
+
+.col-row {
+    clear:both;
+}
+
+.group {
+    padding: 20px;
+}
+
+    .group > .title {
+        border-bottom: 1px solid #fff;
+        padding: 4px 0px;
+        clear: both;
+        position: relative;
+    }
+
+        .group > .title > .text {
+            margin-left: 30px;
+        }
+
+    .group > .groupbody {
+        padding-top: 10px;
+        font-size:12px;
+    }
+
+
+.number {
+    font-family:"Open Sans";
+}
+
+.mask {
+    background-color:rgba(0,0,0,0.2);
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    left:0px;
+    display:none;
+    z-index:99999;
+}
+
+    .mask > iframe {
+        height:100%;
+        width:100%;
+        border:0px;
+        overflow:hidden;
+        
+    }
+
+.mask > iframe {
+    background-color:#2f3034;
+}
+

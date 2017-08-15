@@ -1,0 +1,47 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:smes="http://MDF.Custom.Controls/XAML"
+    xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="smes:MDFRoundProcess">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="smes:MDFRoundProcess">
+                    <Border 
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Ellipse Fill="{TemplateBinding Background}"/>
+                            <ed:Arc
+                                ArcThickness="{TemplateBinding ArcThickness}" 
+                                StrokeThickness="{TemplateBinding StrokeThickness}"
+                                Stroke="{TemplateBinding Stroke}"  
+                                Fill="{TemplateBinding BackArcFill}"
+                                StartAngle="0" EndAngle="360"
+                                Stretch="None" 
+                                UseLayoutRounding="False">
+                            </ed:Arc>
+                            <ed:Arc x:Name="processArc" 
+                                    RenderTransformOrigin="0.5,0.5"
+                                    ArcThickness="{TemplateBinding ArcThickness}" 
+                                    StrokeThickness="{TemplateBinding StrokeThickness}"
+                                    Stroke="{TemplateBinding Stroke}"
+                                    EndAngle="-90" 
+                                    Fill="{TemplateBinding ArcFill}"   
+                                    Stretch="None" 
+                                    StartAngle="{TemplateBinding StratAngle}" 
+                                    UseLayoutRounding="False" >
+                                <ed:Arc.RenderTransform>
+                                    <CompositeTransform ScaleY="-1"/>
+                                </ed:Arc.RenderTransform>
+                            </ed:Arc>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

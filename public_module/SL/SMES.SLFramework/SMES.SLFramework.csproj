@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{83468CC8-E224-47FF-BDA1-A9C20422E753}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMES.Framework</RootNamespace>
+    <AssemblyName>SMES.SLFramework</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SMES.SLFramework.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="InfragisticsSL5.Controls.Grids.ExcelExporter.v13.2, Version=13.2.20132.2284, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Infragistics.1.0.4\lib\sl50\InfragisticsSL5.Controls.Grids.ExcelExporter.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsSL5.Controls.Grids.XamGrid.v13.2, Version=13.2.20132.2284, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Infragistics.1.0.4\lib\sl50\InfragisticsSL5.Controls.Grids.XamGrid.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsSL5.Documents.Excel.v13.2, Version=13.2.20132.2284, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Infragistics.1.0.4\lib\sl50\InfragisticsSL5.Documents.Excel.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsSL5.v13.2, Version=13.2.20132.2284, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Infragistics.1.0.4\lib\sl50\InfragisticsSL5.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="ISMOT.Silverlight5.Threading.Tasks, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\ISMOT.Silverlight5.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="MDF.SLFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=220b5d5b335317ed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\MDF.SLFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CompilerServices.AsyncTargetingPack.Silverlight5, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.CompilerServices.AsyncTargetingPack.Silverlight5.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Drawing, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Prism, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Interactivity, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.MefExtensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Prism.MefExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.UnityExtensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Prism.UnityExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Silverlight, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Microsoft.Practices.Unity.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit.Internals, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MDF.Framework.4.0.0.3\lib\sl50\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Net\SMES.FrameworkAdpt\CommonPara\Model\CommonParaModel.cs">
+      <Link>Markup\Model\CommonParaModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Net\SMES.FrameworkAdpt\CommonPara\Model\CommonParaTypeModel.cs">
+      <Link>Markup\Model\CommonParaTypeModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Net\SMES.FrameworkAdpt\CommonPara\Service\ICommonParaService.cs">
+      <Link>Markup\Para\ICommonParaService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Net\SMES.Framework\IDataModel.cs">
+      <Link>IDataModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Net\SMES.Framework\LoginModel.cs">
+      <Link>LoginModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Net\SMES.Framework\Util\CommonSampleType.cs">
+      <Link>Util\CommonSampleType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Net\SMES.Framework\Util\CommonTimeType.cs">
+      <Link>Util\CommonTimeType.cs</Link>
+    </Compile>
+    <Compile Include="BaseHierarchyModel.cs" />
+    <Compile Include="BaseValid\OnlyOneValidation.cs" />
+    <Compile Include="Behaviors\DoubleClickBehavior.cs" />
+    <Compile Include="Bridge.cs" />
+    <Compile Include="Command\ExportExcelCommand.cs" />
+    <Compile Include="Command\GoBackCommand.cs" />
+    <Compile Include="Command\GoForwardCommand.cs" />
+    <Compile Include="Command\IQueryDataCollectionCommand.cs" />
+    <Compile Include="Command\NavigationCommand.cs" />
+    <Compile Include="Command\QueryDataCollectionCommand.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="ConfigTools\SmesLog.cs" />
+    <Compile Include="ConfigTools\SLConfig.cs" />
+    <Compile Include="ConfigTools\WebHelp.cs" />
+    <Compile Include="Controls\DataTemplateSelector.cs" />
+    <Compile Include="Controls\DrawPannel.cs" />
+    <Compile Include="Controls\DynamicDataTemplateSelector.cs" />
+    <Compile Include="Controls\FilterDataSource.cs" />
+    <Compile Include="Controls\Graphs\AddEdgeEventArgs.cs" />
+    <Compile Include="Controls\Graphs\DrawLineEventArgs.cs" />
+    <Compile Include="Controls\Graphs\Edge.xaml.cs">
+      <DependentUpon>Edge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Graphs\Graph.xaml.cs">
+      <DependentUpon>Graph.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Graphs\SelectionEdgeArgs.cs" />
+    <Compile Include="Controls\Graphs\SelectionVertexArgs.cs" />
+    <Compile Include="Controls\Graphs\Vertex.xaml.cs">
+      <DependentUpon>Vertex.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IModelWrapper.cs" />
+    <Compile Include="Controls\ItemContainerPanel.cs" />
+    <Compile Include="Controls\ModelState.cs" />
+    <Compile Include="Controls\ModelWrapper.cs" />
+    <Compile Include="Controls\NoWrapperDataTemplateSelector.cs" />
+    <Compile Include="Controls\SmesDataGrid.cs" />
+    <Compile Include="Controls\SmesImageButton.cs" />
+    <Compile Include="Controls\Tree\SmesFlatTreeView.cs" />
+    <Compile Include="Controls\Tree\SmesTreeViewItem.cs" />
+    <Compile Include="Controls\ViewModelRes.cs" />
+    <Compile Include="Converter\ActiveConvert.cs" />
+    <Compile Include="Converter\BtnContentConverter.cs" />
+    <Compile Include="Controls\SmesSelctor.cs" />
+    <Compile Include="Converter\ChooseItemColourConverter.cs" />
+    <Compile Include="Converter\CollectionViewGroupConverter.cs" />
+    <Compile Include="Converter\CustomDataTypeConverter.cs" />
+    <Compile Include="Converter\DecToStringConvert.cs" />
+    <Compile Include="Converter\ModelWrapperConverter.cs" />
+    <Compile Include="Converter\NumToStringConvert.cs" />
+    <Compile Include="Converter\PagedCollectionViewConverter.cs" />
+    <Compile Include="Converter\PYFirstLetterConverter.cs" />
+    <Compile Include="Converter\StringToIntConvert.cs" />
+    <Compile Include="Converter\TrueFalseConvert.cs" />
+    <Compile Include="Controls\SmesListBox.cs" />
+    <Compile Include="Converter\TwoColConverter.cs" />
+    <Compile Include="Converter\ViewStateToVisibleConverter.cs" />
+    <Compile Include="Converter\VisibilityReverseConverter.cs" />
+    <Compile Include="Converter\VisibilityConverter.cs" />
+    <Compile Include="DataModel.cs" />
+    <Compile Include="DBCSEncoding.cs" />
+    <Compile Include="IHierarchyModel.cs" />
+    <Compile Include="Interactivity\VisiblityTrunCommand.cs" />
+    <Compile Include="Interactivity\VisiblityTrunTriggerAction.cs" />
+    <Compile Include="Markup\CommonPara.cs" />
+    <Compile Include="Markup\Para\CommonParaUnity.cs" />
+    <Compile Include="Markup\PortalRegionName.cs" />
+    <Compile Include="ModelViewState.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serializable.cs" />
+    <Compile Include="TextOperation.cs" />
+    <Compile Include="Utility\ControlPositionHelper.cs" />
+    <Compile Include="Utility\ExcelHelper.cs" />
+    <Compile Include="Utility\HtmlHelper.cs" />
+    <Compile Include="Utility\MDFStrogeSpace.cs" />
+    <Compile Include="Utility\RightContextMenuUnity.cs" />
+    <Compile Include="Utility\ValidUnity.cs" />
+    <Compile Include="Utility\VisualTreeHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Maps\big5.bin" />
+    <EmbeddedResource Include="Maps\gb2312.bin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\Graphs\Edge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Graphs\Graph.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Graphs\Vertex.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Style_Base.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Style_DataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="SMES.SLFramework.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SMES.SLFramework.extmap.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

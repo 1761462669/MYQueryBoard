@@ -1,0 +1,85 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+
+    ViewBag.Title = "卷包生产效率";
+}
+
+@section styles{
+    <link href="~/Areas/M/Styles/JBProduceEff.css" rel="stylesheet" />
+}
+
+<div class="left-main">
+
+    <div class="left-title">
+        @ViewBag.Title
+    </div>
+
+
+    <form class="div-where">
+        <div class="form-group">
+            <label for="exampleInputEmail1">开始日期</label>
+            <input type="text" class="form-control datepicker-here" id="txtstartdate">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">结束日期</label>
+            <input type="text" class="form-control datepicker-here" id="txtenddate">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">生产班组</label>
+            <select class="form-control">
+                <option>甲班</option>
+                <option>乙班</option>
+                <option>丙班</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">查询</button>
+    </form>
+
+
+</div>
+
+<div class="right-main">
+    <div class="producerow">
+        <div class="group" style="top:0px;">
+            <div class="group-title">
+                <div class="triangle-bottomright"></div>
+                <div class="text">运行效率</div>
+            </div>
+            <div class="groupbody groupbody-ext" id="chart1">
+               
+            </div>
+        </div>
+    </div>
+
+    <div class="producerow">
+        <div class="group" style="bottom:0px;">
+            <div class="group-title">
+                <div class="triangle-bottomright"></div>
+                <div class="text">台时产能</div>
+            </div>
+            <div class="groupbody groupbody-ext" id="chart2">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/chart")
+    <script src="~/Areas/M/Scripts/JBProduceEff.js"></script>
+    <script>
+        $(function () {
+            data = [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4];
+            createChart($("#chart1"), data, "#58d68d");
+
+            data = [98.9, 88.5, 106.4, 94.2, 89.0, 76.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4];
+            createChart($("#chart2"), data, "#f39c11");
+
+            $("#txtstartdate").val(new Date().Format("yyyy-MM-dd"));
+
+            $("#txtenddate").val(new Date().Format("yyyy-MM-dd"));
+        })
+    </script>
+    }

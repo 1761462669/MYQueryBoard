@@ -1,0 +1,85 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    @Scripts.Render("/Content/datepicker");
+    <link href="~/Areas/M/Styles/JBKtEliminate.css" rel="stylesheet" />
+    }
+
+<div style="width:100%;height:100%;margin:0px;padding:0px" ng-app="jbktApp" ng-controller="jbktCtl">
+    <div class="module1 title">
+        <div class="top-left">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;width:100%;">
+                    <div class="row">
+                        <div class="col-xs-8">
+                            卷包物理检验
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="week">@ViewBag.Week</div>
+                            <div class="date">@ViewBag.Date</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-right">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;width:100%;">
+                    <div class="pull-right">
+                        <div class="form-group" style="font-size:small;padding-right:40px;">
+                            <div class="col-xs-2" style="height:25px;padding:0px;margin-right:5px;text-align:right;vertical-align:middle;">开始日期</div>
+                            <div class="col-xs-2" style="padding:0px;margin:0px;width:100px">
+                                <input id="StartDate" type="text" data-format="yyyy-MM-dd" class="form-control datepicker-here" style="width:100px;height:25px;" />
+                            </div>
+
+                            <div class="col-xs-2" style="height:25px;padding:0px;margin-right:5px;text-align:right;vertical-align:middle;">结束日期</div>
+                            <div class="col-xs-2" style="padding:0px;margin:0px;width:100px;">
+                                <input id="EndDate" type="text" data-format="yyyy-MM-dd" class="form-control datepicker-here" style="width:100px;height:25px;" />
+                            </div>
+
+                            <div class="col-xs-1">
+                                <button class="btn" ng-click="QueryData()" style="background-color:#214E85;border-radius:5px;width:60px;height:25px;padding:0px;vertical-align:middle;">查询</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content1">
+        <div id="Scroll1">
+            <div class="producerow">
+                <div class="col-xs-6" style="width:50%;height:100%;padding:10px 5px 0px 5px;">
+                    <div id="Chart1" style="height:100%;">
+
+                    </div>
+                </div>
+                <div class="col-xs-6" style="width:50%;height:100%;padding:10px 10px 0px 0px;">
+                    <div id="Chart2" style="height:100%;">
+
+                    </div>
+                </div>
+            </div>
+            <div class="producerow">
+                <div class="col-xs-6" style="width:50%;height:100%;padding:10px 5px 0px 5px;">
+                    <div id="Chart3" style="height:100%;">
+
+                    </div>
+                </div>
+                <div class="col-xs-6" style="width:50%;height:100%;padding:10px 10px 0px 0px;">
+                    <div id="Chart4" style="height:100%;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/chart");
+    <script src="~/Areas/M/Scripts/JBKtEliminate.js"></script>
+    }

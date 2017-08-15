@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    
+
+    <link href="~/Areas/M/Styles/Site.css" rel="stylesheet" />
+    <link href="~/Areas/M/Styles/MainStyle.css" rel="stylesheet" />
+    <link href="~/Areas/M/Scripts/showLoading/css/showLoading.css" rel="stylesheet" />
+
+    @RenderSection("styles", required: false)
+
+</head>
+<body>
+    <div class="maindiv">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery", "~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/smesjs")
+    @Scripts.Render("~/bundles/tmpl")
+
+    <script src="~/Areas/M/Scripts/SqlCommand.js"></script>
+    <script src="~/Areas/M/Scripts/showLoading/js/jquery.showLoading.js"></script>
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>

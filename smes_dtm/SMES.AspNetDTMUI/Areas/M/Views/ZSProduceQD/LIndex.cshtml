@@ -1,0 +1,1048 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <link href="~/Areas/M/Styles/ZSProduceQD.css" rel="stylesheet" />
+}
+<div id="main" style="width:100%;height:100%;margin:0px;padding:0px">
+    <div class="main-left">
+        <div class="module1 title">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;width:100%;">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            @ViewBag.Title
+                        </div>
+                        <div class="col-xs-6">
+                            <div id="ProducteWeek" class="week">@ViewBag.Week</div>
+                            <div id="datetimes" class="date"></div>
+                            <div id="ProducteDate" class="date" style="display: none">@ViewBag.Date</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="module2 bg-color-1">
+            <div class="module2-body">
+                <div class="producerow">
+                    <div class="module1-title">
+                        9K线(批)
+                        [
+                        计划:<span id="9kplan">0</span>
+                        完成:<span id="9kfinish">0</span>
+                        待产:<span id="9kunstart">0</span>
+                        ]
+                    </div>
+                    @*<div class="row" style="margin-top:10px">
+                            <div class="col-xs-3" style="font-size:16px;">
+                            </div>
+                            <div class="col-xs-3" style="font-size: 16px;">
+                            </div>
+                            <div class="col-xs-3" style="font-size: 16px;">
+                            </div>
+                        </div>*@
+                    <div class="row" id="schart9k" style="height:80px; width: 72%;">
+                        @*<img src="~/Areas/M/Images/制丝生产.png" width="300" />*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module2 bg-color-2">
+            <div class="module2-body">
+                <div class="producerow">
+                    <div class="module1-title">
+                        5K线(批)
+                        [
+                        计划:<span id="5kplan">0</span>
+                        完成:<span id="5kfinish">0</span>
+                        待产:<span id="5kunstart">0</span>
+                        ]
+                    </div>
+                    @*<div class="row" style="margin-top:10px">
+                            <div class="col-xs-3" style="font-size:16px;">
+                            </div>
+                            <div class="col-xs-3" style="font-size: 16px;">
+                            </div>
+                            <div class="col-xs-3" style="font-size: 16px;">
+                            </div>
+                        </div>*@
+                    <div class="row" id="schart5k" style="height:80px; width: 75%;">
+                        @*<img src="~/Areas/M/Images/制丝生产.png" width="300" />*@
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="module2 bg-color-3">
+            <div class="module2-body">
+                <div class="producerow">
+                    <div class="module1-title">
+                        3K线(批)
+                        [
+                        计划:<span id="3kplan">0</span>
+                        完成:<span id="3kfinish">0</span>
+                        待产:<span id="3kunstart">0</span>
+                        ]
+                    </div>
+                    @*<div class="row" style="margin-top:10px">
+                            <div class="col-xs-3" style="font-size:16px;">
+                            </div>
+                            <div class="col-xs-3" style="font-size: 16px;">
+                            </div>
+                            <div class="col-xs-3" style="font-size: 16px;">
+                            </div>
+                        </div>*@
+                    <div class="row" id="schart3k" style="height:80px; width: 72%;">
+                        @*<img src="~/Areas/M/Images/制丝生产.png" width="300" />*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module2 bg-color-4">
+            <div class="module2-body">
+                <div class="producerow">
+                    <div class="module1-title">
+                        梗丝线(批)
+                        [
+                        计划:<span id="gsxplan">0</span>
+                        完成:<span id="gsxfinish">0</span>
+                        待产:<span id="gsxunstart">0</span>
+                        ]
+                    </div>
+                    <div class="row" id="schartgs" style="height:80px; width: 72%;">
+                        @*<img src="~/Areas/M/Images/制丝生产.png" width="300" />*@
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="header-content exist-left">
+        <div class="module1 title" style="background-color:#4D4D4D;height:100%">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:bottom;text-align:center;width:100%;">
+                    <div class="row text-right" style="font-size:small;display:none">
+                        <ul class=" list-inline list-inline-extents">
+                            <li onclick="refresh('Preday')"><a href="#">前一天</a></li>
+                            <li onclick="refresh('Today')"><a href="#">今天</a></li>
+                            <li onclick="refresh('Nexday')"><a href="#">后一天</a></li>
+                            <li onclick="refresh('Refresh')"><a href="#">刷新</a></li>
+                        </ul>
+                    </div>
+                    <div class="row" style="text-align:left">
+                        <table>
+                            <tr>
+                                <td>
+                                    当日生产烟丝总批次数
+                                </td>
+                                <td width="15%">
+                                    <div id="DayCutNum" class="col-xs-2" style="margin:0px 0px 0px 0px">
+                                        0
+                                    </div>
+                                </td>
+                                <td>
+                                    当月生产烟丝总批次数
+                                </td>
+                                <td>
+                                    <div id="MonthCutNum" class="col-xs-2" style="margin:0px 0px 0px 0px">
+                                        0
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="datatimetip" style="text-align: right; font-size: 12px; color: lightblue;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content exist-left" style="margin-left:18%">
+
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>s
+                            <div class="text">切片-9K</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="9kqpfinished" style="font-size:1.25em;">0</span>/<span id="9kqptotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="9kqpprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="9kqpbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="9kqpwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">叶片加料-9K</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="9kjlfinished" style="font-size:1.25em;">0</span>/<span id="9kjltotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="9kjlprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="9kjlbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="9kjlwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-xs-3" style="padding:0px;height:100%;width:16.6%;">
+                        <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px">
+                            <div class="group-title">
+                                <div class="triangle-bottomright"></div>
+                                <div class="text">切叶丝-9k</div>
+                            </div>
+                            <div style="margin-top:5px">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        当前进度
+                                    </div>
+                                    <div class="col-xs-6 text-right" style="color:orangered">
+                                        <span id="9kqsfinished" style="font-size:1.25em;">0</span>/<span id="9kqstotal" style="font-size:1em;">0</span>
+                                    </div>
+                                </div>
+                                <div class="H-Progress-2">
+                                    <div id="9kqsprogress" style="width:0%;">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:5px">
+                                    <div class="col-xs-6">
+                                        正在生产
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="9kqsbrand" class="col-xs-12" style="color:orange">
+                                        &nbsp;&nbsp;&nbsp;
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="9kqswo" class="col-xs-12" style="color:darkorange">
+                                        &nbsp;&nbsp;&nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">烘叶丝-9k</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="9khsfinished" style="font-size:1.25em;">0</span>/<span id="9khstotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="9khsprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="9khsbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="9khswo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">掺配加香-9K</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="9kcpfinished" style="font-size:1.25em;">0</span>/<span id="9kcptotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="9kcpprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="9kcpbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="9kcpwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">烟丝入库-9K</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="9krkfinished" style="font-size:1.25em;">0</span>/<span id="9krktotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="9krkprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="9krkbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="9krkwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:14.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">真空回潮-5K</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6" style="width:50%">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="5khcfinished" style="font-size:1.25em;">0</span>/<span id="5khctotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="5khcprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="5khcbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="5khcwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 14.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">切片-5K</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="5kqpfinished" style="font-size:1.25em;">0</span>/<span id="5kqptotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="5kqpprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="5kqpbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="5kqpwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 14.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">叶片加料-5K</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="5kjlfinished" style="font-size:1.25em;">0</span>/<span id="5kjltotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="5kjlprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="5kjlbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="5kjlwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-xs-3" style="padding:0px;height:100%;width:12.5%;">
+                        <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                            <div class="group-title">
+                                <div class="triangle-bottomright"></div>
+                                <div class="text">切叶丝-5k</div>
+
+                            </div>
+                            <div style="margin-top:5px">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        当前进度
+                                    </div>
+                                    <div class="col-xs-6 text-right" style="color:orangered">
+                                        <span id="5ksfinished" style="font-size:1.25em;">0</span>/<span id="5kstotal" style="font-size:1em;">0</span>
+                                    </div>
+                                </div>
+                                <div class="H-Progress-2">
+                                    <div id="5ksprogress" style="width:0%;">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:5px">
+                                    <div class="col-xs-6">
+                                        正在生产
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="5ksbrand" class="col-xs-12" style="color:orange">
+                                        &nbsp;&nbsp;&nbsp;
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="5kswo" class="col-xs-12" style="color:darkorange">
+                                        &nbsp;&nbsp;&nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 14.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">烘叶丝-5k</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="5khsfinished" style="font-size:1.25em;">0</span>/<span id="5khstotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="5khsprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="5khsbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="5khswo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 14.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">掺配-5K</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="5kcpfinished" style="font-size:1.25em;">0</span>/<span id="5kcptotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="5kcpprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="5kcpbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="5kcpwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 14.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">加香-5K</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="5kjxfinished" style="font-size:1.25em;">0</span>/<span id="5kjxtotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="5kjxprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="5kjxbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="5kjxwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding:0px;height:100%;width:14.2%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">烟丝入库-5K</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="5krkfinished" style="font-size:1.25em;">0</span>/<span id="5krktotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="5krkprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="5krkbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="5krkwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">切片-3K</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="3kqpfinished" style="font-size:1.25em;">0</span>/<span id="3kqptotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="3kqpprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="3kqpbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="3kqpwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">叶片加料-3K</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="3kjlfinished" style="font-size:1.25em;">0</span>/<span id="3kjltotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="3kjlprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="3kjlbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="3kjlwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">配片预混出柜</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="3kyhfinished" style="font-size:1.25em;">0</span>/<span id="3kyhtotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="3kyhprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="3kyhbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="3kyhwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-xs-3" style="padding:0px;height:100%;width:16.6%;">
+                        <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                            <div class="group-title">
+                                <div class="triangle-bottomright"></div>
+                                <div class="text">切叶丝-3K</div>
+                            </div>
+                            <div style="margin-top:5px">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        当前进度
+                                    </div>
+                                    <div class="col-xs-6 text-right" style="color:orangered">
+                                        <span id="3kqsfinished" style="font-size:1.25em;">0</span>/<span id="3kqstotal" style="font-size:1em;">0</span>
+                                    </div>
+                                </div>
+                                <div class="H-Progress-2">
+                                    <div id="3kqsprogress" style="width:0%;">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:5px">
+                                    <div class="col-xs-6">
+                                        正在生产
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="3kqsbrand" class="col-xs-12" style="color:orange">
+                                        &nbsp;&nbsp;&nbsp;
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="3kqswo" class="col-xs-12" style="color:darkorange">
+                                        &nbsp;&nbsp;&nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">滚筒烘丝</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="3kgtfinished" style="font-size:1.25em;">0</span>/<span id="3kgttotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="3kgtprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="3kgtbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="3kgtwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding: 0px; height: 100%; width: 20%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">气流烘丝</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="3kqlfinished" style="font-size:1.25em;">0</span>/<span id="3kqltotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="3kqlprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="3kqlbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="3kqlwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:33.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">梗预处理</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="gyclfinished" style="font-size:1.25em;">0</span>/<span id="gycltotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="gyclprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="gyclbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="gyclwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding:0px;height:100%;width:33.3%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">切梗</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="qgfinished" style="font-size:1.25em;">0</span>/<span id="qgtotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="qgprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="qgbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="qgwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3" style="padding:0px;height:100%;width:33.4%;">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:2px;">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text">烘梗</div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    当前进度
+                                </div>
+                                <div class="col-xs-6 text-right" style="color:orangered">
+                                    <span id="hgfinished" style="font-size:1.25em;">0</span>/<span id="hgtotal" style="font-size:1em;">0</span>
+                                </div>
+                            </div>
+                            <div class="H-Progress-2">
+                                <div id="hgprogress" style="width:0%;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-xs-6">
+                                    正在生产
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="hgbrand" class="col-xs-12" style="color:orange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="hgwo" class="col-xs-12" style="color:darkorange">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/chart");
+    <script src="~/Areas/M/Scripts/QDLSD/ZSProduceQD_L.js"></script>
+
+}

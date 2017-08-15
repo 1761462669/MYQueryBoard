@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="SMES.Framework.Controls.Graphs.Edge"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+     xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400" Name="page">
+
+    <Grid x:Name="LayoutRoot" MouseEnter="PART_Path_MouseEnter" MouseLeftButtonDown="PART_Path_MouseLeftButtonDown" >
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Normal"/>
+                <VisualState x:Name="Move">
+                    <Storyboard>
+                        <ColorAnimation Duration="0" To="#FF84E820" Storyboard.TargetProperty="(CompositeShape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="lineArrow" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Selected">
+                    <Storyboard>
+                        <ColorAnimation Duration="0" To="#FFDE2C1A" Storyboard.TargetProperty="(CompositeShape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="lineArrow" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <ed:LineArrow x:Name="lineArrow" ToolTipService.ToolTip="{Binding}" 
+                      BorderThickness="5" 
+                      Stroke="Blue" StartArrow="OvalArrow" EndArrow="StealthArrow"
+                      StartCorner="{Binding StartCorner, ElementName=page}"
+                      HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="Black">
+            <ed:LineArrow.Resources>
+                <Style TargetType="ed:LineArrow">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ed:LineArrow">
+                                <Path x:Name="PART_Path" MouseEnter="PART_Path_MouseEnter" MouseLeave="PART_Path_MouseLeave" MouseLeftButtonDown="PART_Path_MouseLeftButtonDown"
+                                      Fill="{TemplateBinding Stroke}" HorizontalAlignment="Stretch" StrokeStartLineCap="{TemplateBinding StrokeStartLineCap}" StrokeDashOffset="{TemplateBinding StrokeDashOffset}" Stretch="Fill" StrokeEndLineCap="{TemplateBinding StrokeEndLineCap}" StrokeDashCap="{TemplateBinding StrokeDashCap}" Stroke="{TemplateBinding Stroke}" StrokeThickness="{TemplateBinding StrokeThickness}" StrokeMiterLimit="{TemplateBinding StrokeMiterLimit}" StrokeLineJoin="{TemplateBinding StrokeLineJoin}" StrokeDashArray="{TemplateBinding StrokeDashArray}" UseLayoutRounding="False" VerticalAlignment="Stretch"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ed:LineArrow.Resources>
+        </ed:LineArrow>
+
+
+
+    </Grid>
+</UserControl>

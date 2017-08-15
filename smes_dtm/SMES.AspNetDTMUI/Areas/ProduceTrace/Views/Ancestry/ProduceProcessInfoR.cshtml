@@ -1,0 +1,772 @@
+﻿@{
+    Layout = "~/Areas/ProduceTrace/Views/Shared/_Layout.cshtml";
+   
+}
+@section styles{
+
+    <link href="~/Areas/ProduceTrace/Style/ProduceProcessInfoR.css" rel="stylesheet" />
+}
+<div class="content1">
+    <div class="left">
+        <button type="button" class="close" aria-label="Close" onclick="if (window.parent.closeframe) { window.parent.closeframe() }"><span aria-hidden="true">&times;</span></button>
+
+        <div id="woinfo">
+
+        </div>
+
+    </div>
+    <div class="main">
+        <div class="col-row clearfix row1">
+            <div class="col-10-2">
+                <div class="group">
+                    <div class="title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">出柜</div>
+                    </div>
+                    <div id="outsoilinfo" class="groupbody">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-10-4">
+                <div class="group">
+                    <div class="title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">投入物料</div>
+                    </div>
+                    <div class="groupbody">
+                        <table class="table table-extent" style="margin-bottom:0px;">
+                            <thead>
+                                <tr>
+                                    <th style="width:33%">
+                                        物料
+                                    </th>
+                                    <th>
+                                        重量(公斤)
+                                    </th>
+                                    <th style="width:33%">
+                                        批次号
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <div>
+                            <div id="scortable">
+                                <table class="table table-hover table-extent">
+                                    <tbody id="workorderconsume"></tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10-2">
+                <div class="group">
+                    <div class="title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">剔除物料</div>
+                    </div>
+                    <div class="groupbody">
+                        <table class="table table-hover table-extent" style="margin-bottom:0px;">
+                            <thead>
+                                <tr>
+                                    <th style="width:50%">
+                                        物料
+                                    </th>
+                                    <th>
+                                        重量(公斤)
+                                    </th>
+
+                                </tr>
+                            </thead>
+                        </table>
+                        <div>
+                            <div id="scortable2">
+                                <table class="table table-hover table-extent">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:50%">
+                                                梗签
+                                            </td>
+                                            <td>
+                                                10
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:50%">
+                                                梗签
+                                            </td>
+                                            <td>
+                                                10
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:50%">
+                                                梗签
+                                            </td>
+                                            <td>
+                                                10
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:50%">
+                                                梗签
+                                            </td>
+                                            <td>
+                                                10
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10-2">
+                <div class="group">
+                    <div class="title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">入柜</div>
+                    </div>
+                    <div id="insoilinfo" class="groupbody">
+                        @*<div style="padding:8px">预混柜1#</div>
+                            <span class="number" style="font-size:36px;margin-right:5px;color:#fff;">13500</span>（公斤）*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row2 clearfix">
+
+            <div class="col-10-8">
+                <div class="group group-extent">
+                    <div class="title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">质量统计信息</div>
+
+                        <div class="rightarea">
+
+                            <i class="icon-angle-left" data-direction="0"></i>
+
+                            <i class="icon-angle-right allow" data-direction="1"></i>
+
+                        </div>
+                    </div>
+                    <div class="groupbody">
+                        <div class="tab-container">
+                            <div>
+                                <div class="chartsum">
+                                    <span id="stdname">标准版本:无</span>
+                                    <span id="batchscore">得分:0</span>
+                                    <span id="batchproductscore">同牌号平均得分:0</span>
+                                    <span id="batchallproductscore">全部牌号平均得分:0</span>
+                                </div>
+
+                                <div id="chart1" class="chart">
+
+                                </div>
+                            </div>
+                            <div>
+                                <table class="table table-extent" style="margin-bottom:0px;">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                参数
+                                            </th>
+                                            <th style="width:12%">
+                                                设定值
+                                            </th>
+                                            <th style="width:12%">
+                                                上限
+                                            </th>
+                                            <th style="width:12%">
+                                                下限
+                                            </th>
+                                            <th style="width:12%">
+                                                平均值
+                                            </th>
+                                            <th style="width:12%">
+                                                标差
+                                            </th>
+                                            <th style="width:12%">
+                                                CPK
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div>
+                                    <div id="zljylist">
+                                        <table class="table table-hover table-extent">
+                                            <tbody id="workorderlist">
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        CPK
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        参数
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        设定值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        上限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        下限
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        平均值
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        标差
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        20
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-10-2">
+                <div class="group">
+                    <div class="title">
+                        <div class="triangle-bottomright"></div>
+                        <div class="text">关键指标</div>
+                    </div>
+                    <div id="keyinfo" class="groupbody">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section scripts{
+  @Scripts.Render("~/bundles/chart")
+
+    <script src="~/Areas/ProduceTrace/Js/ProduceProcessInfoR.js"></script>
+    <script id="woinfotmpl" type="text/x-jquery-tmpl">
+        <h2>${PROCESSUNITNAME}</h2>
+        <div style="margin-top:20px">
+            <div class="samll-font">批次号：</div>
+            <h4>${BATCHCODE}</h4>
+
+            <div class="samll-font">工单号：</div>
+            <h4>${PLANCODE}</h4>
+
+            <div class="samll-font">牌号：</div>
+            <h4>${MATERIALNAME}</h4>
+        </div>
+
+        <div style="margin-top:50px">
+            <div class="samll-font">开始时间：${REALSTARTTIME}</div>
+            <div class="samll-font">结束时间：${REALENDTIME}</div>
+        </div>
+
+        <div style="margin-top:50px">
+            <div class="samll-font">投入量（公斤）</div>
+            <h1 class="number">${INPUTQTY}</h1>
+        </div>
+
+        <div style="margin-top:20px">
+            <div class="samll-font">产出量（公斤）</div>
+            <h1 class="number">${QUANTITY}</h1>
+        </div>
+    </script>
+
+    <script id="soilinfotmpl" type="text/x-jquery-tmpl">
+        @*<div>
+                <div style="padding:8px 0px;">${TARGETLOCATIONNAME}</div>
+                <span class="number" style="color:#fff;">${QUANTITY}</span>
+            </div>*@
+        <div style="padding:8px 0px;">
+            <div class="pull-left">${TARGETLOCATIONNAME}</div>
+            <div class="pull-right">${QUANTITY}</div>
+        </div>
+    </script>
+
+    <script id="workorderconsumetmpl" type="text/x-jquery-tmpl">
+        <tr>
+            <td style="width:33%">
+                ${MATERIALNAME}
+            </td>
+            <td>
+                ${QUANTITY}
+            </td>
+            <td style="width:33%">
+                ${CODENUM}
+            </td>
+        </tr>
+
+    </script>
+
+    <script id="keyparamtmpl" type="text/x-jquery-tmpl">
+        {{if DISPLAYTYPE == "roundprocess"}}
+
+        <div style="padding:8px 0px;">
+            <div class="pull-left" style="line-height:68px;">${$item.getIndex()} ${SHORTNAME}</div>
+            <div class="pull-right">
+                <div style="height:68px;width:68px;background-color:#45464a;border-radius:100%;padding:5px">
+
+                    <div class="roundchart" data-value="${VALUE}">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div style="padding:8px 0px;">
+            <div class="pull-left">${$item.getIndex()} ${SHORTNAME}</div>
+            <div class="pull-right">${VALUE}${UNIT}</div>
+        </div>
+        {{/if}}
+    </script>
+}

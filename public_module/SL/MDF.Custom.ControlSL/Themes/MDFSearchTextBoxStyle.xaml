@@ -1,0 +1,77 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:mdf="http://MDF.Custom.Controls/XAML"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/SMES.Style;component/Themes/SmesBrush.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="mdf:MDFSearchTextBox">
+        <Setter Property="Background" Value="{StaticResource Smes_Brush_BottomLightGravePlus}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="mdf:MDFSearchTextBox">
+                    <Border >
+                        <Grid >
+                            <Border >
+                                <Grid >
+                                    <Grid.Resources>
+                                        <Style TargetType="mdf:MDFButton">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="mdf:MDFButton">
+                                                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" OpacityMask="#CCFFFFFF">
+                                                            <VisualStateManager.VisualStateGroups>
+                                                                <VisualStateGroup x:Name="CommonStates">
+                                                                    <VisualState x:Name="Pressed">
+                                                                        <Storyboard>
+                                                                            
+                                                                            <ColorAnimation Duration="0" To="White" Storyboard.TargetProperty="(UIElement.OpacityMask).(SolidColorBrush.Color)" Storyboard.TargetName="border" />
+                                                                        </Storyboard>
+                                                                    </VisualState>
+                                                                    <VisualState x:Name="MouseOver">
+                                                                        <Storyboard>
+                                                                            <ColorAnimation Duration="0" To="White" Storyboard.TargetProperty="(UIElement.OpacityMask).(SolidColorBrush.Color)" Storyboard.TargetName="border"/>
+                                                                        </Storyboard>
+                                                                    </VisualState>
+                                                                    <VisualState x:Name="Normal"/>
+                                                                    <VisualState x:Name="Disabled"/>
+                                                                </VisualStateGroup>
+                                                            </VisualStateManager.VisualStateGroups>
+                                                            <Grid Background="Transparent">
+                                                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"	Margin="{TemplateBinding Padding}"/>
+                                                            </Grid>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                            <Setter Property="Background" Value="#FFC9C9C9"/>
+                                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                        </Style>
+                                    </Grid.Resources>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Rectangle RadiusX="5" RadiusY="5" Grid.ColumnSpan="2" Fill="{TemplateBinding Background}"/>
+                                    <ScrollViewer x:Name="ContentElement" BorderThickness="0" IsTabStop="False" Padding="{TemplateBinding Padding}" VerticalAlignment="Center" Margin="2,0"/>
+                                    <mdf:MDFButton x:Name="bnt" Grid.Column="1" Width="18" Height="24" Background="{x:Null}">
+                                        <Path Margin="2" Data="M13,3.9999998 C8.0294369,4 3.9999998,8.0294371 3.9999998,13 3.9999998,17.970562 8.0294369,22 13,22 17.970562,22 22,17.970562 22,13 22,8.0294371 17.970562,4 13,3.9999998 z M13,0 C20.179701,0 26,5.8202982 26,13 26,18.384775 22.726082,23.004889 18.060186,24.978395 L16.574886,25.439459 16.411598,24.444019 C15.918222,23.008358 14.763194,22.000999 13.417,22.000999 12.070805,22.000999 10.915777,23.008358 10.4224,24.444019 L10.218703,25.685802 7.9398129,24.978395 C3.2739175,23.004889 -1.9261937E-07,18.384775 1.4210855E-14,13 -1.9261937E-07,5.8202982 5.820298,0 13,0 z M13.417,22.000999 C14.763194,22.000999 15.918222,23.008358 16.411598,24.444019 L16.574886,25.439459 15.619953,25.735886 C14.773684,25.909058 13.897463,26 13,26 12.102537,26 11.226315,25.909058 10.380047,25.735886 L10.218703,25.685802 10.4224,24.444019 C10.915777,23.008358 12.070805,22.000999 13.417,22.000999 z M16.574886,25.439459 L16.667,26.000999 16.667,33.834 C16.667,36.04314 15.211925,37.834 13.417,37.834 11.622074,37.834 10.167,36.04314 10.167,33.834 L10.167,26.000999 10.218703,25.685802 10.380047,25.735886 C11.226315,25.909058 12.102537,26 13,26 13.897463,26 14.773684,25.909058 15.619953,25.735886 z" Fill="#FFaba49a" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                                            <Path.RenderTransform>
+                                                <CompositeTransform Rotation="-57"/>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                    </mdf:MDFButton>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--<Style TargetType="mdf:MDFSearchTextBox" BasedOn="{StaticResource style_MDFSearchTextBox}"/>-->
+
+</ResourceDictionary>

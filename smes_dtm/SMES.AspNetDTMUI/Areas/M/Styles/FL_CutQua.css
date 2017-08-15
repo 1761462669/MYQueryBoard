@@ -1,0 +1,370 @@
+﻿.main-left {
+    width: 25%; /*所有左侧的宽度*/
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    /*background-color:green;*/
+}
+.left-left {
+    width: 95%; 
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    /*background-color:green;*/
+}
+
+.module1 {
+    height: 10%; /*左侧侧标题的高度*/
+    background-color: #4595ec;
+    padding: 10px 10px;
+    position: relative;
+    overflow: hidden;
+    text-align:center;
+}
+.left {
+    height: 10%; /*左侧侧标题的高度*/
+    
+    background-color: #4595ec;
+    padding: 10px 10px;
+    position: relative;
+    overflow: hidden;
+    text-align:center;
+    
+}
+
+.header-content {
+    height: 10%; /*右侧标题的高度*/
+}
+
+    .header-content.exist-left {
+        margin-left: 25%; /*右侧标题的距离左侧*/
+    }
+
+.typeatcive > a {
+    color: #448dca !important;
+}
+
+.module2 {
+    height: 45%;/*左侧非标题的高度*/
+    width: 20%;/*左侧非标题的宽度*/
+    background-color: #4595ec;
+    padding: 0px 0px;
+    position: relative;
+}
+.row1 {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.module2-body {
+    position: relative;
+    left: 30%;
+    overflow: hidden;
+    top:20%;
+}.module2-title {
+    margin-left: -10px;
+    margin-right: -12px;
+    margin-top: -10px;
+    background-color: rgba(0,0,0,0.4);
+    height: 32px;
+    line-height: 32px;
+    color: #fff;
+    padding: 0px 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.module1 .row {
+    margin: 0px;
+}
+
+    .module1 .row > div {
+        padding: 0px;
+    }
+
+.module1-title {
+    background-color: rgba(0,0,0,0.4);
+    height: 250px; /*左侧非标题中  字的高度*/
+    line-height: 200px; /*左侧非标题中  字线的高度*/
+    font-size: 30px;
+    color: #fff;
+    padding: 0px 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.module1-body {
+    position: absolute;
+    top: 42px;
+    left: 20px;
+    right: 20px;
+    bottom: 10px;
+    overflow: hidden;
+}
+
+
+.module1-body-content1 {
+    height: 64px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin-top: -32px;
+    /*background-color:#000;*/
+}
+
+    .module1-body-content1 .font-big {
+        font-size: 32px;
+    }
+
+.title {
+    font-size: 36px;
+}
+
+    .title .week {
+        color: #efefef;
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .title .date {
+        color: #efefef;
+        font-size: 14px;
+        text-align: center;
+    }
+
+
+@media(max-width: 1366px) {
+    .title {
+        font-size: 24px;
+    }
+
+        .title .week {
+            font-size: 28px;
+        }
+
+        .title .date {
+            font-size: 12px;
+        }
+}
+
+
+.list-inline-extents {
+    margin-bottom: 0px;
+}
+
+    .list-inline-extents > li {
+        margin: 0px;
+        padding: 0px;
+    }
+
+        .list-inline-extents > li > a {
+            color: #fff;
+            padding: 0px 10px;
+            text-decoration: none;
+            outline: none;
+        }
+
+            .list-inline-extents > li > a:hover {
+                color: #448dca;
+            }
+
+        .list-inline-extents > li:before {
+            content: "/";
+        }
+
+        .list-inline-extents > li:first-child:before {
+            content: "";
+        }
+
+.bg-color-0 {
+    background-color: #3e3f44;
+    border: 1px solid lightblue;
+    align-content: center;
+}
+
+.bg-color-2 {
+    background-color: #ffb118;
+}
+
+.bg-color-3 {
+    background-color: #f76532;
+}
+
+.bg-color-4 {
+    background-color: #09cc52;
+}
+
+
+.main-content > .row {
+    height: 100%;
+    margin: 0px;
+    margin-left: 10px;
+    margin-top:16%;
+}
+
+    .main-content > .row > div {
+        height: 100%;
+        padding: 0px;
+    }
+
+        .main-content > .row > div:first-child {
+            padding-right: 5px;
+        }
+
+        .main-content > .row > div:last-child {
+            padding-left: 5px;
+        }
+
+.group {
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+    background-color: #3e3f44;
+    padding: 2px;
+}
+
+    .group > .groupbody {
+        color: #999;
+        font-size: 14px;
+    }
+
+    .group > .group-title {
+        border-bottom: 1px solid #4a4a4a;
+        color: #999;
+    }
+
+        .group > .group-title > .rightarea {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            font-size: 18px;
+        }
+
+            .group > .group-title > .rightarea > i {
+                padding: 4px 8px;
+                cursor: pointer;
+                color: #999;
+            }
+
+            .group > .group-title > .rightarea > .allow {
+                color: #44b9dc;
+            }
+
+
+    .group div {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /*color:#fff;*/
+    }
+
+.triangle-bottomright {
+    width: 0;
+    height: 0;
+    border-bottom: 12px solid #999;
+    border-left: 12px solid transparent;
+    position: absolute;
+    top: 7px;
+    left: 0px;
+}
+
+.producerow {
+    position: relative;   
+    height: 45%; /*producerow  的高度*/
+    
+}
+
+    .producerow > .group {
+        position: absolute;
+        top: 5px;
+        width: 100%;
+        bottom: 5px;
+    }
+
+.producecol > .producerow:first-child > div {
+    top: 0px;
+}
+
+.producecol > .producerow:last-child > div {
+    bottom: 0px;
+}
+
+.font-autosize-h1 {
+    font-size: 48px;
+}
+
+.font-autosize-h2 {
+    font-size: 36px;
+}
+
+.color-1 {
+    color: #4595ec;
+}
+
+.color-2 {
+    color: #fafafa;
+}
+
+.groupbody-ext {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    top: 50px;
+}
+
+.group-body-table {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+    .group-body-table > div {
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 36px;
+        color: #fafafa;
+        padding-left: 10px;
+    }
+
+        .group-body-table > div > img {
+            margin-right: 10px;
+        }
+
+
+.H-Progress-1 {
+    border-radius: 0px;
+    height: 28px;
+    background-color: #2f3034;
+}
+
+    .H-Progress-1 > div {
+        float: left;
+        height: 28px;
+        background-color: #ff6633;
+        line-height: 28px;
+        font-size: 12px;
+        overflow: hidden;
+        text-align: right;
+    }
+
+.H-Progress-2 {
+    border-radius: 0px;
+    height: 14px;
+    background-color: #2f3034;
+}
+
+    .H-Progress-2 > div {
+        float: left;
+        height: 14px;
+        background-color: #4595ec;
+        line-height: 28px;
+        font-size: 12px;
+        overflow: hidden;
+        text-align: right;
+    }

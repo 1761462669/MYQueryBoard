@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping auto-import = "false"  default-lazy="false" xmlns="urn:nhibernate-mapping-2.2" 
+                   assembly="SMES.FrameworkAdpt" 
+                   namespace="SMES.FrameworkAdpt.CommonPara.Model" schema="pub">
+  <class name="CommonParaModel" table="COMMONPARA">
+    <id name="Id" column="Id" type="Int32">
+      <generator class="hilo">
+        <param name="table">dbo.hibernate_unique_key</param>
+        <param name="column">next_hi</param>
+        <param name="max_lo">100</param>
+      </generator>
+    </id>
+    <property name="Name" column="NAME" type="String"/>
+    <property name="KeyCode" column="KEYCODE" type="String"/>
+    <property name="ParaValue" column="PARAVALUE" type="String"/>
+    <property name="SrcTableName" column="SRCTABLENAME" type="String"/>
+    <property name="SrcFieldName" column="SRCFIELDNAME" type="String"/>
+    <property name="CreateTime" column="CreateTime" type="DateTime"/>
+    <many-to-one name="ParaType" column="paratypeid" class="SMES.FrameworkAdpt.CommonPara.Model.CommonParaTypeModel" not-found="ignore"/>
+  </class>
+</hibernate-mapping>

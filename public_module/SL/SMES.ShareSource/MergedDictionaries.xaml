@@ -1,0 +1,12 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/SMES.ShareSource;component/ColorShare.xaml"/>
+        <ResourceDictionary Source="/SMES.ShareSource;component/ImagesResource.xaml"/>
+        <ResourceDictionary Source="/SMES.ShareSource;component/PathResource.xaml"/>
+        <ResourceDictionary Source="/SMES.ShareSource;component/ShareBrush.xaml"/>
+        <ResourceDictionary Source="/SMES.ShareSource;component/MenuImgResource.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

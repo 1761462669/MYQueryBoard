@@ -1,0 +1,221 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <link href="~/Areas/M/Styles/CutStock.css" rel="stylesheet" />
+}
+
+
+<div class="content-left">
+    <div class="queryarea">
+        @*<form>*@
+        <div class="form-group">
+            <label for="txtkey" class="sr-only">Name</label>
+            <input type="text" class="form-control" id="txtkey" placeholder="牌号名称/CD">
+        </div>
+        <button id="btnquery" type="button" class="btn btn-primary querybtn btn-block">查询</button>
+        @*</form>*@
+    </div>
+
+    <div class="productarea">
+        <ul id="productlist"></ul>
+    </div>
+</div>
+
+<div class="content-right">
+    <div id="scoll2">
+        <div class="container-fluid">
+            <div id="batchlist" class="row">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">锁定信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row dialogquery-area">
+
+                    <div class="dialogquery-area-where">
+                        <div style="float:left">库存状态:</div>
+                        <ul id="kcstate" class="list-inline">
+                            @*<li><a href="#" class="productactive">全部</a></li>
+                                <li><a href="#">待检</a></li>
+                                <li><a href="#">可用</a></li>
+                                <li><a href="#">不可用</a></li>
+                                <li><a href="#">暂存</a></li>*@
+                        </ul>
+                    </div>
+
+                    <div class="dialogquery-area-where">
+                        <div style="float:left">锁定状态:</div>
+                        <ul id="lockstate" class="list-inline">
+                            @*<li><a href="#">全部</a></li>
+                                <li><a href="#">锁定</a></li>
+                                <li><a href="#">未锁定</a></li>*@
+                        </ul>
+                    </div>
+
+                    @*待检、可用、不可用、暂存*@
+                    @*<div style="float:left;">
+                            库存状态:待检/可用/不可用/暂存
+                        </div>*@
+                </div>
+                <table class="table table-hover table-extent" style="margin-bottom:0px;">
+                    <thead>
+                        <tr>
+                            <th style="width:5%">
+                                序
+                            </th>
+
+                            <th style="width:15%">
+                                箱号
+                            </th>
+                            <th style="width:15%">
+                                货位号
+                            </th>
+                            <th style="width:15%">
+                                状态
+                            </th>
+                            <th style="width:15%">
+                                锁定
+                            </th>
+                            <th style="width:20%">
+                                入库时间
+                            </th>
+                            <th style="width:15%">
+                                重量(Kg)
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="tablebodydiv">
+                    <div id="scortable">
+                        <table class="table table-hover table-extent">
+                            <tbody id="tllist"></tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+
+    @Scripts.Render("~/bundles/chart");
+
+    <script src="~/Areas/M/Scripts/CutStock.js"></script>
+
+    <script id="productlisttmp" type="text/x-jquery-tmpl">
+        <li>
+            <a href="#" title="${MATERIAL_NM}">
+                <div class="productname">${MATERIAL_NM}</div>
+                <div>${LOTCOUNT}批 ${TOTAL_QTY_KG}Kg</div>
+            </a>
+        </li>
+    </script>
+
+    <script id="batchlisttmpl" type="text/x-jquery-tmpl">
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="batch-module">
+                <div>
+                    <span class="module-lable">批次号：</span><a href="#" class="module-batch">${BATCH_NO}</a>
+                </div>
+                <div>
+                    <span class="module-lable">总计：${NET_WEIGHT} Kg</span>
+                    <span class="sp"></span>
+                    <span class="module-lable">${TOTAL_BOXES} 桶</span>
+                </div>
+
+                <div class="process-div">
+                    <div class="process-back">
+                        <div class="process-b" style="width:${$item.fmtprocess(TOTAL_AVAIL_QTY,NET_WEIGHT)}">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="batch-atrr">
+                    <div class="module-row">
+                        <div class="module-row-col">
+                            <div>
+                                <span class="att-font">${TOTAL_AVAIL_QTY}</span><span class="module-lable">Kg</span>
+                            </div>
+                            <div>
+                                <span class="module-lable">可用数量</span>
+                            </div>
+                        </div>
+                        <div class="module-row-col">
+                            <div>
+                                <span class="att-font font-color1">${LOCK_QTY_KG}</span><span class="module-lable">Kg</span>
+                            </div>
+                            <div>
+                                <span class="module-lable">锁定数量</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-row">
+                        <div class="module-row-col">
+                            <div>
+                                <span class="att-font">${AVAIL_BOXS}</span><span class="module-lable">Kg</span>
+                            </div>
+                            <div>
+                                <span class="module-lable">可用桶数</span>
+                            </div>
+                        </div>
+                        <div class="module-row-col">
+                            <div>
+                                <span class="att-font font-color1">${LOCK_BOXS}</span><span class="module-lable">Kg</span>
+                            </div>
+                            <div>
+                                <span class="module-lable">锁定桶数</span>
+                            </div>
+                            @*<a href="#" class="list-info-a">
+                                    <i class="icon-play"></i>
+                                </a>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="tllisttmp" type="text/x-jquery-tmpl">
+        <tr>
+            <td style="width:5%">
+                ${$item.fmtindex()}
+            </td>
+
+            <td style="width:15%">
+                ${CONTAINER_NO}
+            </td>
+            <td style="width:15%">
+                ${GOODS_POSITION_NO}
+            </td>
+            <td style="width:15%">
+                ${$item.fmtkcstate(CONTAINER_STATUS)}
+
+            </td>
+            <td style="width:15%">
+                ${$item.fmtlockstate(LOCK_STATUS)}
+
+            </td>
+            <td style="width:20%">
+                ${FILLING_DATETIME}
+            </td>
+            <td style="width:15%">
+                ${NET_WEIGHT}
+            </td>
+        </tr>
+    </script>
+}

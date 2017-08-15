@@ -1,0 +1,322 @@
+﻿<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>卷包车间看板</title>
+    <script src="Areas/M/Scripts/showLoading/js/jquery.js"></script>
+    <script src="Areas/M/Scripts/showLoading/js/superslide.2.1.js"></script>
+    <script type="text/javascript">
+
+
+        var _PageHeight = document.documentElement.clientHeight,
+              _PageWidth = document.documentElement.clientWidth;
+        //计算loading框距离顶部和左部的距离（loading框的宽度为215px，高度为61px）
+        var _LoadingTop = _PageHeight > 61 ? (_PageHeight - 61) / 2 : 0,
+            _LoadingLeft = _PageWidth > 215 ? (_PageWidth - 215) / 2 : 0;
+        //在页面未加载完毕之前显示的loading Html自定义内容
+        var _LoadingHtml = ' <div id="loadingDiv1" style="position:absolute;left:0;width:100%;height:' + _PageHeight + 'px;top:0;background:black;opacity:0.8;filter:alpha(opacity=80);z-index:10000;"><div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px; width: 100%;height:100%; line-height: 100px; padding-left: 50px; padding-right: 5px; background: url(Areas/M/Images/load.gif) no-repeat scroll ; "></div></div>';
+        //呈现loading效果
+        document.write(_LoadingHtml);
+        //监听加载状态改变
+        document.onreadystatechange = completeLoading;
+        //加载状态为complete时移除loading效果
+        function completeLoading() {
+            if (document.readyState == "complete") {
+                var loadingMask = document.getElementById('loadingDiv1');
+                loadingMask.parentNode.removeChild(loadingMask);
+            }
+        }
+
+        window.onload = function () {
+            $("#per").css("left", 110 - document.documentElement.clientWidth / 2 + "px");
+
+            $("#next").css("right", 110 - document.documentElement.clientWidth / 2 + "px");
+
+        }
+
+        $(window).resize(function () {
+            $("#per").css("left", "");
+            $("#next").css("right", "");
+            $("#per").css("left", 110 - document.documentElement.clientWidth / 2 + "px");
+            $("#next").css("right", 110 - document.documentElement.clientWidth / 2 + "px");
+        })
+
+        //var srcs = "M/JBCJ_JBTotalKB/Index";//页面默认加载
+
+        //setInterval(function () {
+        //    switch (srcs) {
+        //        case "M/JBCJ_JBTotalKB/Index":
+        //            srcs = "M/JBCJ_JBProductKB/Index";
+        //            $("#ifram")[0].src = srcs;
+        //            break;
+        //        case "M/JBCJ_JBProductKB/Index":
+        //            srcs = "M/JBCJ_JBConsumeKB/Index";
+        //            $("#ifram")[0].src = srcs;
+        //            break;
+        //        case "M/JBCJ_JBConsumeKB/Index":
+        //            srcs = "M/JBCJ_JBTotalKB/Index";
+        //            $("#ifram")[0].src = srcs;
+        //            break;
+        //    }
+
+
+        //}, 60000);
+
+
+    </script>
+</head>
+<body>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            background: #000000;
+            font: normal 12px/22px 宋体;
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            border: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+            a:hover {
+                color: #1974A1;
+            }
+
+        .fullSlide {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+            .fullSlide .bd {
+                width: 100%;
+                height: 100%;
+                margin: 0 auto;
+                position: relative;
+                z-index: 0;
+                overflow: hidden;
+            }
+
+                .fullSlide .bd ul {
+                    width: 100%;
+                }
+
+                .fullSlide .bd li {
+                    width: 100%;
+                    height: 400px;
+                    overflow: hidden;
+                    text-align: center;
+                }
+
+                    .fullSlide .bd li a {
+                        display: block;
+                        height: 400px;
+                    }
+
+            .fullSlide .hd {
+                width: 100%;
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                left: 0;
+                height: 26px;
+                line-height: 26px;
+            }
+
+                .fullSlide .hd ul {
+                    text-align: center;
+                }
+
+                    .fullSlide .hd ul li {
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 100%;
+                        cursor: pointer;
+                        display: inline-block;
+                        *display: inline;
+                        zoom: 1;
+                        margin: 0 6px;
+                        overflow: hidden;
+                        background: #666;
+                        border: 2px solid #999;
+                        filter: alpha(opacity=50);
+                        opacity: 0.5;
+                        line-height: 999px;
+                    }
+
+                        .fullSlide .hd ul li.on {
+                            background: #fff;
+                        }
+
+            .fullSlide .prev_next {
+                width: 40px;
+                height: 60px;
+                position: absolute;
+                top: 170px;
+                left: 30%;
+                margin-left: 20%;
+            }
+
+            .fullSlide .prev, .fullSlide .next {
+                position: absolute;
+                margin-top: 300px;
+                top: 0;
+                z-index: 1;
+                width: 40px;
+                height: 60px;
+                border-radius: 5px;
+                background: url(Areas/M/Images/slider-arrow.png) #000 no-repeat;
+                cursor: pointer;
+                filter: alpha(opacity=50);
+                opacity: 0.5;
+                display: none;
+            }
+
+            .fullSlide .prev {
+                /*left:  expression((-document.documentElement.clientWidth) + "px");*/
+                background-position: -166px 14px;
+            }
+
+                .fullSlide .prev:hover {
+                    background-position: -106px 14px;
+                }
+
+            .fullSlide .next {
+                /*right: -580px;*/
+                background-position: -48px 14px;
+            }
+
+                .fullSlide .next:hover {
+                    background-position: 12px 14px;
+                }
+    </style>
+
+    <div style="width:100%;height:100%;margin:0px,0px,0px,0px;padding:0px,0px,0px,0px" ng-app="jbapp" ng-controller="jbctl">
+        <div class="fullSlide">
+            <div class="bd">
+                <div style="width:100%;height:100%;">
+                    <iframe id="ifram" style="width:100%;height:100%;" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src='M/JBCJ_JBTotalKB/Index'></iframe>
+                </div>
+                <!--<ul>
+                    <li style="background:#76b737"><a href="#"><img src="Areas/M/Images/2.png" /></a></li>
+                    <li style="background:#fe8f1c"><a href="#"><img src="Areas/M/Images/3.jpg" /></a></li>
+                </ul>-->
+            </div>
+            <!--<div class="hd"><ul></ul></div>-->
+            <div class="prev_next">
+                <span id="per" class="prev"></span>
+                <span id="next" class="next"></span>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        $(".fullSlide").hover(function () {
+            $(this).find(".prev,.next").stop(true, true).fadeTo("show", 0.5)
+        },
+        function () {
+            $(this).find(".prev,.next").fadeOut()  // 移除时不进行操作 即控件一直展示
+        }).slide({
+            //titCell: ".hd ul",  //标题显示   与class为hd的配对    titCell与mainCell中的
+            mainCell: ".bd div",
+            //effect: "fold",
+            autoPlay: false,//是否自动播放
+            autoPage: true,
+            trigger: "click"  //目标点击事件
+        });
+        var srcs = "M/JBCJ_JBTotalKB/Index";//页面默认加载
+        $("#per").on("click", function () {
+            switch (srcs) {
+                case "M/JBCJ_JBTotalKB/Index":  //总览
+                    srcs = "M/DLCJ_NYKB/Index";
+                    $("#ifram")[0].src = srcs;
+                    break;
+                case "M/JBCJ_JBProductKB/Index":   //生产
+                    srcs = "M/JBCJ_JBTotalKB/Index";
+                    $("#ifram")[0].src = srcs;
+                    break;
+                case "M/JBCJ_EquStop/Index"://停机
+                    srcs = "M/JBCJ_JBProductKB/Index";
+                    $("#ifram")[0].src = srcs;
+                    break;
+                case "M/JBCJ_JBQuaKB/Index"://质量
+                    srcs = "M/JBCJ_EquStop/Index";
+                    $("#ifram")[0].src = srcs;
+                    break;
+                case "M/JBCJ_JBConsumeKB/Index"://消耗
+                    srcs = "M/JBCJ_JBQuaKB/Index"
+                    $("#ifram")[0].src = srcs;
+                    break;
+                case "M/ZSCJ_ZSProductKB/Index":   //制丝质量看板
+                    srcs = "M/JBCJ_JBConsumeKB/Index";
+                    $("#ifram")[0].src = srcs;
+                    break;
+                    //case "M/ZSCJ_ZSProductKB/Index"://制丝生产看板
+                    //    srcs = "M/JBCJ_JBConsumeKB/Index"
+                    //    $("#ifram")[0].src = srcs;
+                    //    break;
+                case "M/DLCJ_NYKB/Index"://能源看板
+                    srcs = "M/ZSCJ_ZSProductKB/Index"
+                    $("#ifram")[0].src = srcs;
+                    break;
+            }
+
+        });
+
+        $("#next").on("click", function () {
+            switch (srcs) {
+                case "M/JBCJ_JBTotalKB/Index":  //总览
+                    srcs = "M/JBCJ_JBProductKB/Index";
+                    $("#ifram")[0].src = srcs;
+                    break;
+                case "M/JBCJ_JBProductKB/Index":   //生产
+                    srcs = "M/JBCJ_EquStop/Index";
+                    $("#ifram")[0].src = srcs;
+                    break;
+                case "M/JBCJ_EquStop/Index"://停机
+                    srcs = "M/JBCJ_JBQuaKB/Index";
+                    $("#ifram")[0].src = srcs;
+                    break;
+                case "M/JBCJ_JBQuaKB/Index"://质量
+                    srcs = "M/JBCJ_JBConsumeKB/Index";
+                    $("#ifram")[0].src = srcs;
+                    break;
+                case "M/JBCJ_JBConsumeKB/Index"://消耗
+                    srcs = "M/ZSCJ_ZSProductKB/Index";
+                    $("#ifram")[0].src = srcs;
+                    break;
+                case "M/ZSCJ_ZSProductKB/Index":   //制丝质量看板
+                    srcs = "M/DLCJ_NYKB/Index";
+                    $("#ifram")[0].src = srcs;
+                    break;
+                    //case "M/ZSCJ_ZSProductKB/Index"://制丝生产看板
+                    //    srcs = "M/DLCJ_NYKB/Index";
+                    //    $("#ifram")[0].src = srcs;
+                    //    break;
+                case "M/DLCJ_NYKB/Index"://能源看板
+                    srcs = "M/JBCJ_JBTotalKB/Index";
+                    $("#ifram")[0].src = srcs;
+                    break;
+            }
+
+
+        });
+
+    </script>
+</body>
+</html>

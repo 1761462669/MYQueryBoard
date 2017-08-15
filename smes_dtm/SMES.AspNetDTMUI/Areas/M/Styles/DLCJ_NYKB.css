@@ -1,0 +1,193 @@
+﻿.main-Head {
+    height:10%;
+    width:100%;
+    position:absolute;
+    top:0;
+}
+.main-Body {
+    height:90%;
+    width:100%;
+    top:10%;
+    position:absolute;
+}
+
+.left_side{  
+    position:relative;  
+    top:0px;  
+    left:0px;  
+    float:left;
+    /*border:solid 1px #fff;*/  
+    width:20%;  
+    height:100%;  
+}  
+  
+.right_side{  
+    position:relative;  
+    top:0px;  
+    right:0px; 
+    float:right;
+    /*border:solid 1px #fff;*/  
+    width:80%;  
+    height:100%;  
+}  
+
+.right_side_top{
+    position:relative;
+    top:0px;
+    left:0px;
+    float:left;
+    width:100%; 
+    height:50%;
+}
+.right_side_down{
+    position:relative;
+    left:0px;
+    float:left;
+    width:100%;  
+    height:50%;
+}
+
+.right_side_left{
+    position:relative;
+    border: 3px dashed #808080; 
+    top:0px;
+    right:0px;
+    float:left;
+    width:50%;
+    height:100%;
+
+}
+.right_side_right{
+    position:relative;
+    border: 3px dashed #808080; 
+    top:0px;
+    right:0px;
+    float:left;
+    width:50%;
+    height:100%;
+
+}
+.foot_left_side{  
+    position:relative;  
+    top:0px;  
+    left:0px;  
+    float:left;
+    border:solid 1px #fff;  
+    width:49.5%;  
+    height:98%;  
+}  
+  
+.foot_right_side{  
+    position:relative;  
+    top:0px;  
+    right:0px; 
+    float:right;
+    border:solid 1px #fff;  
+    width:49.5%;  
+    height:98%;  
+}  
+.but{
+    border:1px ; 
+    color:red; 
+    width:100%;
+    top:20px;
+    background-color:transparent 
+}
+
+.mm{
+    width: 100%;
+    height: 33%;
+    position: relative;
+    /*text-align: center;
+    border: 3px solid #808080;*/
+}
+.mm_top{
+    width: 100%;
+    height: 33%;
+    position: relative;
+    text-align:left;
+    font-size:35px;
+    font-family:Arial;
+}
+.mm_middle{
+    width: 100%;
+    height: 33%;
+    position: relative;
+    margin-top:10px;
+    text-align:left;
+    font-size:28px;
+    font-family:Arial;
+    font-weight:bold;
+}
+.mm_down{
+    /*margin-top:10px;*/
+    text-align:center;
+    font-size:30px;
+    font-family:Arial;
+    color:#EE4000;
+    font-weight:bold;
+}
+
+.module_left {
+    position:relative;  
+    line-height: 60px; /*左侧非标题中  字线的高度*/
+    font-size: 45px;
+    width:50%;
+    height:100%;
+    float:left;
+    color: #fff;
+    padding: 0px 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family:Arial
+}
+.module_right{
+    position:relative;  
+    top:0px;  
+    right:0px; 
+    width:50%;
+    height:100%;
+    float:right;
+    padding:5% 10px;
+    font-size: 20px;
+    color: white;
+    text-align:right;
+}
+
+table th {
+    border:0px solid #fff;	/* 行、列名称边框 */
+    table-layout:fixed;
+    width:200px;
+    height:50px;
+    height:auto;
+    text-align:center;
+    color:#00FF00;
+
+    /*padding-top:4px;*/
+    /*background-color:#d2e8ff;
+    font-weight:bold;*/
+    /*padding-top:4px;
+    padding-bottom:4px;
+    padding-left:10px;
+    padding-right:10px;
+    text-align:center;*/
+}
+table td {
+    border:0px solid #fff;	/* 行、列名称边框 */
+    table-layout:fixed;
+    width:200px;
+    height:60px;
+    text-align:center;
+     color:#00FF00;
+    font-size:30px;
+    /*color:gray;*/
+    /*background-color:#d2e8ff;
+    font-weight:bold;*/
+    /*padding-top:4px;
+    padding-bottom:4px;
+    padding-left:10px;
+    padding-right:10px;
+    text-align:center;*/
+}
+

@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="MDF.UISample.ControlStyle.ValidationTest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    mc:Ignorable="d"
+    xmlns:local="clr-namespace:PrismDemo.Validation"
+    xmlns:mdf="http://mdf.framework.com/XAML"
+    xmlns:fra="clr-namespace:Prim.Framework;assembly=Prim.Framework"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <!--<UserControl.DataContext>
+        <StaticResource ResourceKey="model"/>
+    </UserControl.DataContext>-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <i:Interaction.Triggers>
+            <i:EventTrigger>
+                <ei:CallMethodAction TargetObject="{Binding}" MethodName="RaisedPropertiesChanged"/>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <StackPanel>
+            <TextBox Width="100" Height="24" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=True}">
+                <mdf:PropertyValidationSetting.Validation>
+                    <mdf:PropertyValidation PropertyName="Name" DisplayName="名称">
+                        <mdf:PropertyValidation.Validations>
+                            <mdf:BaseValidation ValidationAttribute="{mdf:RequiredValidation}"></mdf:BaseValidation>
+                        </mdf:PropertyValidation.Validations>
+                    </mdf:PropertyValidation>
+                </mdf:PropertyValidationSetting.Validation>
+            </TextBox>
+
+            <!--<toolkit:NumericUpDown Width="100" Height="24" Value="{Binding Age, Mode=TwoWay, NotifyOnValidationError=True}">
+
+            </toolkit:NumericUpDown>-->
+            <TextBox MouseLeave="txtName_MouseLeave" x:Name="txtName" KeyUp="txtAge_KeyUp" Width="100" Height="24" Text="{Binding Age, Mode=TwoWay, NotifyOnValidationError=True}">
+                <mdf:PropertyValidationSetting.Validation>
+                    <mdf:PropertyValidation PropertyName="Age" DisplayName="年龄">
+                        <mdf:PropertyValidation.Validations>
+                            <mdf:BaseValidation ValidationAttribute="{mdf:RequiredValidation}"></mdf:BaseValidation>
+                            <!--<mdf:BaseValidation ValidationAttribute="{mdf:RegularValidation Pattern=^[0-9]*$}"></mdf:BaseValidation>-->
+                            <!--<mdf:BaseValidation ValidationAttribute="{fra:RangeValidation1 Minimum=1,Maximum=5,stringType=double}"></mdf:BaseValidation>-->
+
+                        </mdf:PropertyValidation.Validations>
+                    </mdf:PropertyValidation>
+                </mdf:PropertyValidationSetting.Validation>
+            </TextBox>
+            <Button Width="100" Height="24" Content="fdsf" Click="Button_Click" IsEnabled="{Binding IsHaveError}">
+
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

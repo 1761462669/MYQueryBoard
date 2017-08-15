@@ -1,0 +1,66 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/SMES.ShareSource;component/ColorShare.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <!--背景笔刷-->
+    <SolidColorBrush x:Key="BackGround_001" Color="{StaticResource Color_01}"/>
+
+    <LinearGradientBrush x:Key="BackGround_002" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="{StaticResource Color_01}" Offset="0"/>
+        <GradientStop Color="{StaticResource Color_02}" Offset="1"/>
+    </LinearGradientBrush>
+    
+    <SolidColorBrush x:Key="BackGround_003" Color="{StaticResource Color_03}"/>
+    <SolidColorBrush x:Key="BackGround_004" Color="{StaticResource Color_04}"/>
+    <SolidColorBrush x:Key="BackGround_005" Color="{StaticResource Color_05}"/>
+    <LinearGradientBrush x:Key="BackGround_006" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="{StaticResource Color_04}" Offset="0.804"/>
+        <GradientStop Color="{StaticResource Color_06}" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="BackGround_007" Color="{StaticResource Color_07}"/>
+    <SolidColorBrush x:Key="BackGround_010" Color="{StaticResource Color_010}"/>
+    
+    <SolidColorBrush x:Key="BackGround_008" Color="{StaticResource Color_08}"/>
+    <SolidColorBrush x:Key="BackGround_009" Color="{StaticResource Color_09}"/>
+    <SolidColorBrush x:Key="BackGround_011" Color="{StaticResource Color_011}"/>
+    <SolidColorBrush x:Key="BackGround_100" Color="{StaticResource Color_100}"/>
+
+
+    <SolidColorBrush x:Key="Foreground_001" Color="{StaticResource Color_10}"/>
+    <SolidColorBrush x:Key="Foreground_002" Color="{StaticResource Color_11}"/>
+    <SolidColorBrush x:Key="Foreground_003" Color="{StaticResource Color_12}"/>
+    <SolidColorBrush x:Key="Foreground_004" Color="{StaticResource Color_13}"/>
+    <SolidColorBrush x:Key="Foreground_005" Color="{StaticResource Color_14}"/>
+    
+
+    <LinearGradientBrush x:Key="Border_001" EndPoint="105,2" StartPoint="105,0" MappingMode="Absolute">
+        <GradientStop Color="#FF1E2125" Offset="0"/>
+        <GradientStop Color="#FF2D2F34" Offset="1"/>
+        <GradientStop Color="#FF1E2125" Offset="0.57"/>
+        <GradientStop Color="#FF2D2F34" Offset="0.596"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="Border_004" EndPoint="49.832,11.349" StartPoint="47.988,11.344" MappingMode="Absolute">
+        <GradientStop Color="#FF1E2125" Offset="0"/>
+        <GradientStop Color="#FF2D2F34" Offset="1"/>
+        <GradientStop Color="#FF1E2125" Offset="0.5"/>
+        <GradientStop Color="#FF2D2F34" Offset="0.5"/>
+    </LinearGradientBrush>
+
+
+    <SolidColorBrush x:Key="Border_002" Color="{StaticResource Color_20}"/>
+    <SolidColorBrush x:Key="Border_003" Color="{StaticResource Color_22}"/>
+    <!--字体颜色-->
+
+
+    <SolidColorBrush x:Key="Font_001" Color="{StaticResource Color_23}"/>
+
+    <SolidColorBrush x:Key="Font_002" Color="{StaticResource Color_24}"/>
+
+    <SolidColorBrush x:Key="Font_003" Color="{StaticResource Color_25}"/>
+
+</ResourceDictionary>

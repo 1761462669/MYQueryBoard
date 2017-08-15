@@ -1,0 +1,146 @@
+﻿.left-main {
+    width: 250px;
+    height: 100%;
+    background-color: #3e3f44;
+}
+
+.left-title {
+    background-color: #3598db;
+    padding: 40px 10px;
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.div-where {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.form-control {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    background-color: #e5e5e5;
+}
+
+.btn {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}
+
+.form-group > label {
+    font-weight: normal;
+}
+
+.right-main {
+    position: absolute;
+    left: 260px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.producerow {
+    position: relative;
+    height: 50%;
+}
+
+    .producerow > .group {
+        position: absolute;
+        top: 5px;
+        width: 100%;
+        bottom: 5px;
+    }
+
+.producecol > .producerow:first-child > div {
+    top: 0px;
+}
+
+.producecol > .producerow:last-child > div {
+    bottom: 0px;
+}
+
+.group {
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+    background-color: #3e3f44;
+}
+
+    .group > .groupbody {
+        color: #999;
+        font-size: 14px;
+    }
+
+    .group > .group-title {
+        border-bottom: 1px solid #4a4a4a;
+        color: #999;
+    }
+
+        .group > .group-title > .rightarea {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            font-size: 18px;
+        }
+
+            .group > .group-title > .rightarea > i {
+                padding: 4px 8px;
+                cursor: pointer;
+                color: #999;
+            }
+
+            .group > .group-title > .rightarea > .allow {
+                color: #44b9dc;
+            }
+
+
+    .group div {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /*color:#fff;*/
+    }
+
+.groupbody-ext {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    top: 50px;
+}
+
+.group-body-table {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+    .group-body-table > div {
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 36px;
+        color: #fafafa;
+        padding-left: 10px;
+    }
+
+        .group-body-table > div > img {
+            margin-right: 10px;
+        }
+
+
+.triangle-bottomright {
+    width: 0;
+    height: 0;
+    border-bottom: 12px solid #999;
+    border-left: 12px solid transparent;
+    position: absolute;
+    top: 7px;
+    left: 0px;
+}

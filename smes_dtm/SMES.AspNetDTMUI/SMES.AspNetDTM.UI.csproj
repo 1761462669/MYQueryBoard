@@ -1,0 +1,562 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A8ABE6A2-FDEF-4AC5-9DAE-91C08E6F70BF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMES.AspNetDTM.UI</RootNamespace>
+    <AssemblyName>SMES.AspNetDTM.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MDF.Framework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=614540173009332e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\MDF.Framework.4.0.0.3\lib\net40\MDF.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\MDF.Framework.4.0.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\DT\DTAreaRegistration.cs" />
+    <Compile Include="Areas\M\Controllers\DLCJ_NYKBController.cs" />
+    <Compile Include="Areas\M\Controllers\FL_CutBatchPlanController.cs" />
+    <Compile Include="Areas\M\Controllers\CutStockController.cs" />
+    <Compile Include="Areas\M\Controllers\FL_CutQuaController.cs" />
+    <Compile Include="Areas\M\Controllers\FL_JBProduceController.cs" />
+    <Compile Include="Areas\M\Controllers\JBCJ_EquStopController.cs" />
+    <Compile Include="Areas\M\Controllers\JBCJ_JBConsumeKBController.cs" />
+    <Compile Include="Areas\M\Controllers\JBCJ_JBProductController.cs" />
+    <Compile Include="Areas\M\Controllers\JBCJ_JBProductKBController.cs" />
+    <Compile Include="Areas\M\Controllers\JBCJ_JBQuaFXKBController.cs" />
+    <Compile Include="Areas\M\Controllers\JBCJ_JBQuaKBController.cs" />
+    <Compile Include="Areas\M\Controllers\JBCJ_JBTotalKBController.cs" />
+    <Compile Include="Areas\M\Controllers\JBCJ_Product1Controller.cs" />
+    <Compile Include="Areas\M\Controllers\JBConsumptionByMatController.cs" />
+    <Compile Include="Areas\M\Controllers\JBConsumptionByModelController.cs" />
+    <Compile Include="Areas\M\Controllers\JBHaltStatisticsController.cs" />
+    <Compile Include="Areas\M\Controllers\JBProduceEfficiencyController.cs" />
+    <Compile Include="Areas\M\Controllers\JBKtEliminateController.cs" />
+    <Compile Include="Areas\M\Controllers\JBProduceQDController.cs" />
+    <Compile Include="Areas\M\Controllers\JBProduceQualityController.cs" />
+    <Compile Include="Areas\M\Controllers\JBProduceQualityQDController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\M\Controllers\JBTempHumiController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\M\Controllers\SingleItemAnalysisController.cs" />
+    <Compile Include="Areas\M\Controllers\SingleItemAnalysisQDController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\M\Controllers\StockController.cs" />
+    <Compile Include="Areas\M\Controllers\StoreController.cs" />
+    <Compile Include="Areas\M\Controllers\JBProduceController.cs" />
+    <Compile Include="Areas\M\Controllers\ZsBreakMaterialStatisticsController.cs" />
+    <Compile Include="Areas\M\Controllers\ZsBreakMaterialStatisticsQDController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\M\Controllers\ZSCJ_ZSProductKBController.cs" />
+    <Compile Include="Areas\M\Controllers\ZsCutStructuralAnalysisController.cs" />
+    <Compile Include="Areas\M\Controllers\ZSProduceConsumeController.cs" />
+    <Compile Include="Areas\M\Controllers\ZSProduceController.cs" />
+    <Compile Include="Areas\M\Controllers\ZSProduceEfficiencyController.cs" />
+    <Compile Include="Areas\M\Controllers\ZSProduceQDController.cs" />
+    <Compile Include="Areas\M\Controllers\ZsProduceQualityController.cs" />
+    <Compile Include="Areas\M\Controllers\ZsProduceQualityQDController.cs" />
+    <Compile Include="Areas\M\Controllers\ZsStandardExecutionController.cs" />
+    <Compile Include="Areas\M\Controllers\ZsTempHumiController.cs" />
+    <Compile Include="Areas\M\MAreaRegistration.cs" />
+    <Compile Include="Areas\ProduceTrace\Controllers\AncestryController.cs" />
+    <Compile Include="Areas\ProduceTrace\ProduceTraceAreaRegistration.cs" />
+    <Compile Include="Areas\Public\Controllers\DatabaseAccessController.cs" />
+    <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\M\Images\1.jpg" />
+    <Content Include="Areas\M\Images\2.png" />
+    <Content Include="Areas\M\Images\3.jpg" />
+    <Content Include="Areas\M\Images\feature_left.gif" />
+    <Content Include="Areas\M\Images\feature_right.gif" />
+    <Content Include="Areas\M\Images\load.gif" />
+    <Content Include="Areas\M\Images\b-line.png" />
+    <Content Include="Areas\M\Images\down.png" />
+    <Content Include="Areas\M\Images\g-line.png" />
+    <Content Include="Areas\M\Images\slider-arrow.png" />
+    <Content Include="Areas\M\Images\up.png" />
+    <Content Include="Areas\M\Images\y-line.png" />
+    <Content Include="Areas\M\Images\制丝生产.png" />
+    <Content Include="Areas\M\Scripts\ComJs.js" />
+    <Content Include="Areas\M\Scripts\CutStock.js" />
+    <Content Include="Areas\M\Scripts\DLCJ_NYKB.js" />
+    <Content Include="Areas\M\Scripts\FL_CutBatchPlan.js" />
+    <Content Include="Areas\M\Scripts\FL_CutQua.js" />
+    <Content Include="Areas\M\Scripts\FL_JBProduce.js" />
+    <Content Include="Areas\M\Scripts\highcharts-3d.js" />
+    <Content Include="Areas\M\Scripts\JBCJ_EquStop.js" />
+    <Content Include="Areas\M\Scripts\JBCJ_JBConsumeKB.js" />
+    <Content Include="Areas\M\Scripts\JBCJ_JBProductKB.js" />
+    <Content Include="Areas\M\Scripts\JBCJ_JBQuaFXKB.js" />
+    <Content Include="Areas\M\Scripts\JBCJ_JBQuaKB.js" />
+    <Content Include="Areas\M\Scripts\JBCJ_JBTotalKB.js" />
+    <Content Include="Areas\M\Scripts\JBCJ_Product1.js" />
+    <Content Include="Areas\M\Scripts\JBConsumption.js" />
+    <Content Include="Areas\M\Scripts\JBConsumptionModel.js" />
+    <Content Include="Areas\M\Scripts\JBHaltStatistics.js" />
+    <Content Include="Areas\M\Scripts\highcharts-more.js" />
+    <Content Include="Areas\M\Scripts\JBKtEliminate.js" />
+    <Content Include="Areas\M\Scripts\JBProduceQD.js" />
+    <Content Include="Areas\M\Scripts\JBProduce.js" />
+    <Content Include="Areas\M\Scripts\JBProduceEff.js" />
+    <Content Include="Areas\M\Scripts\JBProduceEfficiency.js" />
+    <Content Include="Areas\M\Scripts\JBProduceQuality.js" />
+    <Content Include="Areas\M\Scripts\LeafStore.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\JBConsumptionModel_LD.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\JBConsumption_LM.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\JBConsumption_LW.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\JBConsumption_LD.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\JBConsumptionModel_LM.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\JBConsumptionModel_LW.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\JBProduceEfficiency_LMB.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\JBProduceEfficiency_LMY.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\JBProduceEfficiency_LMJ.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\JBProduceEfficiency_LM.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\JBProduceQD_LD.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\JBProduceQD_LM.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\JBProduceQD_LW.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\ZsBreakMaterialStatisticsQD_LM.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\ZsBreakMaterialStatisticsQD_LW.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\ZsBreakMaterialStatisticsQD_LD.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\ZSProduceEfficiency_LM.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\ZSProduceEfficiency_LW.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\ZSProduceEfficiency_LD.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\ZSProduceQD_L.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\ZsProduceQualityQD_LM.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\ZsProduceQualityQD_LW.js" />
+    <Content Include="Areas\M\Scripts\QDLSD\ZsProduceQualityQD_LD.js" />
+    <Content Include="Areas\M\Scripts\showLoading\css\showLoading.css" />
+    <Content Include="Areas\M\Scripts\showLoading\images\ajax-loader.gif" />
+    <Content Include="Areas\M\Scripts\showLoading\images\loading-bars.gif" />
+    <Content Include="Areas\M\Scripts\showLoading\images\loading.gif" />
+    <Content Include="Areas\M\Scripts\showLoading\images\loading1.gif" />
+    <Content Include="Areas\M\Scripts\JBCJ_JBProduct.js" />
+    <Content Include="Areas\M\Scripts\showLoading\jquery.showLoading.example.html" />
+    <Content Include="Areas\M\Scripts\showLoading\js\jquery-1.3.2.min.js" />
+    <Content Include="Areas\M\Scripts\showLoading\js\jquery.js" />
+    <Content Include="Areas\M\Scripts\showLoading\js\jquery.showLoading.js" />
+    <Content Include="Areas\M\Scripts\showLoading\js\jquery.showLoading.min.js" />
+    <Content Include="Areas\M\Scripts\showLoading\js\superslide.2.1.js" />
+    <Content Include="Areas\M\Scripts\SingleItemAnalysisQD.js" />
+    <Content Include="Areas\M\Scripts\SingleItemAnalysis.js" />
+    <Content Include="Areas\M\Scripts\SqlCommand.js" />
+    <Content Include="Areas\M\Scripts\ZsBreakMaterialStatisticsQD.js" />
+    <Content Include="Areas\M\Scripts\ZsBreakMaterialStatistics.js" />
+    <Content Include="Areas\M\Scripts\ZSCJ_ZSProductKB.js" />
+    <Content Include="Areas\M\Scripts\ZsCutStructuralAnalysis.js" />
+    <Content Include="Areas\M\Scripts\ZSProduce.js" />
+    <Content Include="Areas\M\Scripts\ZSProduceConsume.js" />
+    <Content Include="Areas\M\Scripts\ZSProduceEfficiency.js" />
+    <Content Include="Areas\M\Scripts\ZSProduceQD.js" />
+    <Content Include="Areas\M\Scripts\ZsProduceQuality.js" />
+    <Content Include="Areas\M\Scripts\JBProduceQualityQD.js" />
+    <Content Include="Areas\M\Scripts\ZsProduceQualityQD.js" />
+    <Content Include="Areas\M\Scripts\ZsStandardExecution.js" />
+    <Content Include="Areas\M\Scripts\JBTempHumi.js" />
+    <Content Include="Areas\M\Scripts\ZsTempHumi.js" />
+    <Content Include="Areas\M\Styles\ComCss.css" />
+    <Content Include="Areas\M\Styles\CutStock.css" />
+    <Content Include="Areas\M\Styles\DLCJ_NYKB.css" />
+    <Content Include="Areas\M\Styles\FL_CutBatchPlan.css" />
+    <Content Include="Areas\M\Styles\FL_CutQua.css" />
+    <Content Include="Areas\M\Styles\FL_JBProduce.css" />
+    <Content Include="Areas\M\Styles\JBCJ_EquStop.css" />
+    <Content Include="Areas\M\Styles\JBCJ_JBConsumeKB.css" />
+    <Content Include="Areas\M\Styles\JBCJ_JBProduct.css" />
+    <Content Include="Areas\M\Styles\JBCJ_JBProductKB.css" />
+    <Content Include="Areas\M\Styles\JBCJ_JBQuaFXKB.css" />
+    <Content Include="Areas\M\Styles\JBCJ_JBQuaKB.css" />
+    <Content Include="Areas\M\Styles\JBCJ_JBTotalKB.css" />
+    <Content Include="Areas\M\Styles\JBCJ_Product1.css" />
+    <Content Include="Areas\M\Styles\JBConsumption.css" />
+    <Content Include="Areas\M\Styles\JBConsumptionModel.css" />
+    <Content Include="Areas\M\Styles\JBHaltStatistics.css" />
+    <Content Include="Areas\M\Styles\JBKtEliminate.css" />
+    <Content Include="Areas\M\Styles\JBProduceQD.css" />
+    <Content Include="Areas\M\Styles\JBProduce.css" />
+    <Content Include="Areas\M\Styles\JBProduceEff.css" />
+    <Content Include="Areas\M\Styles\JBProduceEfficiency.css" />
+    <Content Include="Areas\M\Styles\JBProduceQuality.css" />
+    <Content Include="Areas\M\Styles\LeafStore.css" />
+    <Content Include="Areas\M\Styles\MainStyle.css" />
+    <Content Include="Areas\M\Styles\SingleItemAnalysisQD.css" />
+    <Content Include="Areas\M\Styles\SingleItemAnalysis.css" />
+    <Content Include="Areas\M\Styles\Site.css" />
+    <Content Include="Areas\M\Styles\ZsBreakMaterialStatisticsQD.css" />
+    <Content Include="Areas\M\Styles\ZsBreakMaterialStatistics.css" />
+    <Content Include="Areas\M\Styles\ZSCJ_ZSProductKB.css" />
+    <Content Include="Areas\M\Styles\ZsCutStructuralAnalysis.css" />
+    <Content Include="Areas\M\Styles\ZSProduce.css" />
+    <Content Include="Areas\M\Styles\stock.css" />
+    <Content Include="Areas\M\Styles\ZSProduceConsume.css" />
+    <Content Include="Areas\M\Styles\ZSProduceEfficiency.css" />
+    <Content Include="Areas\M\Styles\ZSProduceQD.css" />
+    <Content Include="Areas\M\Styles\ZsProduceQuality.css" />
+    <Content Include="Areas\M\Styles\JBProduceQualityQD.css" />
+    <Content Include="Areas\M\Styles\ZsProduceQualityQD.css" />
+    <Content Include="Areas\M\Styles\ZsStandardExecution.css" />
+    <Content Include="Areas\M\Styles\JBTempHumi.css" />
+    <Content Include="Areas\M\Styles\ZsTempHumi.css" />
+    <Content Include="index.html" />
+    <Content Include="Areas\M\Views\Shared\_Layout.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\ProduceTrace\Js\jquery.tmpl.js" />
+    <Content Include="Areas\ProduceTrace\Js\ProduceProcessInfo.js" />
+    <Content Include="Areas\ProduceTrace\Js\ProduceProcessInfoR.js" />
+    <Content Include="Areas\ProduceTrace\Js\Positive.js" />
+    <Content Include="Areas\ProduceTrace\Js\Reverse.js" />
+    <Content Include="Areas\ProduceTrace\Style\ProduceProcessInfoR.css" />
+    <Content Include="Areas\ProduceTrace\Style\ProduceProcessInfo.css" />
+    <Content Include="Areas\ProduceTrace\Style\Reverse.css" />
+    <Content Include="Areas\ProduceTrace\Style\Positive.css" />
+    <Content Include="Areas\ProduceTrace\Style\Site.css" />
+    <Content Include="Areas\ProduceTrace\Views\Ancestry\ProduceProcessInfoR.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\ProduceTrace\Views\Ancestry\Reverse.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datepicker.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\jquery-confirm.css" />
+    <Content Include="Content\jquery-confirm.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\framework.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Config\AppCfg.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Areas\DT\Views\web.config" />
+    <Content Include="Areas\M\Views\web.config" />
+    <Content Include="Areas\ProduceTrace\Views\web.config" />
+    <Content Include="Areas\ProduceTrace\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\M\Views\CutStock\Index.cshtml" />
+    <Content Include="Areas\Public\Views\web.config" />
+    <Content Include="Areas\M\Views\ZSProduceConsume\Index.cshtml" />
+    <Content Include="Areas\M\Views\Store\Index.cshtml" />
+    <Content Include="Areas\M\Views\ZSProduce\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBProduce\Index.cshtml" />
+    <Content Include="Areas\M\Views\SingleItemAnalysis\Index.cshtml" />
+    <Content Include="Areas\M\Views\ZsStandardExecution\Index.cshtml" />
+    <Content Include="Areas\M\Views\ZsProduceQuality\Index.cshtml" />
+    <Content Include="Areas\M\Views\ZsBreakMaterialStatistics\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBHaltStatistics\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBProduceQuality\Index.cshtml" />
+    <Content Include="Areas\M\Views\ZsCutStructuralAnalysis\Index.cshtml" />
+    <Content Include="Areas\M\Views\ZsTempHumi\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBKtEliminate\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBConsumptionByMat\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBConsumptionByModel\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBProduceEfficiency\Index.cshtml" />
+    <Content Include="Areas\M\Views\ZSProduceEfficiency\Index.cshtml" />
+    <Content Include="Areas\M\Views\ZSProduceQD\Index.cshtml" />
+    <Content Include="Areas\M\Views\ZsProduceQualityQD\Index.cshtml" />
+    <Content Include="Areas\M\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\M\Views\SingleItemAnalysisQD\Index.cshtml" />
+    <Content Include="Areas\M\Views\ZsBreakMaterialStatisticsQD\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBProduceQD\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBTempHumi\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBProduceQualityQD\Index.cshtml" />
+    <Content Include="Areas\M\Views\ZSProduceQD\LIndex.cshtml" />
+    <Content Include="Areas\M\Views\JBProduceQD\LIndex_D.cshtml" />
+    <Content Include="Areas\M\Views\JBProduceQD\LIndex_W.cshtml" />
+    <Content Include="Areas\M\Views\JBProduceQD\LIndex_M.cshtml" />
+    <Content Include="Areas\M\Views\ZSProduceEfficiency\LIndex_D.cshtml" />
+    <Content Include="Areas\M\Views\ZSProduceEfficiency\LIndex_W.cshtml" />
+    <Content Include="Areas\M\Views\ZSProduceEfficiency\LIndex_M.cshtml" />
+    <Content Include="Areas\M\Views\JBProduceEfficiency\LIndex_M.cshtml" />
+    <Content Include="Areas\M\Views\JBProduceEfficiency\LIndex_MJ.cshtml" />
+    <Content Include="Areas\M\Views\JBProduceEfficiency\LIndex_MY.cshtml" />
+    <Content Include="Areas\M\Views\JBProduceEfficiency\LIndex_MB.cshtml" />
+    <Content Include="Areas\M\Views\ZsBreakMaterialStatisticsQD\LIndex_D.cshtml" />
+    <Content Include="Areas\M\Views\ZsBreakMaterialStatisticsQD\LIndex_W.cshtml" />
+    <Content Include="Areas\M\Views\ZsBreakMaterialStatisticsQD\LIndex_M.cshtml" />
+    <Content Include="Areas\M\Views\JBConsumptionByModel\LIndex_D.cshtml" />
+    <Content Include="Areas\M\Views\JBConsumptionByModel\LIndex_W.cshtml" />
+    <Content Include="Areas\M\Views\JBConsumptionByModel\LIndex_M.cshtml" />
+    <Content Include="Areas\M\Views\JBConsumptionByMat\LIndex_D.cshtml" />
+    <Content Include="Areas\M\Views\JBConsumptionByMat\LIndex_W.cshtml" />
+    <Content Include="Areas\M\Views\JBConsumptionByMat\LIndex_M.cshtml" />
+    <Content Include="Areas\M\Views\ZsProduceQualityQD\LIndex_D.cshtml" />
+    <Content Include="Areas\M\Views\ZsProduceQualityQD\LIndex_W.cshtml" />
+    <Content Include="Areas\M\Views\ZsProduceQualityQD\LIndex_M.cshtml" />
+    <Content Include="Areas\ProduceTrace\Views\Ancestry\Index.cshtml" />
+    <Content Include="Areas\ProduceTrace\Views\Ancestry\ProduceProcessInfo.cshtml" />
+    <Content Include="Areas\M\Views\FL_JBProduce\Index.cshtml" />
+    <Content Include="Areas\M\Views\FL_CutBatchPlan\Index.cshtml" />
+    <Content Include="Areas\M\Views\FL_CutQua\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBCJ_JBProduct\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBCJ_Product1\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBCJ_JBQuaKB\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBCJ_JBConsumeKB\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBCJ_JBProductKB\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBCJ_JBTotalKB\Index.cshtml" />
+    <Content Include="Areas\M\Views\ZSCJ_ZSProductKB\Index.cshtml" />
+    <Content Include="Areas\M\Views\DLCJ_NYKB\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBCJ_JBQuaFXKB\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBCJ_EquStop\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\pw.pubxml" />
+    <None Include="Properties\PublishProfiles\ViewBoard.pubxml" />
+    <Content Include="Areas\M\Views\Stock\Index.cshtml" />
+    <Content Include="Areas\M\Views\JBProduce\JBProduceEff.cshtml" />
+    <None Include="Properties\PublishProfiles\dtm.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\date.js" />
+    <Content Include="Scripts\datepicker.js" />
+    <Content Include="Scripts\framwork.js" />
+    <Content Include="Scripts\funnel.js" />
+    <Content Include="Scripts\grid.js" />
+    <Content Include="Scripts\highcharts-3d.js" />
+    <Content Include="Scripts\highcharts-more.js" />
+    <Content Include="Scripts\highcharts-more.src.js" />
+    <Content Include="Scripts\highcharts.js" />
+    <Content Include="Scripts\highstock.js" />
+    <Content Include="Scripts\jqPaginator.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-confirm.js" />
+    <Content Include="Scripts\jquery-confirm.min.js" />
+    <Content Include="Scripts\jquery.slimscroll.js" />
+    <Content Include="Scripts\jquery.tmpl.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JS\highcharts.js" />
+    <Content Include="Scripts\JS\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\radialIndicator.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\solid-gauge.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\DT\Controllers\" />
+    <Folder Include="Areas\DT\Models\" />
+    <Folder Include="Areas\DT\Views\Shared\" />
+    <Folder Include="Areas\M\Models\" />
+    <Folder Include="Areas\ProduceTrace\Models\" />
+    <Folder Include="Areas\Public\Models\" />
+    <Folder Include="Areas\Public\Views\DatabaseAccess\" />
+    <Folder Include="Areas\Public\Views\Shared\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\public_module\Net\MES.Framework\MES.Framework.csproj">
+      <Project>{a95c3ef3-c812-4d9e-b52e-c9d3a0a67b55}</Project>
+      <Name>MES.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\public_module\Net\SMES.AspNetFramework\SMES.AspNetFramework.csproj">
+      <Project>{de74f800-1505-4e76-8367-9d9f683f02b6}</Project>
+      <Name>SMES.AspNetFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\public_module\Net\SMES.Framework\SMES.Framework.csproj">
+      <Project>{766484cb-3f81-4fa0-9ae4-a19685edd83b}</Project>
+      <Name>SMES.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMES.AspNetDTM.ICore\SMES.AspNetDTM.ICore.csproj">
+      <Project>{67e3f46b-bf56-4731-9c51-18421aaeab5e}</Project>
+      <Name>SMES.AspNetDTM.ICore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMES.AspNetDTM.Model\SMES.AspNetDTM.Model.csproj">
+      <Project>{636abf31-385f-4fc9-8966-a6c3aa8fe206}</Project>
+      <Name>SMES.AspNetDTM.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>23861</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:23868/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

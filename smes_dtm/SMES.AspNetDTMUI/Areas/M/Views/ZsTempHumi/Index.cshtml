@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    @Scripts.Render("/Content/datepicker");
+    <link href="~/Areas/M/Styles/ZsTempHumi.css" rel="stylesheet" />
+}
+
+<div style="width:100%;height:100%;margin:0px;padding:0px" ng-app="ZsTHapp" ng-controller="ZsTHctl">
+    <div class="module1 title">
+        <div class="top-left">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;width:100%;">
+                    <div class="row">
+                        <div class="col-xs-7">
+                            制丝环境温湿度
+                        </div>
+                        <div class="col-xs-5">
+                            <div id="ProducteWeek" class="week">@ViewBag.Week</div>
+                            <div id="ProducteDate" class="date">@ViewBag.Date</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-right">
+            @*<div style="display:table;width:100%;height:100%;">
+                    <div style="display:table-cell;vertical-align:middle;width:100%;">
+                        <div class="row">
+                            <div class="pull-right">
+                                <div class="form-group" style="margin:0px;font-size:small;text-align:right;">
+                                    <div class="col-lg-2">
+                                        <button class="btn" ng-click="Refresh()" style="background-color:#214E85;border-radius:5px;width:80px;">刷新</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+    <div class="main-content1">
+        <div id="Scroll1">
+            <div class="producerow">
+                <div class="col-xs-6" style="height:100%;width:25%;background-color:green;margin:0px;padding:10px;border:1px solid #fff" ng-repeat="x in TemHumData">
+                    <div style="font-size:15px;">
+                        {{x.AREA_NAME}}
+                    </div>
+                    <div style="margin: 0 auto; padding-top: 5px; font-size: 13px; width: 50%;">
+                        <div style="text-align:left;">
+                            <span>温度均值：{{x.TAVG}}</span>
+                        </div>
+                        <div style="text-align: left;">
+                            <span>温度标偏：{{x.TSTD}}</span>
+                        </div>
+                        <div style="text-align: left;">
+                            <span>湿度均值：{{x.HAVG}}</span>
+                        </div>
+                        <div style="text-align: left;">
+                            <span>湿度标偏：{{x.HSTD}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/Areas/M/Scripts/ZsTempHumi.js"></script>
+}

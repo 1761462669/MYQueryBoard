@@ -1,0 +1,89 @@
+﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+    x:Class="MDF.UISample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:tools="clr-namespace:MDF.UISample.Tools"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:prism="http://www.codeplex.com/prism"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mdf="http://mdf.framework.com/XAML"
+    xmlns:cmd="clr-namespace:SMES.Framework.Command;assembly=SMES.SLFramework"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:custom="clr-namespace:MDF.UISample"
+    xmlns:framework="http://schemas.smes.framework/XAML"   
+    xmlns:ctls="http://MDF.Custom.Controls/XAML"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="800">
+    <UserControl.Resources>
+        <custom:FucntionPoints x:Key="functionPoints">
+            <custom:FunctionPoint Name="MDFListBox" Uri="MDF.UISample.ControlStyle.ListBoxStyleDemo"/>
+            <custom:FunctionPoint Name="文件上传控件" Uri="MDF.UISample.ControlStyle.MDFUploadFileDemo"/>
+            <custom:FunctionPoint Name="下载文件" Uri="MDF.UISample.ControlStyle.LinkButtonStyleDemo"/>
+            <custom:FunctionPoint Name="浏览器" Uri="MDF.UISample.ControlStyle.WebBrowser"/>
+            <custom:FunctionPoint Name="单位选择控件" Uri="MDF.UISample.ControlStyle.MDFMeasureChooseDemo"/>
+            <custom:FunctionPoint Name="文本框" Uri="MDF.UISample.ControlStyle.TextBoxDemo"/>
+            <custom:FunctionPoint Name="RichTextBox" Uri="MDF.UISample.ControlStyle.RichTextBox"/>
+            <custom:FunctionPoint Name="物料控件" Uri="MDF.UISample.ControlStyle.MatChooseControlDemo"/>
+            <custom:FunctionPoint Name="SerachCombox" Uri="MDF.UISample.ControlStyle.MDFSearchCombox"/>
+            <custom:FunctionPoint Name="LineDataChart" Uri="MDF.UISample.ControlStyle.DataChart.LineDataChart"/>
+            <custom:FunctionPoint Name="IgRichTextBoxRightCopy" Uri="MDF.UISample.ControlStyle.IgRichTextBox"/>
+            <custom:FunctionPoint Name="IgXamGridDemo" Uri="MDF.UISample.ControlStyle.IgXamGridDemo"/>
+
+
+
+            
+
+        </custom:FucntionPoints>
+
+        <framework:TrueFalseConvert x:Key="trueFalseConvert"></framework:TrueFalseConvert>
+    </UserControl.Resources>
+
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderThickness="1">
+                <ListBox DataContext="{StaticResource functionPoints}" ItemsSource="{Binding}" SelectedItem="{Binding Selected,Mode=TwoWay}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction>
+                                <i:InvokeCommandAction.Command>
+                                    <tools:PortalNavagationCommand RegionName="Pages" Uri="{Binding Selected.Uri}" Para="{Binding Selected}" />
+                                </i:InvokeCommandAction.Command>
+                            </i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
+
+            <Grid Grid.Column="1" Background="{StaticResource Smes_Brush_BottomLightGrave}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="{StaticResource PortalHead}"></Image>
+
+                <ContentControl Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" prism:RegionManager.RegionName="Pages">
+
+                </ContentControl>
+            </Grid>
+        </Grid>
+
+        <ctls:MDF_MessageControl Grid.Row="0" VerticalAlignment="Top" x:Name="msgControl" 
+                                     HorizontalAlignment="Stretch"
+                                     MsgText ="{Binding MsgText}"
+                                     State="{Binding MsgStateValue}"></ctls:MDF_MessageControl>
+
+    </Grid>
+</UserControl>

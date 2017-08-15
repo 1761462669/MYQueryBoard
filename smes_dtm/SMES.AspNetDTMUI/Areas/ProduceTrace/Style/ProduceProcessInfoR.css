@@ -1,0 +1,193 @@
+﻿
+.left {
+    background-color: #44b9dc;
+}
+
+.main {
+    background-color: transparent;
+    padding: 0px;
+    /*position:relative;*/
+}
+
+.col-row > div {
+    padding: 0px 5px;
+}
+
+    .col-row > div:first-child {
+        padding-left: 0px;
+    }
+
+    .col-row > div:last-child {
+        padding-right: 0px;
+    }
+
+.row1 {
+    margin-bottom: 10px;
+}
+
+.group {
+    background-color: #3a3b3f;
+    height: 186px;
+}
+
+.row2 {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 196px;
+    bottom: 0px;
+    /*background-color:#3a3b3f;*/
+}
+
+    .row2 > div {
+        height: 100%;
+    }
+
+    .row2 .group {
+        height: 100%;
+    }
+
+    .row2 > div {
+        padding: 0px 5px;
+    }
+
+        .row2 > div:first-child {
+            padding-left: 0px;
+        }
+
+        .row2 > div:last-child {
+            padding-right: 0px;
+        }
+
+
+
+.triangle-bottomright {
+    width: 0;
+    height: 0;
+    border-bottom: 12px solid #fff;
+    border-left: 12px solid transparent;
+    position: absolute;
+    top: 7px;
+    left: 0px;
+}
+
+.left .samll-font {
+    font-size: 12px;
+}
+
+
+h1 {
+    margin-top: 5px;
+}
+
+.table-extent {
+    margin-bottom: 0px;
+}
+
+    .table-extent thead > tr > th {
+        border: 0px;
+        color: #44b9dc;
+        text-align: center;
+    }
+
+    .table-extent td {
+        border: 0px !important;
+        text-align: center;
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
+    }
+
+.table-hover > tbody > tr:hover {
+    background-color: rgba(255,255,255,0.2) !important;
+}
+
+.group {
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+}
+
+    .group > .groupbody {
+        color: #999;
+    }
+
+    .group > .title > .rightarea {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        font-size: 18px;
+    }
+
+        .group > .title > .rightarea > i {
+            padding: 4px 8px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .group > .title > .rightarea > .allow {
+            color: #44b9dc;
+        }
+
+
+    .group div {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /*color:#fff;*/
+    }
+
+.group-extent {
+    position: relative;
+}
+
+    .group-extent .groupbody {
+        position: absolute;
+        /*background-color:red;*/
+        left: 20px;
+        right: 20px;
+        top: 50px;
+        bottom: 20px;
+    }
+
+.chartsum {
+    line-height: 24px;
+    /*background-color:red;*/
+    right: 0px;
+    position: absolute;
+}
+
+    .chartsum > span {
+        margin-left: 10px;
+    }
+
+.tab-container {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+    .tab-container > div {
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        bottom: 0px;
+    }
+
+        .tab-container > div:first-child {
+            display: block;
+            /*left:100px;*/
+        }
+
+.chart {
+    position: absolute;
+    top: 24px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}

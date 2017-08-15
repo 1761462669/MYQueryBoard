@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    @Scripts.Render("/Content/datepicker");
+    <link href="~/Areas/M/Styles/DLCJ_NYKB.css" rel="stylesheet" />
+}
+<script type="text/javascript">
+
+    //setInterval(function () {
+    //        window.location.reload();     
+    //}, 180000);
+
+    var _PageHeight = document.documentElement.clientHeight,
+          _PageWidth = document.documentElement.clientWidth;
+    var _LoadingTop = _PageHeight > 61 ? (_PageHeight - 61) / 2 : 0,
+        _LoadingLeft = _PageWidth > 215 ? (_PageWidth - 215) / 2 : 0;
+    // var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;height:' + _PageHeight + 'px;top:0;background:#f3f8ff;opacity:0.8;filter:alpha(opacity=80);z-index:10000;"><div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px; width: auto; height: 57px; line-height: 57px; padding-left: 50px; padding-right: 5px; background: #fff url(/Content/loading.gif) no-repeat scroll 5px 10px; border: 2px solid #95B8E7; color: #696969; font-family:\'Microsoft YaHei\';">页面加载中，请等待...</div></div>';
+    var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;background:black;height:' + _PageHeight + 'px;top:0;opacity:0.8;filter:alpha(opacity=80);z-index:10000;"><div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px; width: 100%; height: 100px; line-height: 150px; padding-left: 50px; padding-right: 5px; color: white;font: normal 20px/22px 宋体; font-family:\'Microsoft YaHei\';">页面加载中...</div></div>';
+    document.write(_LoadingHtml);
+    document.onreadystatechange = completeLoading;
+    function completeLoading() {
+        if (document.readyState == "complete") {
+            var loadingMask = document.getElementById('loadingDiv');
+            loadingMask.parentNode.removeChild(loadingMask);
+        }
+    }
+
+    //function myrefresh() {
+    //    window.location.reload();
+    //}
+    //setTimeout('myrefresh()', 180000); //指定3分钟刷新一次
+
+
+</script>
+<div ng-app="APP" ng-controller="CTRL" id="main" style="width:100%;height:100%;margin:0px;padding:0px">
+
+    <div class="main-Head">
+        <div class="left_side" style="font-size: 45px;font-family:Arial;">
+            @ViewBag.Title
+        </div>
+        <div class="right_side"style="text-align:right;font-size: 20px;font-family:Arial;">
+            <div style="align-content:center">{{times_n}} {{times_w}} {{times_t}}</div>
+            @*<div style="align-content:center"></div>
+            <div style="align-content:center"></div>*@
+        </div>
+    </div>
+    <div class="main-Body">
+        <div class="left_side">
+            <table id="t1" style="width:100%;border:0px;font-size:25px;">
+                @*<thead>
+                    <tr>
+                        <th style="height:50px;font-size:25px;border:0px;">区域</th>                       
+                    </tr>
+                </thead>*@
+                @*<tbody>*@
+                   <tr>
+                       <td id="tbody-result1"></td>                   
+                   </tr>
+               
+                @*</tbody>*@  
+                
+            </table>
+        </div>
+        <div class="right_side">
+            <div class="right_side_top">
+                <div id="WD_MM" class="right_side_left">
+                </div>
+                <div id="SD_MM" class="right_side_right">
+                </div>
+            </div>
+            <div class="right_side_down">
+                <div id="WD_HV" class="right_side_left">
+                </div>
+                <div id="SD_HV" class="right_side_right">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/chart");
+    <script src="~/Areas/M/Scripts/DLCJ_NYKB.js"></script>
+}

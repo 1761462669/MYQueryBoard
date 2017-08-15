@@ -1,0 +1,28 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:smes="http://MDF.Custom.Controls/XAML"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    
+    <Style TargetType="smes:MDFProgressBar">
+        <Setter Property="Background" Value="Black"/>
+        <Setter Property="ValueBrush" Value="Red"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="smes:MDFProgressBar">
+                    <Border>
+                        <Grid>
+                            <Border x:Name="maxrec" Background="{TemplateBinding Background}"/>
+                            <Border x:Name="valuerec" HorizontalAlignment="Left" Background="{TemplateBinding ValueBrush}"/>
+                            <Border x:Name="valueBlock" HorizontalAlignment="Left" Background="{TemplateBinding ValueBrush}">
+                                <Border x:Name="block" Background="{TemplateBinding ValueBrush}">
+                                    <!--<ContentControl Content="{TemplateBinding Percent}" VerticalAlignment="Center" HorizontalAlignment="Center"/>-->
+                                </Border>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

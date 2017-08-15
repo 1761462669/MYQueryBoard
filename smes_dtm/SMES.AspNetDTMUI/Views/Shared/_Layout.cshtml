@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - SMES</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
+
+    
+</head>
+<body>
+    <div class="div-main">
+        <div class="main-title">
+            <div class="main-title-world">
+                @ViewBag.Title
+            </div>
+            <div class="maim-title-sjx">
+
+            </div>
+
+            <div style="float:right; margin-top:6px">
+                @if (ViewBag.TitleLinks != null)
+                {
+                    foreach (var item in ViewBag.TitleLinks)
+                    {
+                        <a href="@item.Url">@item.Title</a>
+                    }
+                }
+                
+                @RenderSection("links",required:false)
+                
+                <a href="#" onclick="window.history.back(); return false;">返回</a>
+            </div>
+            
+        </div>
+        <div id="maincontent" class="div-content">
+            @RenderBody()
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery", "~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/smesjs")
+    
+
+    <script>
+
+        $(function () {
+            resize();
+            $(window).on("resize", resize);
+        })
+
+        function resize() {
+            setmainscroll();
+        }
+
+        function setmainscroll() {
+            //debugger;
+            var height = $(".div-main").outerHeight() - $(".main-title").outerHeight() - $(".top-area").outerHeight() - $(".bottom-area").outerHeight()-10;
+            $(".data-area").slimScroll({
+                height: height,
+                alwaysVisible: false,
+                color: "#000",
+                railColor: "#c0c0c1",
+                wrapperClass: "mian-srcoll",
+                railOpacity: 1,
+                railVisible: true,
+                disableFadeOut: true
+            });
+        }
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

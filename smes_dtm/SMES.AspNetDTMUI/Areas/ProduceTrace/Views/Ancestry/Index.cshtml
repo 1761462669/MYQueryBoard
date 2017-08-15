@@ -1,0 +1,996 @@
+﻿@{
+    Layout = "~/Areas/ProduceTrace/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "生产追踪";
+    
+   
+}
+
+@section styles{
+    @Styles.Render("~/Content/datepicker")
+    <style>
+        .querycontent {
+            padding: 20px 0px 40px 0px;
+            border-bottom: 1px solid #525358;
+        }
+
+            .querycontent .form-control {
+                border-radius: 0px;
+                -webkit-border-radius: 0px;
+                -moz-border-radius: 0px;
+                background-color: #e5e5e5;
+            }
+
+            .querycontent .btn {
+                border-radius: 0px;
+                -webkit-border-radius: 0px;
+                -moz-border-radius: 0px;
+            }
+
+        .queryresult {
+            /*background-color:red;*/
+            margin-top: 10px;
+        }
+
+        .tree {
+            list-style: none;
+            font-size: 18px;
+            color: #c5c5c5;
+        }
+
+            .tree > li {
+                margin-bottom: 20px;
+            }
+
+                .tree > li > ul {
+                    font-size: 14px;
+                    list-style: none;
+                    margin-left: 0px;
+                    padding-left: 20px;
+                    color: #999;
+                }
+
+                    .tree > li > ul > li {
+                        margin: 4px 0px;
+                    }
+
+            .tree a {
+                color: #999;
+                outline: none;
+                text-decoration: none;
+            }
+
+                .tree a:hover {
+                    color: #579be6;
+                }
+
+        .active {
+            color: #579be6 !important;
+        }
+
+        .suminfo {
+            padding: 20px 0px;
+            border-bottom: 1px solid #525358;
+            margin: 0px 10px 20px 10px !important;
+        }
+
+            .suminfo .module {
+                height: 84px;
+                /*background-color:red;*/
+                margin-left: -10px;
+                margin-right: -10px;
+                overflow: hidden;
+                color: #999;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+                .suminfo .module div {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .suminfo .module.header {
+                    border-right: 1px solid #525358;
+                    position: relative;
+                }
+
+
+        .headerbtn {
+            position: absolute;
+            right: 5px;
+            bottom: 0px;
+            padding: 0px;
+            margin: 0px;
+            text-align: center;
+            height: 22px;
+            width: 22px;
+            line-height: 22px;
+            border: 1px solid #525358;
+            border-radius: 100%;
+        }
+
+            .headerbtn:hover,
+            .headerbtn:focus {
+                color: #fff;
+            }
+
+        .suminfo .module.header .title {
+            font-size: 21px;
+            color: #fff;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .module .number {
+            font-size: 36px;
+            margin: 10px 0px;
+            color: #fff;
+            font-family: "Open Sans";
+        }
+
+
+        .gyzinfo {
+            height: 440px;
+            margin: 0px 10px 0px 10px !important;
+        }
+
+        .gyzinfodiv {
+            float: left;
+            /*line-height:440px;*/
+        }
+
+        .gyzinfo .module {
+            /*line-height:none;*/
+            height: 220px;
+            /*background-color:red;*/
+            margin-left: 0px;
+            margin-right: 0px;
+            overflow: hidden;
+            color: #999;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #fff;
+        }
+
+            .gyzinfo .module div {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: #fff;
+            }
+
+            .gyzinfo .module .title {
+                background-color: rgba(0,0,0,0.2);
+                padding: 4px 4px 4px 20px;
+            }
+
+                .gyzinfo .module .title > .btn {
+                    color: #fff;
+                    padding: 0px;
+                    margin: 0px;
+                }
+
+                    .gyzinfo .module .title > .btn:hover {
+                        color: #579be6;
+                    }
+
+            .gyzinfo .module .module-content {
+                padding: 20px;
+                font-size: 12px;
+            }
+
+                .gyzinfo .module .module-content > div {
+                    line-height: 2;
+                }
+
+                    .gyzinfo .module .module-content > div > span {
+                        color: rgba(0,0,0,0.6);
+                        font-size: 24px;
+                        font-family: "Open Sans";
+                        font-style: italic;
+                    }
+
+        .small-font {
+            font-size: 12px;
+        }
+
+        .gyz-mx-batch {
+            font-size: 24px;
+            color: #579ce9;
+        }
+
+        .gyz-mx-big-font {
+            margin-top: 5px;
+            font-size: 48px;
+            color: #43b9df;
+        }
+
+        .gyz-mx-small-font {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #43b9df;
+        }
+
+        .table-extent {
+        }
+
+            .table-extent th {
+                color: #333;
+                font-weight: normal;
+            }
+
+            .table-extent td {
+                border: 0px !important;
+            }
+
+            .table-extent thead > tr > th {
+                border-top: 1px solid #dddddd !important;
+                border-bottom: 1px solid #dddddd;
+            }
+
+        .tablebodydiv {
+            height: 150px;
+        }
+
+            .tablebodydiv table {
+                margin: 0px;
+            }
+
+        .radiobtn {
+            color: #fafafa;
+        }
+
+            .radiobtn:hover {
+                color: #579be6;
+            }
+
+            .radiobtn > .round1 {
+                height: 12px;
+                width: 12px;
+                border-radius: 16px;
+                border: 2px solid #579be6;
+                display: inline-block;
+                margin-right: 4px;
+                /*text-align:center;
+            line-height:12px;*/
+            }
+
+                .radiobtn > .round1 > .round2 {
+                    height: 6px;
+                    width: 6px;
+                    border-radius: 6px;
+                    margin-left: 1px;
+                    margin-top: 1px;
+                }
+
+            .radiobtn.checked > .round1 > .round2 {
+                background-color: #579be6;
+            }
+
+            .radiobtn > .text {
+                line-height: 14px;
+                display: inline-block;
+            }
+
+        .jconfirm-scrollpane {
+            color:#000;
+        }
+    </style>
+}
+<div class="content1">
+    @*<div id="scroll">
+            <div id="sss" style="height:1000px;position:relative">
+            </div>
+        </div>*@
+    <input id="backinput" type="hidden" value="" />
+    <div class="left">
+        <div class="querycontent">
+            <form>
+                <div class="form-group row">
+                    <div class="col-xs-6">
+                        <div class="btn radiobtn checked" id="Positive">
+                            <div class="round1">
+                                <div class="round2"></div>
+                            </div>
+                            <div class="text">
+                                正向追踪
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="btn radiobtn" id="Reverse">
+                            <div class="round1">
+                                <div class="round2"></div>
+                            </div>
+                            <div class="text">
+                                反向追踪
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input id="date" type="text" class="form-control datepicker-here" />
+                </div>
+
+                <div class="form-group">
+                    <input id="txtkey" type="text" class="form-control" placeholder="关键字" />
+                </div>
+                <div class="btn btn-primary btn-block" onclick='QueryCutBatchInfo();'>查询</div>
+            </form>
+        </div>
+
+        <div id="queryresult" class="queryresult">
+            <ul id="tree" class="tree"></ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <div id="Scroll2">
+            <div class="suminfo row">
+                <div class="col-xs-2">
+                    <div id="batchinfo" class="module header">
+
+                        @*<div class="title">黄金叶（软大金元软大金元）</div>
+                            <div>批次号:1512HJYRDJY#001</div>
+                            <div>产品路线:8000线分组</div>
+
+                            <div class="btn headerbtn" data-toggle="modal" data-target="#myModal">
+                                <i class="icon-reply icon-rotate-180"></i>
+                            </div>*@
+                    </div>
+                </div>
+                <div class="col-xs-10">
+                    <div class="col-xs-2">
+                        <div class="module">
+                            投入量（公斤）
+                            <div id="inputqty" class="number"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="module">
+                            烟丝产出（公斤）
+                            <div id="outputqty" class="number"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="module">
+                            过程检验得分
+                            <div id="qlscore" class="number">0</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="module">
+                            转序检验得分
+                            <div id="converscore" class="number">0</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="module">
+                            西格玛水平
+                            <div id="defect" class="number" style="color:#f86532">0</div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-2">
+                        <div class="module">
+                            成品产出（箱）
+                            <div id="productqty" class="number" style="color:#ffb216">0</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="gyzinfo" class="gyzinfo row">
+
+
+            </div>
+
+            @*<div class="btn" data-toggle="modal" data-target="#myModal">aaa</div>*@
+        </div>
+
+
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">投料信息页</h4>
+            </div>
+            <div class="modal-body">
+                <div id="tlwoinfo" class="row row-margin">
+
+                </div>
+
+                <div class="row row-margin">
+                    <table class="table table-hover table-extent" style="margin-bottom:0px;">
+                        <thead>
+                            <tr>
+                                <th style="width:5%">
+                                    <i class="icon-stop"></i>
+                                </th>
+                                <th style="width:22%">
+                                    物料
+                                </th>
+                                <th style="width:22%">
+                                    编码
+                                </th>
+                                <th style="width:22%">
+                                    投料量(Kg)
+                                </th>
+                                <th style="width:24%">
+                                    批次号
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <div class="tablebodydiv">
+                        <div id="scortable">
+                            <table class="table table-hover table-extent">
+                                <tbody id="tllist">
+                                    @*<tr>
+                                            <td style="width:5%">
+                                                <i class="icon-stop"></i>
+                                            </td>
+                                            <td style="width:22%">
+                                                等级2
+                                            </td>
+                                            <td style="width:22%">
+                                                30%
+                                            </td>
+                                            <td style="width:22%">
+                                                1
+                                            </td>
+                                            <td style="width:24%">
+                                                100
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="icon-stop"></i>
+                                            </td>
+                                            <td>
+                                                等级1
+                                            </td>
+                                            <td>
+                                                30%
+                                            </td>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                100
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="icon-stop"></i>
+                                            </td>
+                                            <td>
+                                                等级1
+                                            </td>
+                                            <td>
+                                                30%
+                                            </td>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                100
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="icon-stop"></i>
+                                            </td>
+                                            <td>
+                                                等级1
+                                            </td>
+                                            <td>
+                                                30%
+                                            </td>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                100
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="icon-stop"></i>
+                                            </td>
+                                            <td>
+                                                等级1
+                                            </td>
+                                            <td>
+                                                30%
+                                            </td>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                100
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="icon-stop"></i>
+                                            </td>
+                                            <td>
+                                                等级1
+                                            </td>
+                                            <td>
+                                                30%
+                                            </td>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                100
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="icon-stop"></i>
+                                            </td>
+                                            <td>
+                                                等级1
+                                            </td>
+                                            <td>
+                                                30%
+                                            </td>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                100
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="icon-stop"></i>
+                                            </td>
+                                            <td>
+                                                等级1
+                                            </td>
+                                            <td>
+                                                30%
+                                            </td>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                100
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="icon-stop"></i>
+                                            </td>
+                                            <td>
+                                                等级1
+                                            </td>
+                                            <td>
+                                                30%
+                                            </td>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                100
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="icon-stop"></i>
+                                            </td>
+                                            <td>
+                                                等级1
+                                            </td>
+                                            <td>
+                                                30%
+                                            </td>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                100
+                                            </td>
+                                        </tr>*@
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+
+    @Scripts.Render("~/bundles/datepicker")
+    <script>
+        $('#Reverse').click(function () {
+            window.location = "Reverse";
+        });
+    function setsize()
+    {
+        var heigth = $(".left").height() - 70 - $(".querycontent").height();
+        $("#queryresult").height(heigth);
+    }
+
+    $(function () {
+        resiz();
+        $(window).on("resize", resiz);
+
+        if ($("#backinput").val() == "")
+        {
+            $("#date").val(new Date().Format("yyyy-MM-dd"));
+
+            $(".form-group .radiobtn").click(function () {
+                if ($(this).hasClass("checked"))
+                    return;
+
+                $(".form-group").find(".checked").removeClass("checked");
+
+                $(this).addClass("checked");
+            })
+
+            QueryCutBatchInfo();
+
+            $("#backinput").val("true");
+
+            //var iframe = document.getElementById("produceprocessinfofrm");
+
+            //if (iframe.attachEvent) {
+            //    iframe.attachEvent("onload", function () {
+            //        //以下操作必须在iframe加载完后才可进行
+            //        //alert("aa");
+            //    });
+            //} else {
+            //    iframe.onload = function () {
+            //        //以下操作必须在iframe加载完后才可进行
+            //        //alert("bb");
+            //    };
+            //}
+
+        }
+
+
+    })
+
+
+    function resiz()
+    {
+        setsize();
+        setScroll1();
+        setScroll2();
+        setScroll3();
+    }
+
+    function setScroll1()
+    {
+        $("#tree").slimScroll({
+            height: $(".queryresult").height(),
+            alwaysVisible: false,
+            color: "#38393d",
+            railColor: "#525357",
+            railOpacity: 1,
+            railVisible:true,
+            disableFadeOut:true
+        });
+    }
+
+    function setScroll2() {
+        $("#Scroll2").slimScroll({
+            height: $(".main").height(),
+            alwaysVisible: false,
+            color: "#38393d",
+            railColor: "#525357",
+            railOpacity: 1,
+            railVisible: true,
+            disableFadeOut: true
+        });
+    }
+
+    function setScroll3() {
+        $("#scortable").slimScroll({
+            height: 150,
+            alwaysVisible: false,
+            color: "#e7eefe",
+            railColor: "#e4e5e9",
+            railOpacity: 1,
+            railVisible: true,
+            disableFadeOut: true
+        });
+    }
+
+    function setTree()
+    {
+        $("#tree a").click(function () {
+
+            if ($(this).hasClass("active"))
+                return;
+
+            var batch = $(this).tmplItem().data;
+
+            $("#tree .active").removeClass("active");
+            $(this).addClass("active");
+
+            BatchInfo(batch);
+            woinfo(batch);
+            return false;
+        })
+
+        $("#tree a").first().click();
+    }
+
+
+
+    //$(window).on("resize", setScroll);
+
+    /*********业务数据获取**********/
+
+    //var curBatch;
+
+    function QueryCutBatchInfo()
+    {
+        //debugger;
+        var date = $("#date").val();
+        var key = $("#txtkey").val();
+        app.DataRequest('@Url.Action("QueryCutBatchInfo")',{plandate:date,productkey:key}, function (data) {
+
+            var groupdatadic = [];
+
+            data.forEach(function (value, index) {
+                if (groupdatadic["ID" + value.PRODUCTID])
+                    groupdatadic["ID" + value.PRODUCTID].Child.push(value);
+                else
+                    groupdatadic["ID" + value.PRODUCTID] = { ID: value.PRODUCTID, Name: value.PRODUCTNAME, Child: [value] };
+
+            })
+
+            var groupdata = [];
+
+            for (var item in groupdatadic)
+            {
+                groupdata.push(groupdatadic[item]);
+            }
+
+            $("#tree").empty();
+            $("#producttmpl").tmpl(groupdata).appendTo("#tree");
+            setTree();
+            setScroll1();
+
+        });
+    }
+
+    //批次信息
+    function BatchInfo(batch)
+    {
+        $("#batchinfo").empty();
+        $("#batchinfotmpl").tmpl(batch).appendTo("#batchinfo");
+
+        $("#inputqty").html(batch.INPUTQTY);
+        $("#outputqty").html(batch.OUTPUTQTY);
+        $("#productqty").html(batch.PRODUCTQTY);
+        $("#qlscore").html(batch.QLSCORE);
+        $("#converscore").html(batch.CONVERSCORE);
+        $("#defect").html(batch.DEFECT);
+    }
+
+    function woinfo(batch)
+    {
+        //debugger;
+        app.DataRequest('@Url.Action("QueryWorkOrderOutPut")', { batchid: batch.ID }, function (data) {
+
+            //对数据进行生产顺序分组
+
+            var tmpgroup = [];
+            //debugger;
+            data.forEach(function (item, index) {
+                if (tmpgroup["T" + item.PRODUCTSEQUEN])
+                    tmpgroup["T" + item.PRODUCTSEQUEN].ORDERS.push(item);
+                else
+                    tmpgroup["T" + item.PRODUCTSEQUEN] = { SEQ: item.PRODUCTSEQUEN, ORDERS: [item] };
+            });
+
+            var groupdata = [];
+            for (var item in tmpgroup)
+            {
+                groupdata.push(tmpgroup[item]);
+            }
+
+            $("#gyzinfo").empty();
+            var storelist = $("#storelisttmpl").tmpl(groupdata, {getColor:app.GetColor});
+            storelist.css("width", 100 / storelist.length+"%");
+            storelist.appendTo("#gyzinfo");
+
+            $(".infobtn").click(function () {
+
+
+                var wo = $(this).tmplItem().data;
+
+                //debugger;
+                var url = '@Url.Action("ProduceProcessInfo")' + "?ID=" + wo.WORKORDERID + "&batchid=" + wo.BATCHID;
+
+                var mask = $('<div id="produceprocessinfo" class="mask">' +
+                                '<iframe src="' + url + '"></iframe>' +
+                            '</div>');
+
+                $("body").append(mask);
+                //$("#produceprocessinfofrm").attr("src", url);
+
+
+                mask.show(500);
+
+                return false;
+            });
+
+            $(".tld").click(function () {
+                var wo = $(this).tmplItem().data;
+
+                $("#tlwoinfo").empty();
+
+                $("#tllist").empty();
+
+                $("#tlwoinfotmpl").tmpl(wo, {
+                    datefrm: app.DateFormat, getRate: function (inputqty, qty) {
+
+                        if (Number(qty) == 0)
+                            return 0;
+                        else
+                            return Math.round(Number(inputqty) / Number(qty)*100);
+                    }
+                }).appendTo("#tlwoinfo");
+
+                $("#myModal").modal();
+
+                //setScroll3
+                app.DataRequest('@Url.Action("GetCutWorkorderConsume")', { id: wo.WORKORDERID }, function (data) {
+
+                    $("#tllisttmpl").tmpl(data).appendTo("#tllist");
+
+                    setScroll3();
+                });
+
+                return false;
+            });
+
+        });
+    }
+
+    function closeframe()
+    {
+       
+        $("#produceprocessinfo").hide(300, function () {
+            $("#produceprocessinfo").remove();
+        });
+    }
+    </script>
+
+    <script id="producttmpl" type="text/x-jquery-tmpl">
+        <li>
+            ${Name}
+            <ul>
+                {{tmpl(Child) "#batchtmpl"}}
+            </ul>
+        </li>
+    </script>
+
+    <script id="batchtmpl" type="text/x-jquery-tmpl">
+        <li><a href="#">${PLANCODE}</a></li>
+    </script>
+
+    <script id="batchinfotmpl" type="text/x-jquery-tmpl">
+        <div class="title">${PRODUCTNAME}</div>
+        <div>批次号:${PLANCODE}</div>
+        <div>产品路线:${PRODUCTROUTINGNAME}</div>
+
+        <div class="btn headerbtn">
+            <i class="icon-reply icon-rotate-180"></i>
+        </div>
+    </script>
+
+    <script id="storelisttmpl" type="text/x-jquery-tmpl">
+        <div class="gyzinfodiv" style="background-color:${$item.getColor()}">
+            {{tmpl(ORDERS) "#storeinfotmpl"}}
+        </div>
+    </script>
+
+    <script id="storeinfotmpl" type="text/x-jquery-tmpl">
+        <div class="module">
+            <div class="title">
+                {{if PRODUCTSEGMENTID == 21001}} @*如果是投料端显示投料信息*@
+                <a class="btn tld" href='#'>${PROCESSUNITNAME}</a>
+                {{else}}
+                <a class="btn infobtn" href='#'>${PROCESSUNITNAME}</a>
+                {{/if}}
+            </div>
+            <div class="module-content">
+                <div>班组：${TEAMNAME}</div>
+                <div>开始：${REALSTARTTIME}</div>
+                <div>结束：${REALENDTIME}</div>
+                <div>投入：${INPUTQTY}公斤</div>
+                <div>产出：${QUANTITY}公斤</div>
+                <div>得分：<span>${SCORE}</span></div>
+            </div>
+        </div>
+    </script>
+
+    <script id="tlwoinfotmpl" type="text/x-jquery-tmpl">
+        <div class="col-xs-5">
+            <div class="col-margin">
+                <div class="small-font">开始：${$item.datefrm(REALSTARTTIME,"yyyy-MM-dd HH:mm")}  结束：${$item.datefrm(REALENDTIME,"yyyy-MM-dd HH:mm")}</div>
+                <div class="gyz-mx-batch">批次：${BATCHCODE}</div>
+                <div>班组：<span style="color:#333">${TEAMNAME}</span></div>
+                <div>班次：<span style="color:#333">${SHIFTNAME}</span></div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="col-margin">
+                模块号
+                <div class="gyz-mx-small-font">
+                    {{if MODULENAME}}
+                    ${MODULENAME}
+                    {{else}}
+                    --
+                    {{/if}}
+                </div>
+            </div>
+
+        </div>
+        <div class="col-xs-3">
+            <div class="col-margin">
+                批次投料量(公斤)
+                <div class="gyz-mx-big-font">
+                    ${INPUTQTY}
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="col-margin">
+                投入产出比
+                <div class="gyz-mx-big-font">
+                    ${$item.getRate(INPUTQTY,QUANTITY)}
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="tllisttmpl" type="text/x-jquery-tmpl">
+        <tr>
+            <td style="width:5%">
+                <i class="icon-stop"></i>
+            </td>
+            <td style="width:22%">
+                ${MATERIALNAME}
+            </td>
+            <td style="width:22%">
+                ${MATERIALCD}
+            </td>
+            <td style="width:22%">
+                ${QUANTITY}
+            </td>
+            <td style="width:24%">
+                ${MATLOT}
+            </td>
+        </tr>
+    </script>
+}

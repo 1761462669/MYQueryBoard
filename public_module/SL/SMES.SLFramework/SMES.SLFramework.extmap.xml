@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <assembly>
+    <name>SMES.SLFramework</name>
+    <version>1.0.0.0</version>
+
+    <!-- 必须指定，不然不会单独打包 -->
+    <publickeytoken>ac259e6b614846d5</publickeytoken>
+    <relpath>SMES.SLFramework.dll</relpath>
+
+    <!-- 打包的文件名称，如果有多个程序集使用一个名称，则打包的时候会打包成一个 ZIP 文件 -->
+    <extension downloadUri="SMES.SLFramework.zip" />
+  </assembly>
+</manifest>

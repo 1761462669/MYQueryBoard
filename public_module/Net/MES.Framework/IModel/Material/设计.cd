@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="MES.Framework.IModel.Material.IMaterialType">
+    <Position X="4.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IModel\Material\IMaterialType.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MES.Framework.IModel.Material.IMaterialAttribute">
+    <Position X="6.5" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IModel\Material\IMaterialAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MES.Framework.IModel.Material.IMaterialAttributeValue" Collapsed="true">
+    <Position X="6.5" Y="6.25" Width="2.5" />
+    <AssociationLine Name="MaterialAttribute" Type="MES.Framework.IModel.Material.IMaterialAttribute">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.081" Y="-0.14" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IModel\Material\IMaterialAttributeValue.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MaterialAttribute" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="MES.Framework.IModel.Material.IMaterialTypeDefine">
+    <Position X="4.25" Y="2.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAIAAAAAAAAEAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IModel\Material\IMaterialTypeDefine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MaterialType" />
+      <Property Name="MaterialAttribute" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="MES.Framework.IModel.Material.IMaterial" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IModel\Material\IMaterial.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MaterialType" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="MES.Framework.IModel.Material.IMaterialDefine" Collapsed="true">
+    <Position X="8.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>IModel\Material\IMaterialDefine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Material" />
+      <Property Name="MaterialAttribute" />
+    </ShowAsAssociation>
+  </Interface>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

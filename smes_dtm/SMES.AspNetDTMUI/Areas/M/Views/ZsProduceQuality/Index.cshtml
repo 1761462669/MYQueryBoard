@@ -1,0 +1,134 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    @Scripts.Render("/Content/datepicker");
+    <link href="~/Areas/M/Styles/ZsProduceQuality.css" rel="stylesheet" />
+}
+
+<div style="width: 100%; height: 100%; margin: 0px; padding: 0px">
+    <div class="module1 title">
+        <div class="top-left">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;width:100%;">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            制丝质量
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="week">@ViewBag.Week</div>
+                            <div class="date">@ViewBag.Date</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-right">
+            <div class="pull-left" style="padding-left:20px;height:100%;">
+                <div style="display:table;width:100%;height:100%;">
+                    <div style="display:table-cell;vertical-align:middle;width:100%;">
+                        上月整体六西格玛水平：2.54
+                    </div>
+                </div>
+            </div>
+            <div class="pull-right" style="height:100%;padding-right:20px">
+                <div style="display:table;width:100%;height:100%;">
+                    <div style="display:table-cell;vertical-align:middle;width:100%;">
+                        <div class="row">
+                            <ul class="list-inline list-inline-extents">
+                                <li><a href="#">当日</a></li>
+                                <li><a href="#">当周</a></li>
+                                <li><a href="#">当月</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content1">
+        <div id="Scroll1" style="padding:10px;">
+            <div class="producerow">
+                <div class="content-cell">
+                    <div class="col-xs-4" style="height:100%;background-color:#2B2C22;">
+                        <div class="group" style="height:100%;width:100%;padding:0px">
+                            <div class="group-title" style="height:13%;border:0px solid #fff">
+                                <div class="text" style="margin:0px;font-size:15px;font-weight:500"><div style="width:4px;background-color:#fff;display:inline-block;height:14px;margin-right:10px;"></div>气流线</div>
+                            </div>
+
+                            <div class="row" style="height:29%;background-color:#F76532;">
+                                <div class="col-xs-8" style="height:100%;">
+                                    <div style="display:table;width:100%;height:100%;">
+                                        <div style="display:table-cell;vertical-align:middle;width:100%;font-size:13px;">
+                                            开机检验合格率：
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4" style="height:100%;padding-left:5px;">
+                                    <div style="display:table;width:100%;height:100%;">
+                                        <div style="display:table-cell;vertical-align:middle;height:100%;width:100%;">
+                                            <div class="roundproces" data-percent="80%" style="text-align:center;" data-maxvalue="100" data-store="50">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="height:29%;background-color:#09CC52;">
+                                <div class="col-xs-8" style="height:100%;">
+                                    <div style="display:table;width:100%;height:100%;">
+                                        <div style="display:table-cell;vertical-align:middle;height:100%;width:100%;font-size:13px;">
+                                            工艺参数检验合格率：
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4" style="height:100%;padding-left:5px;">
+                                    <div style="display:table;width:100%;height:100%;">
+                                        <div style="display:table-cell;vertical-align:middle;height:100%;width:100%;">
+                                            <div class="roundproces" data-percent="80%" style="text-align:center;" data-maxvalue="100" data-store="50">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="height:29%;background-color:#FFB118;">
+                                <div class="col-xs-8" style="height:100%;">
+                                    <div style="display:table;width:100%;height:100%;">
+                                        <div style="display:table-cell;vertical-align:middle;height:100%;width:100%;font-size:13px;">
+                                            操作工自检合格率：
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4" style="height:100%;padding-left:5px;">
+                                    <div style="display:table;width:100%;height:100%;">
+                                        <div style="display:table-cell;vertical-align:middle;height:100%;width:100%;">
+                                            <div class="roundproces" data-percent="80%" style="text-align:center;" data-maxvalue="100" data-store="50">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <div class="col-xs-8">
+                        <div class="row" style="margin-left:10px;height:100%;">
+                            <div id="BrandProgressChart" style="height:100%;width:500px">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/chart");
+
+    <script src="~/Areas/M/Scripts/ZsProduceQuality.js"></script>
+}
+

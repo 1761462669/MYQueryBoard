@@ -1,0 +1,78 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    @Scripts.Render("/Content/datepicker");
+    <link href="~/Areas/M/Styles/ZsProduceQualityQD.css" rel="stylesheet" />
+}
+<body ng-app="APP" ng-controller="CTRL" id="main" style="width:100%;height:100%;margin:0px;padding:0px">
+    <div class="main-left">
+        <div class="module1 title">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;width:100%;">
+                    <div class="row">
+                        <div class="col-xs-7">
+                            @ViewBag.Title
+                        </div>
+                        <div class="col-xs-5">
+                            <div id="ProducteWeek" class="week">@ViewBag.Week</div>
+                            <div id="ProducteDate" class="date">@ViewBag.Date</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="header-content exist-left">
+        <div class="module3 title" style="background-color:#4D4D4D">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:bottom;text-align:right;width:100%;">
+                    <div class="row">
+                        <form class="form-horizontal">
+                            <div class="form-group" style="margin:0px 0px 0px 0px;font-size:small;">
+                                <ul class=" list-inline list-inline-extents">
+                                    <li ng-click="QueryData(1)" ng-class="{typeatcive: 1 == SelectType}" style="width:60px;">
+                                        <a href="#">当日</a>
+                                    </li>
+                                    <li ng-click="QueryData(2)" ng-class="{typeatcive: 2 == SelectType}" style="width:60px;">
+                                        <a href="#">当周</a>
+                                    </li>
+                                    <li ng-click="QueryData(3)" ng-class="{typeatcive: 3 == SelectType}" style="width:60px;">
+                                        <a href="#">当月</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content1" id="MainContent">
+        <div class="producerow">
+            <div id="Chartcon" style="height: 100%; border-top: 2px solid #C4C4C4; border: 1px solid lightblue; padding-top: 2px;">
+                <div style="height:4%">
+                </div>
+                <div id="Chart" style="height: 96%;">
+
+                </div>
+            </div>
+            <div id="Chartscon" style="height: 100%; border-top: 2px solid #C4C4C4; border: 1px solid lightblue; padding-top: 2px;">
+                <div style="height:4%">
+                    <a id="rm" href="#" ng-click="returnMain()" style="font-size:20px;margin-left:10px;">返回</a>
+                </div>
+                <div id="Charts" style="height:96%">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+@section scripts{
+    @Scripts.Render("~/bundles/chart");
+
+    <script src="~/Areas/M/Scripts/ZsProduceQualityQD.js"></script>
+}
+

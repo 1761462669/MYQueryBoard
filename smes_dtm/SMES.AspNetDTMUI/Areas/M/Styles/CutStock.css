@@ -1,0 +1,249 @@
+﻿
+.content-left {
+    background-color:#3a3b3f;
+    position:absolute;
+    top:0px;
+    height:100%;
+    width:230px;
+    padding:32px 20px;
+}
+
+.content-right {
+    /*background-color:#3a3b3f;*/
+    position:absolute;
+    top:0px;
+    left:230px;
+    height:100%;
+    right:0px;
+}
+
+    .content-right > div {
+        margin-left:4px;
+        margin-right:0px;
+        height:100%;
+        /*background-color:#3a3b3f;*/
+    }
+
+
+    
+.form-control {
+                border-radius: 0px;
+                -webkit-border-radius: 0px;
+                -moz-border-radius: 0px;
+                background-color: #e5e5e5;
+            }
+
+.querybtn {
+                border-radius: 0px;
+                -webkit-border-radius: 0px;
+                -moz-border-radius: 0px;
+            }
+
+.queryarea {
+    margin-bottom:40px;
+}
+
+
+.productarea>ul {
+    list-style:none;
+    margin:0px;
+    padding:0px;
+    /*border-top:1px solid #999;*/
+}
+
+.productarea > ul>li {
+    margin-bottom:20px;
+}
+
+.productarea > ul > li > a {
+    display: block;
+    color: #e1e1e1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+    .productarea > ul > li > a:hover,
+    .productarea > ul > li > a:active,
+    .productarea > ul > li > a:focus {
+        color:#44b8dd;
+        outline:none;
+        text-decoration:none;
+    }
+
+.productactive {
+    color:#44b8dd !important;
+}
+
+.productname {
+    font-size:22px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.batch-module {
+    height:304px;
+    background-color:#3a3b3f;
+    margin-left:-11px;
+    margin-right:-11px;
+    margin-bottom:8px;
+    padding:20px;    
+}
+
+.module-lable {
+    color:#999;
+    margin-right:4px;
+    font-size:12px;
+}
+
+.module-batch{
+    color:#fafafa;
+    font-size:16px;
+}
+
+    .module-batch:hover,
+    .module-batch:active,
+    .module-batch:focus {
+        color:#44b8dd;
+        text-decoration:none;
+        outline:none;
+    }
+
+.sp {
+    margin:0px 5px;
+}
+.sp:after {
+    content:"|";
+    color:#999;
+}
+
+.process-div {
+    margin-top:20px;
+    border-top:1px solid #fff;
+    padding:8px 0px;
+}
+
+.process-back {
+    height:18px;
+    background-image:url(../Images/g-line.png);
+    overflow:hidden;
+    
+}
+
+.process-b {
+    float:left;
+    height:18px;
+    background-image:url(../Images/b-line.png);
+    width:30%;
+}
+
+.module-row {
+    /*background-color:green;*/     
+     display:block;
+}
+
+    .module-row:before,
+    .module-row:after {
+        display: table;
+        content: " ";
+    }
+
+    .module-row:after {
+        clear: both;
+    }
+
+.module-row-col {
+    width:50%;height:80px;float:left;position:relative; min-height:1px;
+    border-top:1px solid #4e4f53;
+    padding-top:12px;
+   
+}
+
+/*.module-row-col-area {
+    border-top:1px solid #4e4f53;
+}*/
+
+.module-row>.module-row-col:first-child {
+    border-right:1px solid #4e4f53;
+}
+
+.batch-atrr > .module-row:last-child > .module-row-col {
+    border-bottom:1px solid #4e4f53;
+}
+
+.att-font {
+    font-size:22px;
+    margin-right:10px;
+}
+
+.module-row > .module-row-col:last-child {
+    padding-left:15px;
+}
+
+.list-info-a {
+    display:block;
+    position:absolute;
+    height:14px;
+    width:14px;
+    border:1px solid #4e4f53;
+    top:5px;
+    right:5px;
+    border-radius:100%;
+    font-size:8px;
+    text-align:center;
+    line-height:12px;
+    color:#4e4f53;
+}
+
+    .list-info-a > i {
+        margin-left:3px;
+    }
+
+    .list-info-a:hover,
+    .list-info-a:active,
+    .list-info-a:focus {
+        color:#fff;
+        outline:none;
+        text-decoration:none;
+    }
+
+.font-color1 {
+    color:#fd5524;
+}
+
+.dialogquery-area {
+    margin-bottom:10px;
+    margin-left:0px;
+    margin-right:0px;
+}
+
+.list-inline > li {
+    margin:0px;
+    padding:0px;
+}
+
+.list-inline > li:after {
+    content:"/"
+}
+
+.list-inline > li:last-child:after {
+    content:""
+}
+
+    .list-inline > li > a {
+        color:#333;
+        padding:0px 10px;
+    }
+
+    .list-inline > li > a:hover,
+    .list-inline > li > a:active,
+    .list-inline > li > a:focus {
+        color:#44b8dd;
+        outline:none;
+        text-decoration:none;
+    }
+
+.dialogquery-area-where {
+    margin-right:20px;
+}

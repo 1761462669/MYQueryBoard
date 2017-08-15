@@ -1,0 +1,57 @@
+﻿<objects xmlns="http://www.springframework.net">
+
+  <object id="SMES.Com.ScheduleCore.Service.Cut.CodeGengrator.Tag.CutBatchTagService" type="SMES.Com.ScheduleCore.Service.Cut.CodeGengrator.Tag.CutBatchTagService,SMES.Com.ScheduleCore">
+    <property name="planCodeTags">
+      <dictionary key-type="string" value-type="string">
+        <entry key="73555" value="B"></entry>
+        <entry key="171909" value="C"></entry>
+      </dictionary>
+    </property>
+  </object>
+  <alias name="SMES.Com.ScheduleCore.Service.Cut.CodeGengrator.Tag.CutBatchTagService" alias="SMES.Com.ScheduleCore.Service.Cut.CodeGengrator.Tag.ICutBatchTagService"/>
+
+  <!--*******************************嘴棒作业调度责任链Begin************************************************-->
+  <object id="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.WorkOrderDispatchResponsiblityChain" type="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.WorkOrderDispatchResponsiblityChain,SMES.Com.DispatchCore">
+    <property name="Nodes">
+      <list element-type="MES.Framework.Utility.IHandleNode,MES.Framework">
+        <!--1、验证节点-->
+        <ref object="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.ValidDispatchWorkOrderNode"/>
+        <!--2、操作工单节点-->
+        <ref object="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.TakeActionWorkOrderNode"/>
+        <!--3、修改作业状态节点-->
+        <ref object="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.UpdateBatchActionNode"/>
+        <!--4、生成操作记录-->
+        <ref object="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.CreateOpreateRecordNode"/>
+        <!--5、生成执行记录-->
+        <ref object="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.TakeExecuteRecordNode"/>
+      </list>
+    </property>
+  </object>
+
+  <!--1、验证节点-->
+  <object id="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.ValidDispatchWorkOrderNode" type="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.ValidDispatchWorkOrderNode,SMES.Com.DispatchCore">
+  </object>
+
+  <!--2、操作工单节点-->
+  <object id="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.TakeActionWorkOrderNode" type="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.TakeActionWorkOrderNode,SMES.Com.DispatchCore">
+  </object>
+
+  <!--3、修改作业状态节点-->
+  <object id="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.UpdateBatchActionNode" type="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.UpdateBatchActionNode,SMES.Com.DispatchCore">
+  </object>
+
+  <!--4、生成操作记录-->
+  <object id="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.CreateOpreateRecordNode" type="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.CreateOpreateRecordNode,SMES.Com.DispatchCore">
+  </object>
+
+  <!--5、生成执行记录-->
+  <object id="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.TakeExecuteRecordNode" type="SMES.Com.DispatchCore.Serivce.Filter.DispatchNodes.TakeExecuteRecordNode,SMES.Com.DispatchCore">
+    <property name="CreateRecordAction" value="84035"/>
+    <property name="CancelRecordAction" value="84036"/>
+    <property name="UpdateRecordStartAction" value="84038"/>
+    <property name="UpdateRecordFinishAction" value="84039"/>
+  </object>
+
+  <!--*******************************嘴棒作业调度责任链End************************************************-->
+
+</objects>

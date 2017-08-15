@@ -1,0 +1,81 @@
+﻿.module1 {
+    height:10%;
+    padding:10px 20px;
+    position:relative;
+}
+
+    .module1 .row {
+        margin:0px;
+        
+    }
+
+        .module1 .row > div {
+            padding:0px;
+        }
+
+.top-left{
+    width:40%;
+    position:absolute;
+    top:0px; 
+    left:0px;   
+    bottom:0px;
+    padding-left:20px;
+    background-color:#4595ec;
+}
+
+.top-right{
+    width:60%;
+    position:absolute;
+    top:0px; 
+    left:0px;         
+    bottom:0px;
+    background-color:#4D4D4D;
+    margin-left:40%;
+}
+
+.title {
+    font-size:36px;     
+}
+
+    .title .week {
+        color:#efefef;
+        font-size:24px;
+        text-align:center;
+    }
+
+        .title  .date {
+            color:#efefef;
+            font-size:12px;
+            text-align:center;
+        }
+
+        .main-content1 {
+    position:relative;
+    width:100%;
+    height:90%;
+
+}
+
+        .producerow {
+    position:relative;
+    height:33.333%;
+}
+
+    .producerow > .group {
+        position:absolute;
+        top:5px;
+        width:100%;
+        bottom:5px;
+    }
+
+    .producerow .TitleBar{
+        position:relative;
+        width:100%;
+        height:20px;
+        top:0px;
+        bottom:0px;
+        padding-left:15px;
+        vertical-align:middle;
+        background-color:#232428;
+        font-size:small;
+    }

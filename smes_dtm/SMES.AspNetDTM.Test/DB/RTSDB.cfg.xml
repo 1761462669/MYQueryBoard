@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
+  <!--配置Database-->
+  <session-factory name="NHibernate_RTSDB">
+    <!--数据库驱动-->
+    <!--sqlServer-->
+    <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+    <!--数据库连接字符串-->
+
+    <!--INSQL地址-->
+    <property name="connection.connection_string">
+      Server=localhost\SQLEXPRESS;initial catalog=NN_Mobile;uid=sa;pwd=123456;
+      <!--Server=10.162.75.18;initial catalog=NNSCDB;uid=sa;pwd=3edc$RFV;-->
+
+    </property>
+
+    <!--数据库方言MsSql2008Dialect-->
+    <property name="dialect">NHibernate.Dialect.MsSql2008Dialect</property>
+    <!--<property name="dialect">NHibernate.Dialect.Oracle10gDialect</property>-->
+    <!--配置Session上下文，可选项wcf_operation、call、thread_static、web-->
+    <property name="current_session_context_class">wcf_operation</property>
+    <!--配置动态代理-->
+    <!--<property name="proxyfactory.factory_class">NHibernate.Bytecode.DefaultProxyFactoryFactory,NHibernate</property>-->
+    <!--<property name="proxyfactory.factory_class">NHibernate.Bytecode.DefaultProxyFactoryFactory,NHibernate</property>-->
+    <property name="connection.release_mode">after_transaction</property>
+
+    <!--配置是否显示Sql-->
+    <!--<property name="show_sql">true</property>-->
+    <!--配置实体对象程序集-->
+    <!--<mapping assembly="MDF.Sample"/>-->
+    <!--<mapping assembly="MDF.MES.DomainModel"/>-->
+    <!--<mapping assembly="MDF.MES.VersionManagement"/>-->
+    <mapping assembly="SMES.AspNetDTM.Model"/>
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="MDF.UISample.ControlStyle.MatChooseControlDemo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:custom="http://MDF.Custom.Controls/XAML"
+    xmlns:bussiness="http://smes.bussiness.Controls/XAML"
+    xmlns:sframe="http://schemas.smes.framework/XAML"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <bussiness:MDFMaterialChooseControlViewModel x:Key="viewModelCp">
+            <bussiness:MDFMaterialChooseControlViewModel.QueryMaterialTypes>
+                <!--成品-->
+                <bussiness:QueryMaterialType Value="{sframe:CommonPara KeyCode=PUB_MATERIALTYPE_CP}"></bussiness:QueryMaterialType>
+            </bussiness:MDFMaterialChooseControlViewModel.QueryMaterialTypes>
+        </bussiness:MDFMaterialChooseControlViewModel>
+    </UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <i:Interaction.Triggers>
+            <i:EventTrigger>
+                <ei:CallMethodAction TargetObject="{StaticResource viewModelCp}" MethodName="LoadDatas"></ei:CallMethodAction>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        
+        <bussiness:MDFMaterialChooseControl PopupHeight="100" SelectedMaterialId="{Binding Id,Mode=TwoWay}" SelectedMaterialName="{Binding Name,Mode=TwoWay}" ViewModel="{StaticResource viewModelCp}"></bussiness:MDFMaterialChooseControl>
+    </Grid>
+</UserControl>

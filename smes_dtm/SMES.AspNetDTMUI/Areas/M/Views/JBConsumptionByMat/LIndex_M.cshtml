@@ -1,0 +1,306 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <link href="~/Areas/M/Styles/JBConsumption.css" rel="stylesheet" />
+}
+<div ng-app="XHAPP" ng-controller="XHCTRL" id="main" style="width:100%;height:100%;margin:0px;padding:0px">
+    <div class="main-left">
+        <div class="module1 title">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;width:100%;">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            @ViewBag.Title
+                        </div>
+                        <div class="col-xs-6">
+                            <div id="ProducteWeek" class="week">@ViewBag.Week</div>
+                            <div id="datetimes" class="date">{{clock}}</div>
+                            <div id="ProducteDate" class="date" style="display: none">@ViewBag.Date</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-color-1" style="height:22.5%">
+            <table style="height:100%;width:40%">
+                <tr style="text-align:center">
+                    <td rowspan="2" width="95%">
+                        <p style="font-size:24px">卷烟纸</p>
+                        (米/万支)
+                    </td>
+                    <td width="5%">
+                        <div class="col-xs-6" style="font-size: 12px;text-align:right;">
+                            前五
+                        </div>
+                    </td>
+                </tr>
+                <tr style="text-align: center">
+                    <td width="5%">
+                        <div class="col-xs-6" style="font-size: 12px;">
+                            后五
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="bg-color-2" style="height:22.5%">
+            <table style="height:100%;width:40%">
+                <tr style="text-align:center">
+                    <td rowspan="2" width="95%">
+                        <p style="font-size:24px">嘴棒</p>
+                        (支/万支)
+                    </td>
+                    <td width="5%">
+                        <div class="col-xs-6" style="font-size: 12px;text-align:right;">
+                            前五
+                        </div>
+                    </td>
+                </tr>
+                <tr style="text-align: center">
+                    <td width="5%">
+                        <div class="col-xs-6" style="font-size: 12px;">
+                            后五
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="bg-color-3" style="height:22.5%">
+            <table style="height:100%;width:40%">
+                <tr style="text-align:center">
+                    <td rowspan="2" width="95%">
+                        <p style="font-size:24px">小盒</p>
+                        (张/万支)
+                    </td>
+                    <td width="5%">
+                        <div class="col-xs-6" style="font-size: 12px;text-align:right;">
+                            前五
+                        </div>
+                    </td>
+                </tr>
+                <tr style="text-align: center">
+                    <td width="5%">
+                        <div class="col-xs-6" style="font-size: 12px;">
+                            后五
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="bg-color-4" style="height:22.5%">
+            <table style="height:100%;width:40%">
+                <tr style="text-align:center">
+                    <td rowspan="2" width="95%">
+                        <p style="font-size:24px">条盒</p>
+                        (张/万支)
+                    </td>
+                    <td width="5%">
+                        <div class="col-xs-6" style="font-size: 12px;text-align:right;">
+                            前五
+                        </div>
+                    </td>
+                </tr>
+                <tr style="text-align: center">
+                    <td width="5%">
+                        <div class="col-xs-6" style="font-size: 12px;">
+                            后五
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="header-content exist-left">
+        <div class="module3 title" style="background-color:#4D4D4D">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:bottom;text-align:right;width:100%;">
+                    <div class="row" style="display:none">
+                        <form class="form-horizontal">
+                            <div class="form-group" style="margin:0px 0px 0px 0px;font-size:small;">
+                                <div class="row text-right" style="font-size:small;">
+                                    <ul class=" list-inline list-inline-extents">
+                                        <li></li>
+                                        <li ng-click="QueryData(1)" ng-class="{typeatcive: 1 == SelectType}">
+                                            <a href="#">当日</a>（
+                                        </li>
+                                        <li ng-click="QueryData(4)" ng-class="{typeatcive: 4 == SelectType}">
+                                            <a href="#">早班</a>|
+                                        </li>
+                                        <li ng-click="QueryData(5)" ng-class="{typeatcive: 5 == SelectType}">
+                                            <a href="#">中班</a>|
+                                        </li>
+                                        <li ng-click="QueryData(6)" ng-class="{typeatcive: 6 == SelectType}">
+                                            <a href="#">夜班</a>）/
+                                        </li>
+                                        <li ng-click="QueryData(2)" ng-class="{typeatcive: 2 == SelectType}">
+                                            <a href="#">当周</a> /
+                                        </li>
+                                        <li ng-click="QueryData(3)" ng-class="{typeatcive: 3 == SelectType}">
+                                            <a href="#">当月</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="row" style="text-align: left; font-size: 24px;color: #4595ec; ">
+                        <table>
+                            <tr>
+                                <td>
+                                    本月
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="datatimetip" style="text-align: right; font-size: 12px; color: lightblue;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content1">
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;" ng-repeat="obj in XHLIST">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:5px">
+                        <div style="margin-top:5px">
+                            <form>
+                                <table style="column-width: 30px; font-size: 16px">
+                                    <tr><td>{{obj.MatJYZQ}}</td></tr>
+                                    <tr><td style="color:orangered">{{obj.ConsumptionJYZQ}}</td></tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;" ng-repeat="obj in XHLIST">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:5px">
+                        <div style="margin-top:5px">
+                            <form style="vertical-align:middle;">
+                                <table style="column-width:30px; font-size:16px">
+                                    <tr><td>{{obj.MatJYZH}}</td></tr>
+                                    <tr><td style="color:orangered">{{obj.ConsumptionJYZH}}</td></tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;" ng-repeat="obj in XHLIST">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:5px">
+                        <div style="margin-top:5px">
+                            <form style="vertical-align:middle;">
+                                <table style="column-width: 30px; font-size: 16px">
+                                    <tr><td>{{obj.MatZBQ}}</td></tr>
+                                    <tr><td style="color:orangered">{{obj.ConsumptionZBQ}}</td></tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;" ng-repeat="obj in XHLIST">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:5px">
+                        <div style="margin-top:5px">
+                            <form style="vertical-align:middle;">
+                                <table style="column-width: 30px; font-size: 16px">
+                                    <tr><td>{{obj.MatZBH}}</td></tr>
+                                    <tr><td style="color:orangered">{{obj.ConsumptionZBH}}</td></tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;" ng-repeat="obj in XHLIST">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:5px">
+                        <div style="margin-top:5px">
+                            <form style="vertical-align:middle;">
+                                <table style="column-width: 30px; font-size: 16px">
+                                    <tr><td>{{obj.MatXHQ}}</td></tr>
+                                    <tr><td style="color:orangered">{{obj.ConsumptionXHQ}}</td></tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;" ng-repeat="obj in XHLIST">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:5px">
+                        <div style="margin-top:5px">
+                            <form style="vertical-align:middle;">
+                                <table style="column-width: 30px; font-size: 16px">
+                                    <tr><td>{{obj.MatXHH}}</td></tr>
+                                    <tr><td style="color:orangered">{{obj.ConsumptionXHH}}</td></tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;" ng-repeat="obj in XHLIST">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:5px">
+                        <div style="margin-top:5px">
+                            <form style="vertical-align:middle;">
+                                <table style="column-width: 30px; font-size: 16px">
+                                    <tr><td>{{obj.MatTHQ}}</td></tr>
+                                    <tr><td style="color:orangered">{{obj.ConsumptionTHQ}}</td></tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;" ng-repeat="obj in XHLIST">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:5px">
+                        <div style="margin-top:5px">
+                            <form style="vertical-align:middle;">
+                                <table style="column-width: 30px; font-size: 16px">
+                                    <tr><td>{{obj.MatTHH}}</td></tr>
+                                    <tr><td style="color:orangered">{{obj.ConsumptionTHH}}</td></tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%;">
+
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Areas/M/Scripts/QDLSD/JBConsumption_LM.js"></script>
+}
+
+

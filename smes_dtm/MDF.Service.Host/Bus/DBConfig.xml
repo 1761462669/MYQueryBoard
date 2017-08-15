@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="MDF.Framework.Db.Imp.Database" type="MDF.Framework.Db.Imp.Database, MDF.Framework">
+    <constructor-arg value="\DB\MESDB.cfg.xml"/>
+  </object>
+
+  <!--<object id="RTSDB" type="MDF.Framework.Db.Imp.Database, MDF.Framework">
+    <constructor-arg value="\DB\RTSDB.cfg.xml"/>
+  </object>-->
+  
+  <alias name="MDF.Framework.Db.Imp.Database" alias="MDF.Framework.Db.IDataBase" />
+
+  <object id="DbRepository" type="MDF.Framework.Db.Repository.DbRepository,MDF.Framework">
+    <property name="Db" ref="MDF.Framework.Db.IDataBase"/>
+  </object>
+  <!--数据库服务配置，针对第三方提供的简单的数据库访问服务-->
+  <object id="MDF.Framework.Db.IDatabaseService" type="MDF.Framework.Db.Imp.DatabaseService,MDF.Framework">
+    <property name="QueryServiceNodes">
+      <list>
+        <ref object="MDF.Framework.Db.Imp.EntityQueryService"/>
+        <ref object="MDF.Framework.Db.Imp.TableQueryService"/>
+        <ref object="MDF.Framework.Db.Imp.HqlQueryService"/>
+        <ref object="MDF.Framework.Db.Imp.SqlNodeQueryService"/>
+        <ref object="MDF.Framework.Db.Imp.SqlQueryService"/>
+      </list>
+    </property>
+  </object>
+  <!--实体查询服务-->
+  <object id="MDF.Framework.Db.Imp.EntityQueryService" type="MDF.Framework.Db.Imp.EntityQueryService,MDF.Framework"/>
+  <!--表查询服务-->
+  <object id="MDF.Framework.Db.Imp.TableQueryService" type="MDF.Framework.Db.Imp.TableQueryService,MDF.Framework"/>
+  <!--Hql查询服务-->
+  <object id="MDF.Framework.Db.Imp.HqlQueryService" type="MDF.Framework.Db.Imp.HqlQueryService,MDF.Framework"/>
+  <!--Sql节点服务-->
+  <object id="MDF.Framework.Db.Imp.SqlNodeQueryService" type="MDF.Framework.Db.Imp.SqlNodeQueryService,MDF.Framework"/>
+  <!--原生sql查询-->
+  <object id="MDF.Framework.Db.Imp.SqlQueryService" type="MDF.Framework.Db.Imp.SqlQueryService,MDF.Framework"/>
+  <!--<object id="MDF.Framework.Extend.Db.Comboxquery" type="MDF.Framework.Extend.Db.Comboxquery,MDF.Framework.Extend">
+    <property name="Db" ref="MDF.Framework.Db.IDataBase"/>
+  </object>-->
+  <alias name="DbRepository" alias="MDF.Framework.Db.Repository.DbRepository" />
+  <!--<alias name="MDF.Framework.Extend.Db.Comboxquery" alias="MDF.Framework.Extend.Db.IComboxQuery" />-->
+
+</objects>
+

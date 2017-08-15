@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping default-lazy="false" xmlns="urn:nhibernate-mapping-2.2"  auto-import="false" assembly="SMES.FrameworkAdpt"  
+                   namespace="SMES.FrameworkAdpt.MeasureControl.Model.MeasureModel" schema="pub">
+
+  <class name="MeasureTypeModelFAdpt" table="MeasureType">
+    <id name="Id" column="Id" type="Int32">
+      <generator class="hilo">
+        <param name="table">dbo.hibernate_unique_key</param>
+        <param name="column">next_hi</param>
+        <param name="max_lo">100</param>
+      </generator>
+    </id>
+    <property name="Cd" column="Cd" type="String"/>
+    <property name="Name" column="Name" type="String"/>
+    <property name="Ctrl" column="Ctrl" type="String"/>
+    <property name="IsUsed" column="IsUsed" type="Boolean"/>
+    <property name="SequenceNumber" column="SequenceNumber" type="Int32"/>
+    <property name="Remark" column="Remark" type="String"/>
+    <property name="ParentId" column="ParentId" type="Int32"/>
+  </class>
+</hibernate-mapping>

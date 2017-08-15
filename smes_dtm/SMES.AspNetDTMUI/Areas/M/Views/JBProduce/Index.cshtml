@@ -1,0 +1,158 @@
+﻿@{
+    Layout = "~/Areas/M/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+     @Scripts.Render("/Content/datepicker");
+    <link href="~/Areas/M/Styles/JBProduce.css" rel="stylesheet"/>
+    }
+
+<div style="width:100%;height:100%;margin:0px,0px,0px,0px;padding:0px,0px,0px,0px" ng-app="jbapp" ng-controller="jbctl">
+
+    <div class="main-left">
+        <div class="module1 title">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;width:100%;">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            卷包生产
+                        </div>
+                        <div class="col-xs-6">
+                            <div id="ProducteWeek" class="week">@ViewBag.Week</div>
+                            <div id="ProducteDate" class="date">@ViewBag.Date</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module2 bg-color-1">
+            <div class="module2-body" style="text-align: center; vertical-align: middle">
+                <div class="row">
+                    <div class="col-xs-4" style="font-size:20px;">
+                        卷接段
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module2 bg-color-2">
+            <div class="module2-body">
+                <div class="row">
+                    <div class="col-xs-4" style="font-size:20px">
+                        包装段
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="module2 bg-color-3">
+            <div class="module2-body">
+                <div class="row">
+                    <div class="col-xs-4" style="font-size:20px">
+                        产量统计
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-content exist-left">
+        <div class="module3 title" style="background-color:#4D4D4D">
+            <div style="display:table;width:100%;height:100%;">
+                <div style="display:table-cell;vertical-align:middle;text-align:center;width:100%;">
+                    <div class="row">
+                        <form class="form-horizontal">
+                            <div class="form-group" style="margin:0px 0px 0px 0px;font-size:small;">
+                                <label class="col-xs-2 control-label" style="padding-left:0px;padding-right:0px;">开始日期：</label>
+                                <div class="col-xs-2" style="padding-left:0px;">
+                                    <input id="StartDate" type="text" data-format="yyyy-MM-dd" class="form-control datepicker-here" />
+                                </div>
+
+                                <label class="col-xs-2 control-label" style="padding-left:0px;padding-right:0px;">结束日期：</label>
+                                <div class="col-xs-2" style="padding-left:0px;">
+                                    <input id="EndDate" type="text" data-format="yyyy-MM-dd" class="form-control datepicker-here" />
+                                </div>
+
+                                <div class="col-xs-2" style="padding-left:10px;padding-right:0px;vertical-align:middle">
+                                    <button class="btn" ng-click="QueryData()" style="background-color:#214E85;border-radius:5px;width:80px;">查询</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content1" id="MainContent">
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;" ng-repeat="obj in JJResultList">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text"><b>{{obj.EquModelNm}}</b></div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <form>
+                                <table style="column-width:30px;">
+                                    <tr>
+                                        <th width="30px">&nbsp;&nbsp;</th>
+                                        <th width="60px">前五名</th>
+                                        <th width="60px">后五名</th>
+                                    </tr>
+                                    <tr><td>1</td><td>{{obj.StartFirst}}</td><td>{{obj.EndFirst}}</td></tr>
+                                    <tr><td>2</td><td>{{obj.StartSecond}}</td><td>{{obj.EndSecond}}</td></tr>
+                                    <tr><td>3</td><td>{{obj.StartThird}}</td><td>{{obj.EndThird}}</td></tr>
+                                    <tr><td>4</td><td>{{obj.StartFourth}}</td><td>{{obj.EndtFourth}}</td></tr>
+                                    <tr><td>5</td><td>{{obj.StartFifty}}</td><td>{{obj.EndFifty}}</td></tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="producerow">
+            <div class="row" style="margin:0px 0px 0px 0px;height:100%">
+                <div class="col-xs-3" style="padding:0px;height:100%;width:20%;" ng-repeat="obj in BZResultList">
+                    <div class="group" style="height:100%;border:1px solid lightblue;padding-top:10px">
+                        <div class="group-title">
+                            <div class="triangle-bottomright"></div>
+                            <div class="text"><b>{{obj.EquModelNm}}</b></div>
+                        </div>
+                        <div style="margin-top:5px">
+                            <form style="vertical-align:middle;">
+                                <table>
+                                    <tr>
+                                        <th width="30px">&nbsp;&nbsp;</th>
+                                        <th width="60px">前五名</th>
+                                        <th width="60px">后五名</th>
+                                    </tr>
+                                    <tr><td>1</td><td>{{obj.StartFirst}}</td><td>{{obj.EndFirst}}</td></tr>
+                                    <tr><td>2</td><td>{{obj.StartSecond}}</td><td>{{obj.EndSecond}}</td></tr>
+                                    <tr><td>3</td><td>{{obj.StartThird}}</td><td>{{obj.EndThird}}</td></tr>
+                                    <tr><td>4</td><td>{{obj.StartFourth}}</td><td>{{obj.EndtFourth}}</td></tr>
+                                    <tr><td>5</td><td>{{obj.StartFifty}}</td><td>{{obj.EndFifty}}</td></tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="producerow">
+            <div class="row" style="margin-left:10px;height:100%;">
+                <div id="BrandProgressChart" style="height:100%;width:1000px">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+        @section scripts{
+           @Scripts.Render("~/bundles/chart");
+            <script src="~/Areas/M/Scripts/JBProduce.js"></script>
+        }
+

@@ -1,0 +1,306 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ImageSource x:Key="img_full_screen">Img/Power/full_screen.png</ImageSource>
+    <ImageSource x:Key="img_about">Img/Power/about.png</ImageSource>
+    <ImageSource x:Key="img_add">Img/Power/add.png</ImageSource>
+    <ImageSource x:Key="img_add2">Img/Power/add2.png</ImageSource>
+    <ImageSource x:Key="img_admin">Img/Power/admin.png</ImageSource>
+    <ImageSource x:Key="img_app">Img/Power/app.png</ImageSource>
+    <ImageSource x:Key="img_applications">Img/Power/applications.png</ImageSource>
+    <ImageSource x:Key="img_applications2">Img/Power/applications2.png</ImageSource>
+    <ImageSource x:Key="img_appllications2">Img/Power/appllications2.png</ImageSource>
+    <ImageSource x:Key="img_apply">Img/Power/apply.png</ImageSource>
+    <ImageSource x:Key="img_apply2">Img/Power/apply2.png</ImageSource>
+    <ImageSource x:Key="img_apps">Img/Power/apps.png</ImageSource>
+    <ImageSource x:Key="img_edit">Img/Power/edit.png</ImageSource>
+    <ImageSource x:Key="img_app_largeicons">Img/Power/app_largeicons.png</ImageSource>
+    <ImageSource x:Key="img_app_options">Img/Power/app_options.png</ImageSource>
+    <ImageSource x:Key="img_ball_blue">Img/Power/ball_blue.png</ImageSource>
+    <ImageSource x:Key="img_ball_gray">Img/Power/ball_gray.png</ImageSource>
+    <ImageSource x:Key="img_ball_green">Img/Power/ball_green.png</ImageSource>
+    <ImageSource x:Key="img_ball_red">Img/Power/ball_red.png</ImageSource>
+    <ImageSource x:Key="img_ball_white">Img/Power/ball_white.png</ImageSource>
+    <ImageSource x:Key="img_ball_yellow">Img/Power/ball_yellow.png</ImageSource>
+    <ImageSource x:Key="img_ball_blue_Confim">Img/Power/ball_Confim.png</ImageSource>
+    <ImageSource x:Key="img_banner_blue">Img/Power/banner_blue.png</ImageSource>
+    <ImageSource x:Key="img_banner_gray">Img/Power/banner_gray.png</ImageSource>
+    <ImageSource x:Key="img_banner_green">Img/Power/banner_green.png</ImageSource>
+    <ImageSource x:Key="img_banner_red">Img/Power/banner_red.png</ImageSource>
+    <ImageSource x:Key="img_banner_yellow">Img/Power/banner_yellow.png</ImageSource>
+    <ImageSource x:Key="img_block">Img/Power/block.png</ImageSource>
+    <ImageSource x:Key="img_block1">Img/Power/block1.png</ImageSource>
+    <ImageSource x:Key="img_bookmark">Img/Power/bookmark.png</ImageSource>
+    <ImageSource x:Key="img_bt_eject">Img/Power/bt_eject.png</ImageSource>
+    <ImageSource x:Key="img_bt_ff">Img/Power/bt_ff.png</ImageSource>
+    <ImageSource x:Key="img_bt_open">Img/Power/bt_open.png</ImageSource>
+    <ImageSource x:Key="img_bt_pause">Img/Power/bt_pause.png</ImageSource>
+    <ImageSource x:Key="img_bt_play">Img/Power/bt_play.png</ImageSource>
+    <ImageSource x:Key="img_bt_rec">Img/Power/bt_rec.png</ImageSource>
+    <ImageSource x:Key="img_bt_refresh">Img/Power/bt_refresh.png</ImageSource>
+    <ImageSource x:Key="img_bt_rev">Img/Power/bt_rev.png</ImageSource>
+    <ImageSource x:Key="img_bt_skip_bk">Img/Power/bt_skip_bk.png</ImageSource>
+    <ImageSource x:Key="img_bt_skip_sw">Img/Power/bt_skip_sw.png</ImageSource>
+    <ImageSource x:Key="img_bt_stop">Img/Power/bt_stop.png</ImageSource>
+    <ImageSource x:Key="img_bulb">Img/Power/bulb.png</ImageSource>
+    <ImageSource x:Key="img_bulb_off">Img/Power/bulb_off.png</ImageSource>
+    <ImageSource x:Key="img_burn">Img/Power/burn.png</ImageSource>
+    <ImageSource x:Key="img_calculator">Img/Power/calculator.png</ImageSource>
+    <ImageSource x:Key="img_calendar">Img/Power/calendar.png</ImageSource>
+    <ImageSource x:Key="img_cam">Img/Power/cam.png</ImageSource>
+    <ImageSource x:Key="img_cd">Img/Power/cd.png</ImageSource>
+    <ImageSource x:Key="img_chart">Img/Power/chart.png</ImageSource>
+    <ImageSource x:Key="img_chat">Img/Power/chat.png</ImageSource>
+    <ImageSource x:Key="img_chicara">Img/Power/chicara.png</ImageSource>
+    <ImageSource x:Key="img_computer">Img/Power/computer.png</ImageSource>
+    <ImageSource x:Key="img_contacts">Img/Power/contacts.png</ImageSource>
+    <ImageSource x:Key="img_copy">Img/Power/copy.png</ImageSource>
+    <ImageSource x:Key="img_cut">Img/Power/cut.png</ImageSource>
+    <ImageSource x:Key="img_data">Img/Power/data.png</ImageSource>
+    <ImageSource x:Key="img_datas">Img/Power/datas.png</ImageSource>
+    <ImageSource x:Key="img_data_add">Img/Power/data_add.png</ImageSource>
+    <ImageSource x:Key="img_data_cd">Img/Power/data_cd.png</ImageSource>
+    <ImageSource x:Key="img_data_down">Img/Power/data_down.png</ImageSource>
+    <ImageSource x:Key="img_data_edit">Img/Power/data_edit.png</ImageSource>
+    <ImageSource x:Key="img_data_find">Img/Power/data_find.png</ImageSource>
+    <ImageSource x:Key="img_data_remove">Img/Power/data_remove.png</ImageSource>
+    <ImageSource x:Key="img_data_up">Img/Power/data_up.png</ImageSource>
+    <ImageSource x:Key="img_data_web">Img/Power/data_web.png</ImageSource>
+    <ImageSource x:Key="img_del">Img/Power/del.png</ImageSource>
+    <ImageSource x:Key="img_delete">Img/Power/delete.png</ImageSource>
+    <ImageSource x:Key="img_dollar">Img/Power/dollar.png</ImageSource>
+    <ImageSource x:Key="img_euro">Img/Power/euro.png</ImageSource>
+    <ImageSource x:Key="img_favorits">Img/Power/favorits.png</ImageSource>
+    <ImageSource x:Key="img_favorits_add">Img/Power/favorits_add.png</ImageSource>
+    <ImageSource x:Key="img_favorits_remove">Img/Power/favorits_remove.png</ImageSource>
+    <ImageSource x:Key="img_fax">Img/Power/fax.png</ImageSource>
+    <ImageSource x:Key="img_files">Img/Power/files.png</ImageSource>
+    <ImageSource x:Key="img_files_add">Img/Power/files_add.png</ImageSource>
+    <ImageSource x:Key="img_files_apply">Img/Power/files_apply.png</ImageSource>
+    <ImageSource x:Key="img_files_edit">Img/Power/files_edit.png</ImageSource>
+    <ImageSource x:Key="img_files_exec">Img/Power/files_exec.png</ImageSource>
+    <ImageSource x:Key="img_files_export">Img/Power/files_export.png</ImageSource>
+    <ImageSource x:Key="img_files_find">Img/Power/files_find.png</ImageSource>
+    <ImageSource x:Key="img_files_image">Img/Power/files_image.png</ImageSource>
+    <ImageSource x:Key="img_files_import">Img/Power/files_import.png</ImageSource>
+    <ImageSource x:Key="img_files_remove">Img/Power/files_remove.png</ImageSource>
+    <ImageSource x:Key="img_file_lock">Img/Power/file_lock.png</ImageSource>
+    <ImageSource x:Key="img_file_music">Img/Power/file_music.png</ImageSource>
+    <ImageSource x:Key="img_file_temp">Img/Power/file_temp.png</ImageSource>
+    <ImageSource x:Key="img_file_web">Img/Power/file_web.png</ImageSource>
+    <ImageSource x:Key="img_find">Img/Power/find.png</ImageSource>
+    <ImageSource x:Key="img_first_aid">Img/Power/first_aid.png</ImageSource>
+    <ImageSource x:Key="img_folder">Img/Power/folder.png</ImageSource>
+    <ImageSource x:Key="img_folder_add">Img/Power/folder_add.png</ImageSource>
+    <ImageSource x:Key="img_folder_down">Img/Power/folder_down.png</ImageSource>
+    <ImageSource x:Key="img_folder_favorits">Img/Power/folder_favorits.png</ImageSource>
+    <ImageSource x:Key="img_folder_find">Img/Power/folder_find.png</ImageSource>
+    <ImageSource x:Key="img_folder_image">Img/Power/folder_image.png</ImageSource>
+    <ImageSource x:Key="img_folder_remove">Img/Power/folder_remove.png</ImageSource>
+    <ImageSource x:Key="img_folder_up">Img/Power/folder_up.png</ImageSource>
+    <ImageSource x:Key="img_font">Img/Power/font.png</ImageSource>
+    <ImageSource x:Key="img_game">Img/Power/game.png</ImageSource>
+    <ImageSource x:Key="img_hd">Img/Power/hd.png</ImageSource>
+    <ImageSource x:Key="img_hd_down">Img/Power/hd_down.png</ImageSource>
+    <ImageSource x:Key="img_hd_find">Img/Power/hd_find.png</ImageSource>
+    <ImageSource x:Key="img_hd_up">Img/Power/hd_up.png</ImageSource>
+    <ImageSource x:Key="img_hd_web">Img/Power/hd_web.png</ImageSource>
+    <ImageSource x:Key="img_help">Img/Power/help.png</ImageSource>
+    <ImageSource x:Key="img_history">Img/Power/history.png</ImageSource>
+    <ImageSource x:Key="img_home">Img/Power/home.png</ImageSource>
+    <ImageSource x:Key="img_info">Img/Power/info.png</ImageSource>
+    <ImageSource x:Key="img_key">Img/Power/key.png</ImageSource>
+    <ImageSource x:Key="img_link">Img/Power/link.png</ImageSource>
+    <ImageSource x:Key="img_lock">Img/Power/lock.png</ImageSource>
+    <ImageSource x:Key="img_mail">Img/Power/mail.png</ImageSource>
+    <ImageSource x:Key="img_mail_add">Img/Power/mail_add.png</ImageSource>
+    <ImageSource x:Key="img_mail_down">Img/Power/mail_down.png</ImageSource>
+    <ImageSource x:Key="img_mail_exclude">Img/Power/mail_exclude.png</ImageSource>
+    <ImageSource x:Key="img_mail_send">Img/Power/mail_send.png</ImageSource>
+    <ImageSource x:Key="img_mail_write">Img/Power/mail_write.png</ImageSource>
+    <ImageSource x:Key="img_money">Img/Power/money.png</ImageSource>
+    <ImageSource x:Key="img_muisc_cd">Img/Power/muisc_cd.png</ImageSource>
+    <ImageSource x:Key="img_music">Img/Power/music.png</ImageSource>
+    <ImageSource x:Key="img_music_off">Img/Power/music_off.png</ImageSource>
+    <ImageSource x:Key="img_new">Img/Power/new.png</ImageSource>
+    <ImageSource x:Key="img_note">Img/Power/note.png</ImageSource>
+    <ImageSource x:Key="img_objects">Img/Power/objects.png</ImageSource>
+    <ImageSource x:Key="img_options">Img/Power/options.png</ImageSource>
+    <ImageSource x:Key="img_paste">Img/Power/paste.png</ImageSource>
+    <ImageSource x:Key="img_pencil">Img/Power/pencil.png</ImageSource>
+    <ImageSource x:Key="img_phone">Img/Power/phone.png</ImageSource>
+    <ImageSource x:Key="img_picture">Img/Power/picture.png</ImageSource>
+    <ImageSource x:Key="img_picture1">Img/Power/picture1.png</ImageSource>
+    <ImageSource x:Key="img_print">Img/Power/print.png</ImageSource>
+    <ImageSource x:Key="img_print_preview">Img/Power/print_preview.png</ImageSource>
+    <ImageSource x:Key="img_private">Img/Power/private.png</ImageSource>
+    <ImageSource x:Key="img_redo">Img/Power/redo.png</ImageSource>
+    <ImageSource x:Key="img_refresh">Img/Power/refresh.png</ImageSource>
+    <ImageSource x:Key="img_remove">Img/Power/remove.png</ImageSource>
+    <ImageSource x:Key="img_save">Img/Power/save.png</ImageSource>
+    <ImageSource x:Key="img_save_as">Img/Power/save_as.png</ImageSource>
+    <ImageSource x:Key="img_save_as2">Img/Power/save_as2.png</ImageSource>
+    <ImageSource x:Key="img_shop_card">Img/Power/shop_card.png</ImageSource>
+    <ImageSource x:Key="img_shop_card_full">Img/Power/shop_card_full.png</ImageSource>
+    <ImageSource x:Key="img_sitemap">Img/Power/sitemap.png</ImageSource>
+    <ImageSource x:Key="img_smile_1">Img/Power/smile_1.png</ImageSource>
+    <ImageSource x:Key="img_smile_2">Img/Power/smile_2.png</ImageSource>
+    <ImageSource x:Key="img_smile_3">Img/Power/smile_3.png</ImageSource>
+    <ImageSource x:Key="img_smile_4">Img/Power/smile_4.png</ImageSource>
+    <ImageSource x:Key="img_smile_5">Img/Power/smile_5.png</ImageSource>
+    <ImageSource x:Key="img_smile_6">Img/Power/smile_6.png</ImageSource>
+    <ImageSource x:Key="img_soud_disable">Img/Power/soud_disable.png</ImageSource>
+    <ImageSource x:Key="img_sound">Img/Power/sound.png</ImageSource>
+    <ImageSource x:Key="img_sound_down">Img/Power/sound_down.png</ImageSource>
+    <ImageSource x:Key="img_sound_up">Img/Power/sound_up.png</ImageSource>
+    <ImageSource x:Key="img_star">Img/Power/star.png</ImageSource>
+    <ImageSource x:Key="img_star_off">Img/Power/star_off.png</ImageSource>
+    <ImageSource x:Key="img_toolbox">Img/Power/toolbox.png</ImageSource>
+    <ImageSource x:Key="img_trash">Img/Power/trash.png</ImageSource>
+    <ImageSource x:Key="img_trash_full">Img/Power/trash_full.png</ImageSource>
+    <ImageSource x:Key="img_undo">Img/Power/undo.png</ImageSource>
+    <ImageSource x:Key="img_unlock">Img/Power/unlock.png</ImageSource>
+    <ImageSource x:Key="img_user">Img/Power/user.png</ImageSource>
+    <ImageSource x:Key="img_users">Img/Power/users.png</ImageSource>
+    <ImageSource x:Key="img_user_add">Img/Power/user_add.png</ImageSource>
+    <ImageSource x:Key="img_user_edit">Img/Power/user_edit.png</ImageSource>
+    <ImageSource x:Key="img_user_off">Img/Power/user_off.png</ImageSource>
+    <ImageSource x:Key="img_user_remove">Img/Power/user_remove.png</ImageSource>
+    <ImageSource x:Key="img_videos">Img/Power/videos.png</ImageSource>
+    <ImageSource x:Key="img_web">Img/Power/web.png</ImageSource>
+    <ImageSource x:Key="img_web_app">Img/Power/web_app.png</ImageSource>
+    <ImageSource x:Key="img_web_down">Img/Power/web_down.png</ImageSource>
+    <ImageSource x:Key="img_web_find">Img/Power/web_find.png</ImageSource>
+    <ImageSource x:Key="img_web_mail">Img/Power/web_mail.png</ImageSource>
+    <ImageSource x:Key="img_web_server">Img/Power/web_server.png</ImageSource>
+    <ImageSource x:Key="img_web_server_off">Img/Power/web_server_off.png</ImageSource>
+    <ImageSource x:Key="img_web_up">Img/Power/web_up.png</ImageSource>
+    <ImageSource x:Key="img_wizard">Img/Power/wizard.png</ImageSource>
+    <ImageSource x:Key="img_zoom_in">Img/Power/zoom_in.png</ImageSource>
+    <ImageSource x:Key="img_zoom_out">Img/Power/zoom_out.png</ImageSource>
+    <ImageSource x:Key="img_dir">Img/Power/dir.png</ImageSource>
+    <ImageSource x:Key="img_close">Img/Power/img_close.png</ImageSource>
+    <ImageSource x:Key="img_msg">Img/Power/msg.png</ImageSource>
+    <ImageSource x:Key="img_close2">Img/ControlImage/btnClose.png</ImageSource>
+    
+
+    <ImageSource x:Key="img_stateBg_schedule">Img/Power/排产.png</ImageSource>
+    <ImageSource x:Key="img_stateBg_publish">Img/Power/发布.png</ImageSource>
+    <ImageSource x:Key="img_stateBg_confirm">Img/Power/确认.png</ImageSource>
+    <ImageSource x:Key="img_stateBg_dispatch">Img/Power/下达.png</ImageSource>
+    <ImageSource x:Key="img_stateBg_Running">Img/Power/运行.png</ImageSource>
+    <ImageSource x:Key="img_stateBg_Pause">Img/Power/暂停.png</ImageSource>
+    <ImageSource x:Key="img_stateBg_Finish">Img/Power/完成.png</ImageSource>
+    <ImageSource x:Key="img_stateBg_Cancel">Img/Power/取消.png</ImageSource>
+    <ImageSource x:Key="img_stateBg_Selected">Img/Power/选中.png</ImageSource>
+    <ImageSource x:Key="img_stateBg_WMS_Permission_denied">Img/Power/WMS没有权限.png</ImageSource>
+    <ImageSource x:Key="img_SilkStroage">Img/Power/烟丝柜.png</ImageSource>
+    <ImageSource x:Key="img_down">Img/Power/down.png</ImageSource>
+    <ImageSource x:Key="img_up">Img/Power/up.png</ImageSource>
+    <!--  工厂日历右侧填充，竖向填充图片  -->
+    <ImageSource x:Key="img_calendar_down_fill">Img/ControlImage/calendar_down_fill.png</ImageSource>
+    <ImageSource x:Key="img_calendar_right_fill">Img/ControlImage/calendar_right_fill.png</ImageSource>
+
+    <!--  ***********************菜单按钮图标Begin*************************  -->
+    <ImageSource x:Key="img_menuButton_348">Img/FileImage/348.png</ImageSource>
+    <ImageSource x:Key="img_logo">Images/Logo.png</ImageSource>
+    <ImageSource x:Key="img_defuserimg">Images/header.png</ImageSource>
+    <!--  ***********************菜单按钮图标End***************************  -->
+
+
+    <!--  ***********************ThreePage菜单栏隐藏按钮黑色三角形Begin***************************  -->
+    <ImageSource x:Key="img_ThresPage_black_trigon">Img/ControlImage/black_trigon.png</ImageSource>
+    <!--  ***********************ThreePage菜单栏隐藏按钮黑色三角形End***************************  -->
+
+    <!--  ***********************ThreePage右上角操作按钮 Begin***************************  -->
+    <ImageSource x:Key="img_ThresPage_buttonimg_a">Img/ControlImage/img_ThresPage_buttonimg_a.png</ImageSource>
+    <!--  ***********************ThreePage右上角操作按钮 End***************************  -->
+
+    <!--  ***********************左边菜单栏按钮Begin***********************  -->
+    <ImageSource x:Key="img_contet_add">Img/ControlImage/img_contet_add.png</ImageSource>
+    <ImageSource x:Key="img_contet_dele">Img/ControlImage/img_contet_dele.png</ImageSource>
+    <ImageSource x:Key="img_contet_edit">Img/ControlImage/img_contet_edit.png</ImageSource>
+    <!--  ***********************左边菜单栏按钮End*************************  -->
+
+    <!--  ***********************控件使用图标added by zongyh Begin*************************  -->
+    <ImageSource x:Key="img_control_clear">Img/ControlImage/clear.png</ImageSource>
+    <ImageSource x:Key="btn_operate_OK">Img/ControlImage/btn_operate_OK.png</ImageSource>
+    <ImageSource x:Key="btn_operate_del">Img/ControlImage/btn_operate_del.png</ImageSource>
+    <ImageSource x:Key="imgUpload">Img/ControlImage/imgUpload.png</ImageSource>
+    
+
+    <ImageSource x:Key="PortalHead">Img/ControlImage/PortalHead.jpg</ImageSource>
+    <ImageSource x:Key="PortalBottom">Img/ControlImage/PortalBottom.jpg</ImageSource>
+    <ImageSource x:Key="line_image">Img/ControlImage/line_image.png</ImageSource>
+    <ImageSource x:Key="btnDeleteImage">Img/ControlImage/btnDeleteImage.png</ImageSource>
+
+    <ImageSource x:Key="ToolBar_Button_operateEdit">Img/ControlImage/ToolBar_Button_operateEdit.png</ImageSource>
+    <ImageSource x:Key="ToolBar_Button_operateSave">Img/ControlImage/ToolBar_Button_operateSave.png</ImageSource>
+    <ImageSource x:Key="ToolBar_Button_operateCancel">Img/ControlImage/ToolBar_Button_operateCancel.png</ImageSource>
+    <ImageSource x:Key="ToolBar_Button_operateCopy">Img/ControlImage/ToolBar_Button_operateCopy.png</ImageSource>
+    <ImageSource x:Key="ToolBar_Button_operateDelete">Img/ControlImage/ToolBar_Button_operateDelete.png</ImageSource>
+    <ImageSource x:Key="ToolBar_Button_operateAdd">Img/ControlImage/ToolBar_Button_operateAdd.png</ImageSource>
+    <ImageSource x:Key="ToolBar_Button_operateDetail">Img/ControlImage/ToolBar_Button_operateDetail.png</ImageSource>
+    <ImageSource x:Key="ToolBar_Button_operateUp">Img/ControlImage/ToolBar_Button_operateUp.png</ImageSource>
+    <ImageSource x:Key="ToolBar_Button_operateDown">Img/ControlImage/ToolBar_Button_operateDown.png</ImageSource>
+
+    <ImageSource x:Key="img_control_bg_recycle_full">Img/ControlImage/RecycleFull.png</ImageSource>
+    <ImageSource x:Key="img_control_bg_recycle_empty">Img/ControlImage/RecyleEmpty.png</ImageSource>
+
+    <ImageSource x:Key="img_control_btnChildWindowClose">Img/ControlImage/btnChildWindowClose.png</ImageSource>
+    <ImageSource x:Key="img_control_btnlinedpaper32">Img/ControlImage/linedpaper32.png</ImageSource>
+    <ImageSource x:Key="img_control_NoDataImg">Img/ControlImage/NoDataImg.png</ImageSource>
+    <ImageSource x:Key="img_control_LoadNoDataImg">Img/ControlImage/LoadNoDataImg.png</ImageSource>
+
+    <!--  ***********************控件使用图标added by zongyh End***************************  -->
+
+
+    <!--  ***********************右上角操作图标 Begin Add By Wangp***************************  -->
+
+    <ImageSource x:Key="img_control_btnlinedpaperplus32">Img/ControlImage/linedpaperplus32.png</ImageSource>
+    <ImageSource x:Key="img_control_btnGoNext">Img/ControlImage/sign_in.png</ImageSource>
+    <ImageSource x:Key="img_control_btnGoBack">Img/ControlImage/sign_out.png</ImageSource>
+    <ImageSource x:Key="img_control_SMESfile">Img/ControlImage/SMESfile.png</ImageSource>
+    <!--  ***********************右上角操作图标 end***************************  -->
+
+
+    <!--  ***********************右上角操作图标 Begin***************************  -->
+    <ImageSource x:Key="img_content_right_add">Img/ControlImage/img_content_right_add.png</ImageSource>
+    <ImageSource x:Key="img_content_right_edit">Img/ControlImage/img_content_right_edit.png</ImageSource>
+    <ImageSource x:Key="img_content_right_dele">Img/ControlImage/img_content_right_dele.png</ImageSource>
+    <!--  ***********************右上角操作图标 End***************************  -->
+
+
+    <!--  ***********************常用控件按钮 Begin***************************  -->
+    <ImageSource x:Key="img_query_bg">Img/ControlImage/img_query_bg.png</ImageSource>
+    <ImageSource x:Key="img_query_calendar">Img/ControlImage/img_calendar.png</ImageSource>
+
+
+    <ImageSource x:Key="img_grid_edit">Img/ControlImage/img_grid_edit.png</ImageSource>
+    <ImageSource x:Key="img_grid_dele">Img/ControlImage/img_grid_dele.png</ImageSource>
+
+
+    <ImageSource x:Key="imgzhi1">Img/ControlImage/zhi1.png</ImageSource>
+
+    <!--  ***********************常用控件按钮 End*****************************  -->
+
+
+    <!--  ***********************常用文件夹按钮按钮 Begin***************************  -->
+    <ImageSource x:Key="Folder_style_24">Img/ControlImage/FolderPng/Folder_style_24.png</ImageSource>
+    <ImageSource x:Key="Folder_style_32">Img/ControlImage/FolderPng/Folder_style_32.png</ImageSource>
+    <ImageSource x:Key="Folder_style_48">Img/ControlImage/FolderPng/Folder_style_48.png</ImageSource>
+    <ImageSource x:Key="Folder_style_72">Img/ControlImage/FolderPng/Folder_style_72.png</ImageSource>
+    <ImageSource x:Key="Folder_style_96">Img/ControlImage/FolderPng/Folder_style_96.png</ImageSource>
+    <ImageSource x:Key="Folder_style_128">Img/ControlImage/FolderPng/Folder_style_128.png</ImageSource>
+    <ImageSource x:Key="Folder_style_256">Img/ControlImage/FolderPng/Folder_style_256.png</ImageSource>
+
+
+
+
+    <!--  ***********************常用控件按钮 End*****************************  -->
+    <!--  ***********************Portal菜单图标 Begin***************************  -->
+    <ImageSource x:Key="img_menu_Calendar">Img/MenuImg/menuCalendar.png</ImageSource>
+    <ImageSource x:Key="img_menu_AppBg">Img/MenuImg/menuAppBg.jpg</ImageSource>
+
+
+
+</ResourceDictionary>

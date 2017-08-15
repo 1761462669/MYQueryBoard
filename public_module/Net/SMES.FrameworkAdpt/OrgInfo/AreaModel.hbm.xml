@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping default-lazy="false"
+                   auto-import = "false"
+                   xmlns="urn:nhibernate-mapping-2.2" 
+                   assembly="SMES.FrameworkAdpt" 
+                   namespace="SMES.FrameworkAdpt.OrgInfo" 
+                   schema="pub" >
+ 
+  <class name="AreaModel" table="Area">
+    <id name="Id" column="Id" type="Int32">
+      <generator class="hilo">
+        <param name="table">dbo.hibernate_unique_key</param>
+        <param name="column">next_hi</param>
+        <param name="max_lo">100</param>
+      </generator>
+    </id>
+       <property name="Cd" column="Cd" type="String"/>
+     <property name="Name" column="Name" type="String"/>
+     <property name="Ctrl" column="Ctrl" type="String"/>
+     <property name="IsUsed" column="IsUsed" type="Boolean"/>
+      <property name="SequenceNumber" type="Int32" column="SequenceNumber" not-null="false"  />
+      <property name="ShortName" column="ShortName" type="String"/>
+      <property name="Place" column="Place" type="String"/>
+      <property name="Remark" type="String" column ="Remark" not-null="false"  />
+    
+      <many-to-one name="Parent" class="SMES.FrameworkAdpt.OrgInfo.SiteModel" column="ParentResourceId"/>
+  </class>
+</hibernate-mapping>

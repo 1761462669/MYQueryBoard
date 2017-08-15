@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping default-lazy="false"
+                   auto-import = "false"
+                   xmlns="urn:nhibernate-mapping-2.2" 
+                   assembly="SMES.FrameworkAdpt"  
+                   namespace="SMES.FrameworkAdpt.OrgInfo" 
+                   schema="pub">
+
+  <class name="PersonModel" table="Person">
+    <id name="Id" column="Id" type="Int32">
+      <generator class="hilo">
+        <param name="table">dbo.hibernate_unique_key</param>
+        <param name="column">next_hi</param>
+        <param name="max_lo">100</param>
+      </generator>
+    </id>
+    <property name="Cd" column="Cd" type="String"/>
+    <property name="Name" column="Name" type="String"/>
+    <property name="Ctrl" column="Ctrl" type="String"/>
+    <property name="IsUsed" column="IsUsed" type="Boolean"/>
+    <property name="Birthday" type="DateTime">
+      <column name="Birthday" not-null="false"/>
+    </property>
+    <property name="Sex" type="String">
+      <column name="Sex" not-null="false"/>
+    </property>
+    <property name="Email" type="String">
+      <column name="Email" not-null="false"/>
+    </property>
+    <property name="Mobile" type="String">
+      <column name="Mobile" not-null="false"/>
+    </property>
+    <property name="SequenceNumber" type="int">
+      <column name="SequenceNumber" not-null="false"/>
+    </property>
+    <property name="Remark" type="String">
+      <column name="Remark" not-null="false"/>
+    </property>
+    <many-to-one name="Area" class="SMES.FrameworkAdpt.OrgInfo.AreaModel" not-found="ignore">
+      <column name="AreaId" not-null="false" />
+    </many-to-one>
+  </class>
+</hibernate-mapping>

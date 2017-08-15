@@ -1,0 +1,65 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:smes="http://MDF.Custom.Controls/XAML"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/SMES.ShareSource;component/MergedDictionaries.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    
+    <smes:DoubleFomatConvert x:Key="doubleformat"/>
+    <Style x:Name="processbar_style_01" TargetType="smes:MDFProgressBar">
+        <Setter Property="Background" Value="{StaticResource BackGround_002}"/>
+        <Setter Property="ValueBrush" Value="#FF09CC52"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="smes:MDFProgressBar">
+                    <Border>
+                        <Grid>
+                            <Border x:Name="maxrec" Background="{TemplateBinding Background}" Height="10"/>
+                            <Border x:Name="valuerec" Background="{TemplateBinding ValueBrush}" HorizontalAlignment="Left" Height="10"/>
+                            <Border x:Name="valueBlock" HorizontalAlignment="Left" Height="20">
+                                <Border x:Name="block" Background="{TemplateBinding ValueBrush}">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <ContentControl Content="{TemplateBinding Value}" Foreground="#FFF1F1F1"/>
+                                        <ContentControl Content="/" Foreground="#FFF1F1F1"/>
+                                        <ContentControl Content="{TemplateBinding MaxValue}" Foreground="#FFF1F1F1"/>
+                                    </StackPanel>
+                                </Border>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <Style x:Name="processbar_style_02" TargetType="smes:MDFProgressBar">
+        <Setter Property="Background" Value="{StaticResource BackGround_002}"/>
+        <Setter Property="ValueBrush" Value="#FF09CC52"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="smes:MDFProgressBar">
+                    <Border>
+                        <Grid>
+                            <Border x:Name="maxrec" Background="{TemplateBinding Background}" Height="10"/>
+                            <Border x:Name="valuerec" Background="{TemplateBinding ValueBrush}" HorizontalAlignment="Left" Height="10"/>
+                            <Border x:Name="valueBlock" HorizontalAlignment="Left" Height="20">
+                                <Border x:Name="block" Background="{TemplateBinding ValueBrush}">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <ContentControl Content="{Binding FactValue, Converter={StaticResource doubleformat}, ConverterParameter='0', RelativeSource={RelativeSource FindAncestor, AncestorType=smes:MDFProgressBar}}" Foreground="#FFF1F1F1"/>
+                                        <ContentControl Content="/" Foreground="#FFF1F1F1"/>
+                                        <ContentControl Content="{TemplateBinding MaxValue}" Foreground="#FFF1F1F1"/>
+                                    </StackPanel>
+                                </Border>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+</ResourceDictionary>
